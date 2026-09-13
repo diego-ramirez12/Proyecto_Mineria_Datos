@@ -15,7 +15,7 @@ Este repositorio contiene el desarrollo de un proyecto de Almacenes y Minería d
 |---------------------------------| --- |
 | Diego Arturo Gúzman Ramírez     | --------- |
 | Oscar Palacios Gónzalez         | 321095572 |
-| Gustavo Adrián Murillo Espinosa | --------- |
+| Gustavo Adrián Murillo Espinosa | 317011375 |
 | Diego Hazael Vega Alonso        | 321301183 |
 
 
