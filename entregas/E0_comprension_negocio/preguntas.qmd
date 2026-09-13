@@ -1,0 +1,11 @@
+---
+title: "Preguntas De Investigación"
+author: ""
+
+format:
+  html:
+    code-fold: true
+  pdf:
+    toc: true
+  docx: default
+---

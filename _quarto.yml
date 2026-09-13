@@ -1,0 +1,19 @@
+project:
+  type: book
+
+book:
+  title: "E0 - Comprensión de negocio"
+
+  chapters:
+    - index.qmd
+    - entregas/E0_comprension_negocio/bitacora.qmd
+    - entregas/E0_comprension_negocio/canvas.qmd
+    - entregas/E0_comprension_negocio/criterio_exito.qmd
+    - entregas/E0_comprension_negocio/preguntas.qmd
+    - entregas/E0_comprension_negocio/riesgos_supuestos.qmd
+    - entregas/E0_comprension_negocio/uso_ia.qmd
+
+format:
+  html:
+    toc: true
+    css: styles.css

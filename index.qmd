@@ -1,0 +1,8 @@
+---
+title: "Introduccion"
+---
+
+# Introducción
+En esta primera etapa del proyecto se busca comprender el problema antes de trabajar directamente con los datos. Para ello, se realizó una entrevista con una profesional del sector salud con el fin de identificar necesidades reales relacionadas con el acceso, integración y análisis de información epidemiológica.
+
+A partir de la entrevista se delimitó una problemática viable para el proyecto y se definieron los objetivos, preguntas de investigación, criterios de éxito, riesgos y supuestos que servirán como base para las siguientes fases de CRISP-DM.

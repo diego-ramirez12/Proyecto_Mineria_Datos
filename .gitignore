@@ -14,3 +14,9 @@ __pycache__/
 # Archivos del sistema
 .DS_Store
 Thumbs.db
+
+.quarto/
+_site/
+_book/
+/.quarto/
+**/*.quarto_ipynb

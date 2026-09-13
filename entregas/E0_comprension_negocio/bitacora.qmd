@@ -1,0 +1,88 @@
+---
+title: "Bitacora De Reunion Con Stakeholder"
+author: "Vega Alonso Diego Hazael"
+
+format:
+  html:
+    code-fold: true
+  pdf:
+    toc: true
+  docx: default
+---
+
+
+Fecha: 12 de septiembre de 2026
+
+Modalidad: videollamada
+
+Duración aproximada: 33 minutos
+
+Stakeholder: Dra. Verónica Durán
+
+Rol: Médica con experiencia en el sector público, salud pública, análisis de datos y salud digital. Actualmente participa tanto en actividades universitarias como en la Secretaría de Salud.
+
+## Objetivo de la reunión
+La reunión tuvo como objetivo conocer, desde la experiencia de una profesional del sector salud, una problemática real que pudiera ser abordada mediante herramientas de análisis y minería de datos.
+
+Inicialmente, el equipo buscó identificar dificultades relacionadas con el manejo de información en salud pública, así como conocer qué tipo de datos, análisis o herramientas podrían facilitar el trabajo de los profesionales del área. A lo largo de la entrevista también se buscó delimitar un problema cuya solución fuera factible dentro del tiempo y alcance del proyecto.
+
+## Contexto de  stakeholder
+La Dra. Verónica Durán explicó que su formación base es en Medicina y que posteriormente realizó estudios de maestría en Educación y Salud Pública, además, por ahora se encuentra concluyendo una maestría en Salud Digital.
+
+Por su experiencia tanto académica como dentro de la Secretaría de Salud, trabaja directamente con información epidemiológica y bases de datos relacionadas con morbilidad, mortalidad y egresos hospitalarios. También señaló que en su entorno se utilizan herramientas como R, Stata y SPSS, además de técnicas de ciencia de datos, minería de datos e inteligencia artificial. Por esta razón, desde su perspectiva, el principal problema no se encuentra en la capacidad para analizar la información, sino en la forma en que esta es recopilada, integrada y puesta a disposición desde su origen.
+
+## Problemática identificada inicialmente
+Durante la primera parte de la entrevista, la stakeholder señaló que uno de los principales problemas del sistema de salud mexicano es la fragmentación y falta de estandarización de los datos. Ya que la información se genera desde múltiples instituciones y niveles del sistema de salud, entre ellos IMSS, ISSSTE, Secretaría de Salud y dependencias estatales. Cada una puede manejar expedientes, formatos y sistemas diferentes, lo que dificulta la compatibilidad y obliga posteriormente a realizar procesos de estandarización para integrar la información.
+
+La doctora explicó que, una vez que las bases llegan a áreas como la Dirección General de Epidemiología, suelen encontrarse más limpias y depuradas. Sin embargo, el problema se origina antes, en la forma en que los centros de salud y hospitales recopilan y envían la información. En algunos casos, los registros todavía se envían mediante archivos independientes, correos electrónicos, documentos escaneados o incluso formatos en papel, lo que provoca retrasos, inconsistencias y dificultades para disponer de datos completos.
+
+Otro problema importante identificado fue el desfase temporal de la información, ya que la stakeholder señaló que las bases consolidadas pueden presentar retrasos de aproximadamente uno o incluso dos años, debido al tiempo necesario para recopilar y consolidar los registros provenientes de las diferentes unidades de salud y como consecuencia, resulta difícil desarrollar sistemas de vigilancia o diagnóstico de salud en tiempo real. La doctora resumió este problema indicando que el principal rezago no se encuentra en la capacidad de análisis, sino en la recolección e integración de los datos.
+
+## Fuentes de información y limitaciones actuales
+La stakeholder explicó que para sus análisis que ella realiza en su entorno, utilizan principalmente información proveniente de la Dirección General de Epidemiología y de la Dirección General de Información en Salud.También mencionó que existen mecanismos como los Cubos Dinámicos y las plataformas de Datos Abiertos, aunque ambas presentan limitaciones.
+En el caso de los Cubos Dinámicos, señaló dificultades tecnológicas relacionadas con plataformas antiguas y dependencia de determinados entornos de software. En el caso de Datos Abiertos, indicó que la información puede encontrarse distribuida en múltiples archivos y años, lo que dificulta realizar análisis históricos sin llevar a cabo previamente un proceso considerable de integración.
+
+Asimismo, señaló que los datos disponibles no necesariamente representan la totalidad de la realidad nacional, ya que existen sectores cuya información puede no estar completamente integrada, como servicios privados, consultorios anexos a farmacias u otros proveedores. Por esta razón, muchos indicadores epidemiológicos deben entenderse como estimaciones construidas con la información disponible, y no necesariamente como una representación exacta del total de los casos existentes.
+
+## Restricciones tecnológicas e institucionales
+Otro punto relevante fue la existencia de restricciones institucionales respecto al uso de tecnología, donde la stakeholder explicó que en el ámbito universitario y en el sector público existe preferencia por soluciones basadas en software libre y tecnologías abiertas, debido a restricciones presupuestales, administrativas y a la necesidad de evitar dependencia tecnológica.
+
+## Delimitación del problema para el proyecto
+Aunque al inicio de la entrevista el problema principal identificado era la fragmentación, heterogeneidad y retraso en la recopilación de información del sistema de salud, durante la entrevista se concluyó que intentar resolver directamente este problema resultaría demasiado amplio para el alcance del proyecto.
+La solución de este problema implicaría modificar procesos de recopilación, lograr la operación y conexión entre instituciones, estandarizar expedientes clínicos e implementar sistemas compartidos a nivel nacional, lo cual implica varios aspectos que dependen de múltiples organismos y que exceden el tiempo disponible para el desarrollo del proyecto.
+
+Por esta razón, se volovio a replantear la dirección del problema y se preguntó a la stakeholder qué análisis podría desarrollarse utilizando las bases actualmente disponibles y que, al mismo tiempo, resultara útil para profesionales del sector salud. A partir de esta pregunta surgió una segunda problemática, considerablemente más viable, la Dra. Verónica Durán propuso utilizar información de la Dirección General de Epidemiología, en conjunto con las estimaciones y proyecciones de población de CONAPO, para generar algunos indicadores correspondientes a los principales grupos de enfermedades del país.
+
+Como ejemplos mencionó enfermedades como diabetes, hipertensión y obesidad, así como la posibilidad de estudiar su comportamiento durante un periodo aproximado de cinco años y separar los resultados por grupos de edad, además, sugirió llevar el análisis a un nivel más granular, particularmente por entidad federativa o municipio.
+
+## Necesidad seleccionada
+La stakeholder explicó que una herramienta de este tipo podría resultar especialmente útil para médicos y estudiantes que realizan servicio social, ya que cuando un médico llega a una localidad para prestar servicio, debería contar con información que le permita comprender rápidamente cuál es el panorama de salud de la población que atenderá. Sin embargo, actualmente esta información no siempre se encuentra disponible de forma integrada y fácilmente consultable, y para obtenerla, el profesional tendría que localizar diferentes fuentes, descargar información, combinar bases de datos y realizar por sí mismo los cálculos necesarios.
+
+La doctora propuso entonces desarrollar una solucion que permitiera consultar de forma sencilla información como:
+población estimada del municipio;
+principales enfermedades;
+indicadores de morbilidad y mortalidad;
+comportamiento de las enfermedades a lo largo del tiempo;
+posibles diferencias por grupo de edad;
+información disponible a nivel estatal o municipal.
+La stakeholder describió esta idea como un “minidiagnóstico de salud”, cuyo propósito sería permitir que un médico conozca rápidamente cuánta población existe en una localidad, cuáles son las principales enfermedades y cuáles son las principales causas de muerte. 
+Preguntas principales realizadas durante la entrevista
+
+## Peguntas que guiaron la conversación:
+- ¿Cuál considera que es actualmente uno de los principales problemas relacionados con los datos dentro del sector salud?
+- ¿El problema se encuentra en la disponibilidad, el análisis o la recopilación de la información?
+- ¿Qué tan frecuentes son los casos de inconsistencia o error en los datos utilizados?
+- ¿Qué tan actualizados se encuentran los datos utilizados para los análisis epidemiológicos?
+- ¿Qué fuentes de información podrían utilizarse para tomar en cuenta?
+- ¿Qué tipo de información o análisis considera que actualmente hace falta y podría facilitar el trabajo de profesionales de la salud?
+- ¿Sería útil disponer de indicadores de salud a nivel estatal o municipal?
+- ¿Quiénes serían los principales beneficiarios de una herramienta de este tipo?
+
+## Reflexión del equipo
+La entrevista tuvo una modificación importante sobre el entendimiento inicial del problema.
+En un primer momento, la entrevista se llevo a cabo con la idea de que el proyecto podría enfocarse en resolver la fragmentación y heterogeneidad existente en las fuentes de información del sistema de salud. Sin embargo, a medida que avanzó la conversación también se comprendió que intentar resolver directamente esta problemática requeriría intervenir en procesos institucionales y tecnológicos de gran escala, incluyendo la estandarización de expedientes clínicos, la integración de múltiples instituciones y la implementación de nuevos mecanismos de recopilación de información. Por lo tanto, este enfoque resultaría demasiado ambicioso para el tiempo y alcance del proyecto y, además, estaría más relacionado con el desarrollo e integración de sistemas de información que con un problema concreto de minería de datos.
+
+A partir de esta conclusión, la conversación permitió reformular el proyecto hacia una problemática más específica y viable, que fue la dificultad que enfrentan médicos y estudiantes de servicio social para obtener de manera rápida un panorama epidemiológico de la localidad en la que trabajarán.
+El nuevo enfoque consiste en aprovechar fuentes de datos ya disponibles para integrar y analizar información sobre las principales enfermedades, población, morbilidad y mortalidad a nivel estatal o municipal.
+
+La entrevista también permitió identificar desde esta etapa algunas limitaciones que deberán considerarse durante el proyecto, como el retraso de las bases consolidadas, la cobertura incompleta de determinadas fuentes, la naturaleza estimada de las proyecciones poblacionales, la disponibilidad de datos a nivel municipal y las restricciones institucionales relacionadas con el uso de software y manejo de información. En conclusión, la entrevista permitió pasar de un problema sistémico demasiado amplio a una necesidad concreta, útil para profesionales del sector salud y más acorde con el alcance del proyecto.

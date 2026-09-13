@@ -1,0 +1,11 @@
+---
+title: "Uso de IA"
+author: ""
+
+format:
+  html:
+    code-fold: true
+  pdf:
+    toc: true
+  docx: default
+---

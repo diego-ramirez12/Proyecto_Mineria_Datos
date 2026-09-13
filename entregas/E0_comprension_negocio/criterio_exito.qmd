@@ -1,0 +1,11 @@
+---
+title: "Criterio de Éxito"
+author: ""
+
+format:
+  html:
+    code-fold: true
+  pdf:
+    toc: true
+  docx: default
+---
