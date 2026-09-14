@@ -120,6 +120,26 @@
     ]
   },
   {
+    "objectID": "entregas/E0_comprension_negocio/preguntas.html",
+    "href": "entregas/E0_comprension_negocio/preguntas.html",
+    "title": "5  Preguntas priorizadas",
+    "section": "",
+    "text": "5.1 Preguntas de investigación priorizadas",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Preguntas priorizadas</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E0_comprension_negocio/preguntas.html#preguntas-de-investigación-priorizadas",
+    "href": "entregas/E0_comprension_negocio/preguntas.html#preguntas-de-investigación-priorizadas",
+    "title": "5  Preguntas priorizadas",
+    "section": "",
+    "text": "5.1.1 ¿Cuáles son las enfermedades y/o padecimientos a nivel municipal?\nLa respuesta a ésta pregunta evidentemente vendrá acompañada de estadísticas para que el usuario final, que se espera que posee formación médica, pueda sacar sus conclusiones con base a la información que se le proporcione.\n\n\n5.1.2 ¿Qué nos dicen los indicadores acerca de la población del municipio?\nLos índices de: mortalidad, morbilidad, natalidad, entre otros; son bastante útiles para que el usuario pueda darse una idea acerca del contexto en el que vive la población de su municipio su día a día.\n\n\n5.1.3 ¿Qué relación existe entre los indicadores y las enfermedades?\nTanto en la medicina como en la ciencia de datos el objetivo principal es buscar patrones y/o relaciones con base a la información que tengamos, por lo tanto, se busca que el usuario pueda obetener la información de una manera sencilla y eficaz para que, como menciona la Dra. Durán, pueda hacer un “pequeño diagnóstico” de la población.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Preguntas priorizadas</span>"
+    ]
+  },
+  {
     "objectID": "entregas/E0_comprension_negocio/riesgos_supuestos.html",
     "href": "entregas/E0_comprension_negocio/riesgos_supuestos.html",
     "title": "6  Riesgos y Supuestos",
@@ -127,46 +147,6 @@
     "text": "6.1 Riesgos",
     "crumbs": [
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Riesgos y Supuestos</span>"
-    ]
-  },
-  {
-    "objectID": "entregas/E0_comprension_negocio/preguntas.html",
-    "href": "entregas/E0_comprension_negocio/preguntas.html",
-    "title": "5  Preguntas De Investigación",
-    "section": "",
-    "text": "5.1 Preguntas de investigación priorizadas",
-    "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Preguntas De Investigación</span>"
-    ]
-  },
-  {
-    "objectID": "entregas/E0_comprension_negocio/uso_ia.html",
-    "href": "entregas/E0_comprension_negocio/uso_ia.html",
-    "title": "7  Uso de IA",
-    "section": "",
-    "text": "7.1 Uso de herramientas de IA",
-    "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Uso de IA</span>"
-    ]
-  },
-  {
-    "objectID": "entregas/E0_comprension_negocio/uso_ia.html#uso-de-herramientas-de-ia",
-    "href": "entregas/E0_comprension_negocio/uso_ia.html#uso-de-herramientas-de-ia",
-    "title": "7  Uso de IA",
-    "section": "",
-    "text": "7.1.1 Herramienta utilizada\nSe utilizó ChatGPT de OpenAI (GPT-5.6 Sol) como herramienta de apoyo durante el desarrollo de la etapa de comprensión del negocio del proyecto.\n\n\n7.1.2 Tareas para las que se utilizó\nLa herramienta se utilizó principalmente como apoyo para la discusión, revisión y redacción de diferentes apartados de los archivos Quarto correspondientes a la comprensión del negocio.\nEn particular, se utilizó para:\n\nanalizar y mejorar la redacción del criterio de éxito en términos de negocio;\nrevisar la relación entre el criterio de éxito, el objetivo general del proyecto y el objetivo de minería de datos;\nexplicar las métricas técnicas relacionadas con análisis estadístico, rankings y técnicas de clustering;\nanalizar propuestas y mejorar redacciones en supuestos y riesgos específicos del proyecto;\nrevisar que las propuestas fueran consistentes con la información obtenida durante la entrevista con el stakeholder y con el alcance definido por el equipo.\n\n\n\n7.1.3 Prompts empleados\nDebido a que se realizaron múltiples consultas durante el proceso, se presenta un resumen general de los prompts utilizados.\nLas consultas estuvieron orientadas principalmente a:\n\nsolicitar revisión y mejora de propuestas de redacción realizadas previamente por el alumno;\npreguntar si un criterio de éxito era coherente con el objetivo de negocio y el objetivo de minería de datos;\nidentificar riesgos derivados de la calidad, heterogeneidad y disponibilidad de los datos;\nidentificar riesgos relacionados con la aplicación de algoritmos de clustering;\nverificar supuestos dados por el alumno sobre disponibilidad, compatibilidad y representatividad de las fuentes de información;\nsolicitar alternativas de redacción y señalar posibles inconsistencias conceptuales.\n\nLos prompts se realizaron de manera iterativa, presentando primero las ideas desarrolladas por el alumno y utilizando la herramienta principalmente para analizarlas, cuestionarlas y mejorar su formulación.\n\n\n7.1.4 Qué se hizo con la salida obtenida\nLas respuestas generadas por la herramienta no se incorporaron directamente sin revisión.\nEl alumno se encargó de verificar que las propuestas fueran coherentes con el objetivo de negocio, el objetivo de minería de datos, el alcance del proyecto y la información proporcionada por el stakeholder.\nTambién se contrastaron los conceptos y métricas sugeridas con fuentes de consulta adicionales cuando fue necesario. Las propuestas fueron posteriormente discutidas y compartidas con los integrantes del equipo para decidir de manera conjunta qué información debía incorporarse en cada archivo Quarto.\nComo resultado de este proceso, algunas sugerencias fueron modificadas, simplificadas o descartadas cuando no correspondían con el alcance del proyecto. La herramienta se utilizó, por lo tanto, como apoyo para la reflexión y revisión del trabajo, manteniendo la decisión final y la validación del contenido bajo responsabilidad del equipo.",
-    "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Uso de IA</span>"
-    ]
-  },
-  {
-    "objectID": "entregas/E0_comprension_negocio/preguntas.html#preguntas-de-investigación-priorizadas",
-    "href": "entregas/E0_comprension_negocio/preguntas.html#preguntas-de-investigación-priorizadas",
-    "title": "5  Preguntas De Investigación",
-    "section": "",
-    "text": "5.1.1 ¿Cuáles son las enfermedades y/o padecimientos a nivel municipal?\nLa respuesta a ésta pregunta evidentemente vendrá acompañada de estadísticas para que el usuario final, que se espera que posee formación médica, pueda sacar sus conclusiones con base a la información que se le proporcione.\n\n\n5.1.2 ¿Qué nos dicen los indicadores acerca de la población del municipio?\nLos índices de: mortalidad, morbilidad, natalidad, entre otros; son bastante útiles para que el usuario pueda darse una idea acerca del contexto en el que vive la población de su municipio su día a día.\n\n\n5.1.3 ¿Qué relación existe entre los indicadores y las enfermedades?\nTanto en la medicina como en la ciencia de datos el objetivo principal es buscar patrones y/o relaciones con base a la información que tengamos, por lo tanto, se busca que el usuario pueda obetener la información de una manera sencilla y eficaz para que, como menciona la Dra. Durán, pueda hacer un “pequeño diagnóstico” de la población.",
-    "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Preguntas De Investigación</span>"
     ]
   },
   {
@@ -187,6 +167,26 @@
     "text": "6.2 Supuestos\n\n6.2.1 Disponibilidad y cobertura de datos\nSe asume que existirán bases de datos oficiales y accesibles con suficiente cobertura geográfica, temporal y epidemiológica para construir indicadores de morbilidad, mortalidad y evolución histórica de las localidades analizadas.\n\n\n6.2.2 Utilidad para el usuario objetivo\nLos médicos y estudiantes de servicio social encontrarán útil un panorama epidemiológico integrado como apoyo para contextualizar las necesidades de salud de la población, sin sustituir el diagnóstico clínico individual.",
     "crumbs": [
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Riesgos y Supuestos</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E0_comprension_negocio/uso_ia.html",
+    "href": "entregas/E0_comprension_negocio/uso_ia.html",
+    "title": "7  Uso de IA",
+    "section": "",
+    "text": "7.1 Uso de herramientas de IA",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Uso de IA</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E0_comprension_negocio/uso_ia.html#uso-de-herramientas-de-ia",
+    "href": "entregas/E0_comprension_negocio/uso_ia.html#uso-de-herramientas-de-ia",
+    "title": "7  Uso de IA",
+    "section": "",
+    "text": "7.1.1 Herramienta utilizada\nSe utilizó ChatGPT de OpenAI (GPT-5.6 Sol) como herramienta de apoyo durante el desarrollo de la etapa de comprensión del negocio del proyecto.\n\n\n7.1.2 Tareas para las que se utilizó\nLa herramienta se utilizó principalmente como apoyo para la discusión, revisión y redacción de diferentes apartados de los archivos Quarto correspondientes a la comprensión del negocio.\nEn particular, se utilizó para:\n\nanalizar y mejorar la redacción del criterio de éxito en términos de negocio;\nrevisar la relación entre el criterio de éxito, el objetivo general del proyecto y el objetivo de minería de datos;\nexplicar las métricas técnicas relacionadas con análisis estadístico, rankings y técnicas de clustering;\nanalizar propuestas y mejorar redacciones en supuestos y riesgos específicos del proyecto;\nrevisar que las propuestas fueran consistentes con la información obtenida durante la entrevista con el stakeholder y con el alcance definido por el equipo.\n\n\n\n7.1.3 Prompts empleados\nDebido a que se realizaron múltiples consultas durante el proceso, se presenta un resumen general de los prompts utilizados.\nLas consultas estuvieron orientadas principalmente a:\n\nsolicitar revisión y mejora de propuestas de redacción realizadas previamente por el alumno;\npreguntar si un criterio de éxito era coherente con el objetivo de negocio y el objetivo de minería de datos;\nidentificar riesgos derivados de la calidad, heterogeneidad y disponibilidad de los datos;\nidentificar riesgos relacionados con la aplicación de algoritmos de clustering;\nverificar supuestos dados por el alumno sobre disponibilidad, compatibilidad y representatividad de las fuentes de información;\nsolicitar alternativas de redacción y señalar posibles inconsistencias conceptuales.\n\nLos prompts se realizaron de manera iterativa, presentando primero las ideas desarrolladas por el alumno y utilizando la herramienta principalmente para analizarlas, cuestionarlas y mejorar su formulación.\n\n\n7.1.4 Qué se hizo con la salida obtenida\nLas respuestas generadas por la herramienta no se incorporaron directamente sin revisión.\nEl alumno se encargó de verificar que las propuestas fueran coherentes con el objetivo de negocio, el objetivo de minería de datos, el alcance del proyecto y la información proporcionada por el stakeholder.\nTambién se contrastaron los conceptos y métricas sugeridas con fuentes de consulta adicionales cuando fue necesario. Las propuestas fueron posteriormente discutidas y compartidas con los integrantes del equipo para decidir de manera conjunta qué información debía incorporarse en cada archivo Quarto.\nComo resultado de este proceso, algunas sugerencias fueron modificadas, simplificadas o descartadas cuando no correspondían con el alcance del proyecto. La herramienta se utilizó, por lo tanto, como apoyo para la reflexión y revisión del trabajo, manteniendo la decisión final y la validación del contenido bajo responsabilidad del equipo.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Uso de IA</span>"
     ]
   }
 ]
