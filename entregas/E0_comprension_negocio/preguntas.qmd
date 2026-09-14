@@ -1,5 +1,5 @@
 ---
-title: "Preguntas De Investigación Priprizadas"
+title: "Preguntas De Investigación Priorizadas"
 
 format:
   html:
