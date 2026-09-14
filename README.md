@@ -36,8 +36,7 @@ Proyecto_Mineria_Datos/
 ├── index.qmd
 └── README.md
 ├──styles.css
-
+```
 
 ## Link del sitio del proyecto:
 [Ver sitio](https://diego-ramirez12.github.io/Proyecto_Mineria_Datos/)
-
