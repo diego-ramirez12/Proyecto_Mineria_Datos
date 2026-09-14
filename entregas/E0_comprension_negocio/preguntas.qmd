@@ -13,28 +13,16 @@ format:
   docx: default
 ---
 
-## Riesgos
+## Preguntas de investigación priorizadas
 
-### 1. Heterogeneidad y calidad de la información
+### ¿Cuáles son las enfermedades y/o padecimientos a nivel municipal?
 
-Las distintas instituciones pueden registrar, clasificar o reportar la información de salud bajo criterios diferentes. Además, pueden existir registros incompletos, inconsistentes o incorrectos, lo que podría introducir sesgos y generar distorsiones al comparar indicadores de salud entre distintas localidades.
+La respuesta a ésta pregunta evidentemente vendrá acompañada de estadísticas para que el usuario final, que se espera que posee formación médica, pueda sacar sus conclusiones con base a la información que se le proporcione.
 
-**Mitigación:**  
-Realizar un proceso previo de exploración, limpieza y estandarización de los datos, identificando valores faltantes, inconsistencias y diferencias entre las fuentes. También se documentará la cobertura y calidad de cada fuente antes de utilizarla en los análisis.
+### ¿Qué nos dicen los indicadores acerca de la población del municipio?
 
-### 2. Agrupamientos poco representativos en el análisis de clustering
+Los índices de: mortalidad, morbilidad, natalidad, entre otros; son bastante útiles para que el usuario pueda darse una idea acerca del contexto en el que vive la población de su municipio su día a día.
 
-Los resultados de los algoritmos de clustering pueden verse afectados por la escala de las variables, la presencia de valores atípicos, la selección de características, el número de clusters y las propias características del algoritmo utilizado. Esto podría producir agrupamientos de localidades que, aunque obtengan valores favorables en alguna métrica de evaluación, no representen correctamente similitudes reales en sus perfiles de salud.
+### ¿Qué relación existe entre los indicadores y las enfermedades?
 
-**Mitigación:**  
-Se normalizarán o estandarizarán las variables antes del agrupamiento y se compararán distintas configuraciones y, cuando sea necesario, diferentes algoritmos de clustering. La evaluación no dependerá de una única métrica, sino que se utilizarán indicadores como Silhouette, Davies-Bouldin y Calinski-Harabasz, complementados con la interpretación de los grupos obtenidos dentro del contexto de salud.
-
-## Supuestos
-
-### Disponibilidad y cobertura de datos
-
-Se asume que existirán bases de datos oficiales y accesibles con suficiente cobertura geográfica, temporal y epidemiológica para construir indicadores de morbilidad, mortalidad y evolución histórica de las localidades analizadas.
-
-### Utilidad para el usuario objetivo
-
-Los médicos y estudiantes de servicio social encontrarán útil un panorama epidemiológico integrado como apoyo para contextualizar las necesidades de salud de la población, sin sustituir el diagnóstico clínico individual.
+Tanto en la medicina como en la ciencia de datos el objetivo principal es buscar patrones y/o relaciones con base a la información que tengamos, por lo tanto, se busca que el usuario pueda obetener la información de una manera sencilla y eficaz para que, como menciona la Dra. Durán, pueda hacer un “pequeño diagnóstico” de la población.
