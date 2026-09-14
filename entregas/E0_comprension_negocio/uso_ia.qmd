@@ -1,6 +1,9 @@
 ---
 title: "Uso de IA"
-author: ""
+author: "Gúzman Ramírez Diego Arturo,
+Murillo Espinosa Gustavo Adrián,
+Vega Alonso Diego Hazael,
+Palacios Gónzalez Oscar"
 
 format:
   html:
@@ -9,3 +12,45 @@ format:
     toc: true
   docx: default
 ---
+## Uso de herramientas de IA
+
+### Herramienta utilizada
+
+Se utilizó **ChatGPT de OpenAI (GPT-5.6 Sol)** como herramienta de apoyo durante el desarrollo de la etapa de comprensión del negocio del proyecto.
+
+### Tareas para las que se utilizó
+
+La herramienta se utilizó principalmente como apoyo para la discusión, revisión y redacción de diferentes apartados de los archivos Quarto correspondientes a la comprensión del negocio.
+
+En particular, se utilizó para:
+
+- analizar y mejorar la redacción del **criterio de éxito en términos de negocio**;
+- revisar la relación entre el criterio de éxito, el objetivo general del proyecto y el **objetivo de minería de datos**;
+- explicar las **métricas técnicas** relacionadas con análisis estadístico, rankings y técnicas de clustering;
+- analizar propuestas y mejorar redacciones en **supuestos y riesgos específicos del proyecto**;
+- revisar que las propuestas fueran consistentes con la información obtenida durante la entrevista con el stakeholder y con el alcance definido por el equipo.
+
+### Prompts empleados
+
+Debido a que se realizaron múltiples consultas durante el proceso, se presenta un resumen general de los prompts utilizados.
+
+Las consultas estuvieron orientadas principalmente a:
+
+- solicitar revisión y mejora de propuestas de redacción realizadas previamente por el alumno;
+- preguntar si un criterio de éxito era coherente con el objetivo de negocio y el objetivo de minería de datos;
+- identificar riesgos derivados de la calidad, heterogeneidad y disponibilidad de los datos;
+- identificar riesgos relacionados con la aplicación de algoritmos de clustering;
+- verificar supuestos dados por el alumno sobre disponibilidad, compatibilidad y representatividad de las fuentes de información;
+- solicitar alternativas de redacción y señalar posibles inconsistencias conceptuales.
+
+Los prompts se realizaron de manera iterativa, presentando primero las ideas desarrolladas por el alumno y utilizando la herramienta principalmente para analizarlas, cuestionarlas y mejorar su formulación.
+
+### Qué se hizo con la salida obtenida
+
+Las respuestas generadas por la herramienta **no se incorporaron directamente sin revisión**.
+
+El alumno se encargó de verificar que las propuestas fueran coherentes con el **objetivo de negocio**, el **objetivo de minería de datos**, el alcance del proyecto y la información proporcionada por el stakeholder.
+
+También se contrastaron los conceptos y métricas sugeridas con fuentes de consulta adicionales cuando fue necesario. Las propuestas fueron posteriormente discutidas y compartidas con los integrantes del equipo para decidir de manera conjunta qué información debía incorporarse en cada archivo Quarto.
+
+Como resultado de este proceso, algunas sugerencias fueron modificadas, simplificadas o descartadas cuando no correspondían con el alcance del proyecto. La herramienta se utilizó, por lo tanto, como apoyo para la reflexión y revisión del trabajo, manteniendo la decisión final y la validación del contenido bajo responsabilidad del equipo.

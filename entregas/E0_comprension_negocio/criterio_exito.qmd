@@ -1,6 +1,9 @@
 ---
 title: "Criterio de Éxito"
-author: ""
+author: "Gúzman Ramírez Diego Arturo,
+Murillo Espinosa Gustavo Adrián,
+Vega Alonso Diego Hazael,
+Palacios Gónzalez Oscar"
 
 format:
   html:
@@ -9,3 +12,17 @@ format:
     toc: true
   docx: default
 ---
+### Criterio de éxito en términos de negocio
+
+La solución será considerada exitosa si permite a un médico consultar, en menos de una hora y sin realizar manualmente la integración o estandarización de distintas fuentes de información, el panorama de salud de una localidad determinada. Este panorama deberá incluir las principales enfermedades de la población, indicadores de morbilidad y mortalidad y su evolución histórica, facilitando la identificación de patrones, tendencias o similitudes relevantes en el comportamiento de la salud de la comunidad.
+
+### Relación con métricas técnicas
+
+El cumplimiento de este criterio de negocio se relacionará posteriormente con métricas técnicas correspondientes a las distintas tareas de análisis y minería de datos realizadas en el proyecto.
+
+Para la identificación de las principales enfermedades se utilizarán metricas estadísticas, como tasas de morbilidad y mortalidad ajustadas por población, a partir de los cuales se construirán rankings por localidad. La consistencia de estos rankings entre distintos periodos podrá evaluarse mediante métricas de correlación de rangos, como el coeficiente de correlación de Spearman
+ o coeficiente de correlación de rango de Kendall.
+
+Para la identificación de patrones y similitudes entre localidades se podrán emplear técnicas de clustering. La calidad de los agrupamientos obtenidos será evaluada mediante métricas como el coeficiente de Silhouette y el índice de Calinski-Harabasz.
+
+De esta manera, las métricas estadísticas permitirán evaluar la consistencia de los indicadores y rankings presentados, mientras que las métricas de clustering permitirán evaluar la calidad de los patrones de similitud encontrados entre localidades. Ambos componentes técnicos estarán relacionados con el criterio de negocio al contribuir a que el médico disponga de un panorama de salud integrado, interpretable y consultable en un tiempo reducido.

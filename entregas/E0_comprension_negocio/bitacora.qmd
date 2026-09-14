@@ -1,6 +1,9 @@
 ---
 title: "Bitacora De Reunion Con Stakeholder"
-author: "Vega Alonso Diego Hazael"
+author: "Vega Alonso Diego Hazael,
+Gúzman Ramírez Diego Arturo,
+Murillo Espinosa Gustavo Adrián,
+Palacios Gónzalez Oscar"
 
 format:
   html:
@@ -17,7 +20,7 @@ Modalidad: videollamada
 
 Duración aproximada: 33 minutos
 
-Stakeholder: Dra. Verónica Daniela Durán Pérez
+Stakeholder: Dra. Verónica Daniela Durán Pérez -- https://www.gob.mx/inger/estructuras/mtra-veronica-daniela-duran-perez
 
 Rol: Médica con experiencia en el sector público, salud pública, análisis de datos y salud digital. Actualmente participa tanto en actividades universitarias como en la Secretaría de Salud.
 

@@ -1,0 +1,192 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "E0 - Comprensión de negocio",
+    "section": "",
+    "text": "1 Introducción\nEn esta primera etapa del proyecto se busca comprender el problema antes de trabajar directamente con los datos. Para ello, se realizó una entrevista con una profesional del sector salud con el fin de identificar necesidades reales relacionadas con el acceso, integración y análisis de información epidemiológica.\nA partir de la entrevista se delimitó una problemática viable para el proyecto y se definieron los objetivos, preguntas de investigación, criterios de éxito, riesgos y supuestos que servirán como base para las siguientes fases de CRISP-DM.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduccion</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E0_comprension_negocio/bitacora.html",
+    "href": "entregas/E0_comprension_negocio/bitacora.html",
+    "title": "2  Bitacora De Reunion Con Stakeholder",
+    "section": "",
+    "text": "2.1 Objetivo de la reunión\nFecha: 12 de septiembre de 2026\nModalidad: videollamada\nDuración aproximada: 33 minutos\nStakeholder: Dra. Verónica Daniela Durán Pérez – https://www.gob.mx/inger/estructuras/mtra-veronica-daniela-duran-perez\nRol: Médica con experiencia en el sector público, salud pública, análisis de datos y salud digital. Actualmente participa tanto en actividades universitarias como en la Secretaría de Salud.\nLa reunión tuvo como objetivo conocer, desde la experiencia de una profesional del sector salud, una problemática real que pudiera ser abordada mediante herramientas de análisis y minería de datos.\nInicialmente, el equipo buscó identificar dificultades relacionadas con el manejo de información en salud pública, así como conocer qué tipo de datos, análisis o herramientas podrían facilitar el trabajo de los profesionales del área. A lo largo de la entrevista también se buscó delimitar un problema cuya solución fuera factible dentro del tiempo y alcance del proyecto.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Bitacora De Reunion Con Stakeholder</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E0_comprension_negocio/bitacora.html#contexto-de-stakeholder",
+    "href": "entregas/E0_comprension_negocio/bitacora.html#contexto-de-stakeholder",
+    "title": "2  Bitacora De Reunion Con Stakeholder",
+    "section": "2.2 Contexto de stakeholder",
+    "text": "2.2 Contexto de stakeholder\nLa Dra. Verónica Durán explicó que su formación base es en Medicina y que posteriormente realizó estudios de maestría en Educación y Salud Pública, además, por ahora se encuentra concluyendo una maestría en Salud Digital.\nPor su experiencia tanto académica como dentro de la Secretaría de Salud, trabaja directamente con información epidemiológica y bases de datos relacionadas con morbilidad, mortalidad y egresos hospitalarios. También señaló que en su entorno se utilizan herramientas como R, Stata y SPSS, además de técnicas de ciencia de datos, minería de datos e inteligencia artificial. Por esta razón, desde su perspectiva, el principal problema no se encuentra en la capacidad para analizar la información, sino en la forma en que esta es recopilada, integrada y puesta a disposición desde su origen.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Bitacora De Reunion Con Stakeholder</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E0_comprension_negocio/bitacora.html#problemática-identificada-inicialmente",
+    "href": "entregas/E0_comprension_negocio/bitacora.html#problemática-identificada-inicialmente",
+    "title": "2  Bitacora De Reunion Con Stakeholder",
+    "section": "2.3 Problemática identificada inicialmente",
+    "text": "2.3 Problemática identificada inicialmente\nDurante la primera parte de la entrevista, la stakeholder señaló que uno de los principales problemas del sistema de salud mexicano es la fragmentación y falta de estandarización de los datos. Ya que la información se genera desde múltiples instituciones y niveles del sistema de salud, entre ellos IMSS, ISSSTE, Secretaría de Salud y dependencias estatales. Cada una puede manejar expedientes, formatos y sistemas diferentes, lo que dificulta la compatibilidad y obliga posteriormente a realizar procesos de estandarización para integrar la información.\nLa doctora explicó que, una vez que las bases llegan a áreas como la Dirección General de Epidemiología, suelen encontrarse más limpias y depuradas. Sin embargo, el problema se origina antes, en la forma en que los centros de salud y hospitales recopilan y envían la información. En algunos casos, los registros todavía se envían mediante archivos independientes, correos electrónicos, documentos escaneados o incluso formatos en papel, lo que provoca retrasos, inconsistencias y dificultades para disponer de datos completos.\nOtro problema importante identificado fue el desfase temporal de la información, ya que la stakeholder señaló que las bases consolidadas pueden presentar retrasos de aproximadamente uno o incluso dos años, debido al tiempo necesario para recopilar y consolidar los registros provenientes de las diferentes unidades de salud y como consecuencia, resulta difícil desarrollar sistemas de vigilancia o diagnóstico de salud en tiempo real. La doctora resumió este problema indicando que el principal rezago no se encuentra en la capacidad de análisis, sino en la recolección e integración de los datos.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Bitacora De Reunion Con Stakeholder</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E0_comprension_negocio/bitacora.html#fuentes-de-información-y-limitaciones-actuales",
+    "href": "entregas/E0_comprension_negocio/bitacora.html#fuentes-de-información-y-limitaciones-actuales",
+    "title": "2  Bitacora De Reunion Con Stakeholder",
+    "section": "2.4 Fuentes de información y limitaciones actuales",
+    "text": "2.4 Fuentes de información y limitaciones actuales\nLa stakeholder explicó que para sus análisis que ella realiza en su entorno, utilizan principalmente información proveniente de la Dirección General de Epidemiología y de la Dirección General de Información en Salud.También mencionó que existen mecanismos como los Cubos Dinámicos y las plataformas de Datos Abiertos, aunque ambas presentan limitaciones. En el caso de los Cubos Dinámicos, señaló dificultades tecnológicas relacionadas con plataformas antiguas y dependencia de determinados entornos de software. En el caso de Datos Abiertos, indicó que la información puede encontrarse distribuida en múltiples archivos y años, lo que dificulta realizar análisis históricos sin llevar a cabo previamente un proceso considerable de integración.\nAsimismo, señaló que los datos disponibles no necesariamente representan la totalidad de la realidad nacional, ya que existen sectores cuya información puede no estar completamente integrada, como servicios privados, consultorios anexos a farmacias u otros proveedores. Por esta razón, muchos indicadores epidemiológicos deben entenderse como estimaciones construidas con la información disponible, y no necesariamente como una representación exacta del total de los casos existentes.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Bitacora De Reunion Con Stakeholder</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E0_comprension_negocio/bitacora.html#restricciones-tecnológicas-e-institucionales",
+    "href": "entregas/E0_comprension_negocio/bitacora.html#restricciones-tecnológicas-e-institucionales",
+    "title": "2  Bitacora De Reunion Con Stakeholder",
+    "section": "2.5 Restricciones tecnológicas e institucionales",
+    "text": "2.5 Restricciones tecnológicas e institucionales\nOtro punto relevante fue la existencia de restricciones institucionales respecto al uso de tecnología, donde la stakeholder explicó que en el ámbito universitario y en el sector público existe preferencia por soluciones basadas en software libre y tecnologías abiertas, debido a restricciones presupuestales, administrativas y a la necesidad de evitar dependencia tecnológica.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Bitacora De Reunion Con Stakeholder</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E0_comprension_negocio/bitacora.html#delimitación-del-problema-para-el-proyecto",
+    "href": "entregas/E0_comprension_negocio/bitacora.html#delimitación-del-problema-para-el-proyecto",
+    "title": "2  Bitacora De Reunion Con Stakeholder",
+    "section": "2.6 Delimitación del problema para el proyecto",
+    "text": "2.6 Delimitación del problema para el proyecto\nAunque al inicio de la entrevista el problema principal identificado era la fragmentación, heterogeneidad y retraso en la recopilación de información del sistema de salud, durante la entrevista se concluyó que intentar resolver directamente este problema resultaría demasiado amplio para el alcance del proyecto. La solución de este problema implicaría modificar procesos de recopilación, lograr la operación y conexión entre instituciones, estandarizar expedientes clínicos e implementar sistemas compartidos a nivel nacional, lo cual implica varios aspectos que dependen de múltiples organismos y que exceden el tiempo disponible para el desarrollo del proyecto.\nPor esta razón, se volovio a replantear la dirección del problema y se preguntó a la stakeholder qué análisis podría desarrollarse utilizando las bases actualmente disponibles y que, al mismo tiempo, resultara útil para profesionales del sector salud. A partir de esta pregunta surgió una segunda problemática, considerablemente más viable, la Dra. Verónica Durán propuso utilizar información de la Dirección General de Epidemiología, en conjunto con las estimaciones y proyecciones de población de CONAPO, para generar algunos indicadores correspondientes a los principales grupos de enfermedades del país.\nComo ejemplos mencionó enfermedades como diabetes, hipertensión y obesidad, así como la posibilidad de estudiar su comportamiento durante un periodo aproximado de cinco años y separar los resultados por grupos de edad, además, sugirió llevar el análisis a un nivel más granular, particularmente por entidad federativa o municipio.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Bitacora De Reunion Con Stakeholder</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E0_comprension_negocio/bitacora.html#necesidad-seleccionada",
+    "href": "entregas/E0_comprension_negocio/bitacora.html#necesidad-seleccionada",
+    "title": "2  Bitacora De Reunion Con Stakeholder",
+    "section": "2.7 Necesidad seleccionada",
+    "text": "2.7 Necesidad seleccionada\nLa stakeholder explicó que una herramienta de este tipo podría resultar especialmente útil para médicos y estudiantes que realizan servicio social, ya que cuando un médico llega a una localidad para prestar servicio, debería contar con información que le permita comprender rápidamente cuál es el panorama de salud de la población que atenderá. Sin embargo, actualmente esta información no siempre se encuentra disponible de forma integrada y fácilmente consultable, y para obtenerla, el profesional tendría que localizar diferentes fuentes, descargar información, combinar bases de datos y realizar por sí mismo los cálculos necesarios.\nLa doctora propuso entonces desarrollar una solucion que permitiera consultar de forma sencilla información como: población estimada del municipio; principales enfermedades; indicadores de morbilidad y mortalidad; comportamiento de las enfermedades a lo largo del tiempo; posibles diferencias por grupo de edad; información disponible a nivel estatal o municipal. La stakeholder describió esta idea como un “minidiagnóstico de salud”, cuyo propósito sería permitir que un médico conozca rápidamente cuánta población existe en una localidad, cuáles son las principales enfermedades y cuáles son las principales causas de muerte. Preguntas principales realizadas durante la entrevista",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Bitacora De Reunion Con Stakeholder</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E0_comprension_negocio/bitacora.html#peguntas-que-guiaron-la-conversación",
+    "href": "entregas/E0_comprension_negocio/bitacora.html#peguntas-que-guiaron-la-conversación",
+    "title": "2  Bitacora De Reunion Con Stakeholder",
+    "section": "2.8 Peguntas que guiaron la conversación:",
+    "text": "2.8 Peguntas que guiaron la conversación:\n\n¿Cuál considera que es actualmente uno de los principales problemas relacionados con los datos dentro del sector salud?\n¿El problema se encuentra en la disponibilidad, el análisis o la recopilación de la información?\n¿Qué tan frecuentes son los casos de inconsistencia o error en los datos utilizados?\n¿Qué tan actualizados se encuentran los datos utilizados para los análisis epidemiológicos?\n¿Qué fuentes de información podrían utilizarse para tomar en cuenta?\n¿Qué tipo de información o análisis considera que actualmente hace falta y podría facilitar el trabajo de profesionales de la salud?\n¿Sería útil disponer de indicadores de salud a nivel estatal o municipal?\n¿Quiénes serían los principales beneficiarios de una herramienta de este tipo?",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Bitacora De Reunion Con Stakeholder</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E0_comprension_negocio/bitacora.html#reflexión-del-equipo",
+    "href": "entregas/E0_comprension_negocio/bitacora.html#reflexión-del-equipo",
+    "title": "2  Bitacora De Reunion Con Stakeholder",
+    "section": "2.9 Reflexión del equipo",
+    "text": "2.9 Reflexión del equipo\nLa entrevista tuvo una modificación importante sobre el entendimiento inicial del problema. En un primer momento, la entrevista se llevo a cabo con la idea de que el proyecto podría enfocarse en resolver la fragmentación y heterogeneidad existente en las fuentes de información del sistema de salud. Sin embargo, a medida que avanzó la conversación también se comprendió que intentar resolver directamente esta problemática requeriría intervenir en procesos institucionales y tecnológicos de gran escala, incluyendo la estandarización de expedientes clínicos, la integración de múltiples instituciones y la implementación de nuevos mecanismos de recopilación de información. Por lo tanto, este enfoque resultaría demasiado ambicioso para el tiempo y alcance del proyecto y, además, estaría más relacionado con el desarrollo e integración de sistemas de información que con un problema concreto de minería de datos.\nA partir de esta conclusión, la conversación permitió reformular el proyecto hacia una problemática más específica y viable, que fue la dificultad que enfrentan médicos y estudiantes de servicio social para obtener de manera rápida un panorama epidemiológico de la localidad en la que trabajarán. El nuevo enfoque consiste en aprovechar fuentes de datos ya disponibles para integrar y analizar información sobre las principales enfermedades, población, morbilidad y mortalidad a nivel estatal o municipal.\nLa entrevista también permitió identificar desde esta etapa algunas limitaciones que deberán considerarse durante el proyecto, como el retraso de las bases consolidadas, la cobertura incompleta de determinadas fuentes, la naturaleza estimada de las proyecciones poblacionales, la disponibilidad de datos a nivel municipal y las restricciones institucionales relacionadas con el uso de software y manejo de información. En conclusión, la entrevista permitió pasar de un problema sistémico demasiado amplio a una necesidad concreta, útil para profesionales del sector salud y más acorde con el alcance del proyecto.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Bitacora De Reunion Con Stakeholder</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E0_comprension_negocio/canvas.html",
+    "href": "entregas/E0_comprension_negocio/canvas.html",
+    "title": "3  Business Understanding Canvas",
+    "section": "",
+    "text": "3.0.1 1. OBJETIVOS DE NEGOCIO\nProveer una solución de análisis de datos que permita a los médicos entender el contexto de salud y las prevalencias de enfermedades de la comunidad a la que son asignados, facilitando su preparación clinica previa a la llegada.\n\n\n3.0.2 2. CRITERIO DE ÉXITO (NEGOCIO)\nReducir el tiempo de investigación previa que hace un estudiante o un medico sobre la situación de salud de su localidad a menos de 1 hora.\n\n\n\n\n\n3.0.3 3. EVALUACIÓN DE LA SITUACIÓN\n\n\n\nRecursos:\nAcceso a bases de datos abiertas de la Secretaría de Salud (SSA) e INEGI; acceso a una doctora como experta de dominio para validación clinica.\n\n\nRequisitos:\nLos resultados deben tener una granularidad a nivel municipio y la salida debe ser intuitiva y facil de interpretar para personal médico (no especializado en datos).\n\n\n\n\nSupuestos:\nLas tendencias históricas de enfermedades en los últimos años reflejan razonablemente bien el panorama epidemiológico que el estudiante\n\n\nRiesgos:\nDisponibilidad inconsistente de datos de salud a nivel municipal.\n\n\n\n\n\n\n\n\n3.0.4 4. OBJETIVOS DE MINERÍA DE DATOS\nGenerar un ranking de morbilidad (las 5 a 10 enfermedades principales) a nivel de municipio o de ciertas regiones, a partir de datos históricos, y descubrir patrones de similitud entre regiones para poder hacer inferencias en caso de falta de datos locales.\n\n\n3.0.5 5. ÉXITO TÉCNICO\nLograr un modelo que identifique el Top 5 de enfermedades por municipio con una confianza superior al 80%, manejando adecuadamente los valores nulos.\n\n\n\n\n\n3.0.6 6. PLAN DEL PROYECTO\n\nSemanas 1-2: Búsqueda, extracción y Análisis Exploratorio de Datos (EDA) de las fuentes abiertas de salud.\nSemanas 3-4: Limpieza de datos (tratamiento de datos faltantes por municipio) y generación de los modelos de agrupamiento y rankings\nSemana 5: Revisión y validación clinica de los resultados con la stakeholdee.\nSemana 6: Presentacion final de los resultados.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Business Understanding Canvas</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E0_comprension_negocio/criterio_exito.html",
+    "href": "entregas/E0_comprension_negocio/criterio_exito.html",
+    "title": "4  Criterio de Éxito",
+    "section": "",
+    "text": "4.0.1 Criterio de éxito en términos de negocio\nLa solución será considerada exitosa si permite a un médico consultar, en menos de una hora y sin realizar manualmente la integración o estandarización de distintas fuentes de información, el panorama de salud de una localidad determinada. Este panorama deberá incluir las principales enfermedades de la población, indicadores de morbilidad y mortalidad y su evolución histórica, facilitando la identificación de patrones, tendencias o similitudes relevantes en el comportamiento de la salud de la comunidad.\n\n\n4.0.2 Relación con métricas técnicas\nEl cumplimiento de este criterio de negocio se relacionará posteriormente con métricas técnicas correspondientes a las distintas tareas de análisis y minería de datos realizadas en el proyecto.\nPara la identificación de las principales enfermedades se utilizarán metricas estadísticas, como tasas de morbilidad y mortalidad ajustadas por población, a partir de los cuales se construirán rankings por localidad. La consistencia de estos rankings entre distintos periodos podrá evaluarse mediante métricas de correlación de rangos, como el coeficiente de correlación de Spearman o coeficiente de correlación de rango de Kendall.\nPara la identificación de patrones y similitudes entre localidades se podrán emplear técnicas de clustering. La calidad de los agrupamientos obtenidos será evaluada mediante métricas como el coeficiente de Silhouette y el índice de Calinski-Harabasz.\nDe esta manera, las métricas estadísticas permitirán evaluar la consistencia de los indicadores y rankings presentados, mientras que las métricas de clustering permitirán evaluar la calidad de los patrones de similitud encontrados entre localidades. Ambos componentes técnicos estarán relacionados con el criterio de negocio al contribuir a que el médico disponga de un panorama de salud integrado, interpretable y consultable en un tiempo reducido.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Criterio de Éxito</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E0_comprension_negocio/riesgos_supuestos.html",
+    "href": "entregas/E0_comprension_negocio/riesgos_supuestos.html",
+    "title": "6  Riesgos y Supuestos",
+    "section": "",
+    "text": "6.1 Riesgos",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Riesgos y Supuestos</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E0_comprension_negocio/preguntas.html",
+    "href": "entregas/E0_comprension_negocio/preguntas.html",
+    "title": "5  Preguntas De Investigación",
+    "section": "",
+    "text": "5.1 Preguntas de investigación priorizadas",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Preguntas De Investigación</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E0_comprension_negocio/uso_ia.html",
+    "href": "entregas/E0_comprension_negocio/uso_ia.html",
+    "title": "7  Uso de IA",
+    "section": "",
+    "text": "7.1 Uso de herramientas de IA",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Uso de IA</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E0_comprension_negocio/uso_ia.html#uso-de-herramientas-de-ia",
+    "href": "entregas/E0_comprension_negocio/uso_ia.html#uso-de-herramientas-de-ia",
+    "title": "7  Uso de IA",
+    "section": "",
+    "text": "7.1.1 Herramienta utilizada\nSe utilizó ChatGPT de OpenAI (GPT-5.6 Sol) como herramienta de apoyo durante el desarrollo de la etapa de comprensión del negocio del proyecto.\n\n\n7.1.2 Tareas para las que se utilizó\nLa herramienta se utilizó principalmente como apoyo para la discusión, revisión y redacción de diferentes apartados de los archivos Quarto correspondientes a la comprensión del negocio.\nEn particular, se utilizó para:\n\nanalizar y mejorar la redacción del criterio de éxito en términos de negocio;\nrevisar la relación entre el criterio de éxito, el objetivo general del proyecto y el objetivo de minería de datos;\nexplicar las métricas técnicas relacionadas con análisis estadístico, rankings y técnicas de clustering;\nanalizar propuestas y mejorar redacciones en supuestos y riesgos específicos del proyecto;\nrevisar que las propuestas fueran consistentes con la información obtenida durante la entrevista con el stakeholder y con el alcance definido por el equipo.\n\n\n\n7.1.3 Prompts empleados\nDebido a que se realizaron múltiples consultas durante el proceso, se presenta un resumen general de los prompts utilizados.\nLas consultas estuvieron orientadas principalmente a:\n\nsolicitar revisión y mejora de propuestas de redacción realizadas previamente por el alumno;\npreguntar si un criterio de éxito era coherente con el objetivo de negocio y el objetivo de minería de datos;\nidentificar riesgos derivados de la calidad, heterogeneidad y disponibilidad de los datos;\nidentificar riesgos relacionados con la aplicación de algoritmos de clustering;\nverificar supuestos dados por el alumno sobre disponibilidad, compatibilidad y representatividad de las fuentes de información;\nsolicitar alternativas de redacción y señalar posibles inconsistencias conceptuales.\n\nLos prompts se realizaron de manera iterativa, presentando primero las ideas desarrolladas por el alumno y utilizando la herramienta principalmente para analizarlas, cuestionarlas y mejorar su formulación.\n\n\n7.1.4 Qué se hizo con la salida obtenida\nLas respuestas generadas por la herramienta no se incorporaron directamente sin revisión.\nEl alumno se encargó de verificar que las propuestas fueran coherentes con el objetivo de negocio, el objetivo de minería de datos, el alcance del proyecto y la información proporcionada por el stakeholder.\nTambién se contrastaron los conceptos y métricas sugeridas con fuentes de consulta adicionales cuando fue necesario. Las propuestas fueron posteriormente discutidas y compartidas con los integrantes del equipo para decidir de manera conjunta qué información debía incorporarse en cada archivo Quarto.\nComo resultado de este proceso, algunas sugerencias fueron modificadas, simplificadas o descartadas cuando no correspondían con el alcance del proyecto. La herramienta se utilizó, por lo tanto, como apoyo para la reflexión y revisión del trabajo, manteniendo la decisión final y la validación del contenido bajo responsabilidad del equipo.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Uso de IA</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E0_comprension_negocio/preguntas.html#preguntas-de-investigación-priorizadas",
+    "href": "entregas/E0_comprension_negocio/preguntas.html#preguntas-de-investigación-priorizadas",
+    "title": "5  Preguntas De Investigación",
+    "section": "",
+    "text": "5.1.1 ¿Cuáles son las enfermedades y/o padecimientos a nivel municipal?\nLa respuesta a ésta pregunta evidentemente vendrá acompañada de estadísticas para que el usuario final, que se espera que posee formación médica, pueda sacar sus conclusiones con base a la información que se le proporcione.\n\n\n5.1.2 ¿Qué nos dicen los indicadores acerca de la población del municipio?\nLos índices de: mortalidad, morbilidad, natalidad, entre otros; son bastante útiles para que el usuario pueda darse una idea acerca del contexto en el que vive la población de su municipio su día a día.\n\n\n5.1.3 ¿Qué relación existe entre los indicadores y las enfermedades?\nTanto en la medicina como en la ciencia de datos el objetivo principal es buscar patrones y/o relaciones con base a la información que tengamos, por lo tanto, se busca que el usuario pueda obetener la información de una manera sencilla y eficaz para que, como menciona la Dra. Durán, pueda hacer un “pequeño diagnóstico” de la población.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Preguntas De Investigación</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E0_comprension_negocio/riesgos_supuestos.html#riesgos",
+    "href": "entregas/E0_comprension_negocio/riesgos_supuestos.html#riesgos",
+    "title": "6  Riesgos y Supuestos",
+    "section": "",
+    "text": "6.1.1 1. Heterogeneidad y calidad de la información\nLas distintas instituciones pueden registrar, clasificar o reportar la información de salud bajo criterios diferentes. Además, pueden existir registros incompletos, inconsistentes o incorrectos, lo que podría introducir sesgos y generar distorsiones al comparar indicadores de salud entre distintas localidades.\nMitigación:\nRealizar un proceso previo de exploración, limpieza y estandarización de los datos, identificando valores faltantes, inconsistencias y diferencias entre las fuentes. También se documentará la cobertura y calidad de cada fuente antes de utilizarla en los análisis.\n\n\n6.1.2 2. Agrupamientos poco representativos en el análisis de clustering\nLos resultados de los algoritmos de clustering pueden verse afectados por la escala de las variables, la presencia de valores atípicos, la selección de características, el número de clusters y las propias características del algoritmo utilizado. Esto podría producir agrupamientos de localidades que, aunque obtengan valores favorables en alguna métrica de evaluación, no representen correctamente similitudes reales en sus perfiles de salud.\nMitigación:\nSe normalizarán o estandarizarán las variables antes del agrupamiento y se compararán distintas configuraciones y, cuando sea necesario, diferentes algoritmos de clustering. La evaluación no dependerá de una única métrica, sino que se utilizarán indicadores como Silhouette, Davies-Bouldin y Calinski-Harabasz, complementados con la interpretación de los grupos obtenidos dentro del contexto de salud.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Riesgos y Supuestos</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E0_comprension_negocio/riesgos_supuestos.html#supuestos",
+    "href": "entregas/E0_comprension_negocio/riesgos_supuestos.html#supuestos",
+    "title": "6  Riesgos y Supuestos",
+    "section": "6.2 Supuestos",
+    "text": "6.2 Supuestos\n\n6.2.1 Disponibilidad y cobertura de datos\nSe asume que existirán bases de datos oficiales y accesibles con suficiente cobertura geográfica, temporal y epidemiológica para construir indicadores de morbilidad, mortalidad y evolución histórica de las localidades analizadas.\n\n\n6.2.2 Utilidad para el usuario objetivo\nLos médicos y estudiantes de servicio social encontrarán útil un panorama epidemiológico integrado como apoyo para contextualizar las necesidades de salud de la población, sin sustituir el diagnóstico clínico individual.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Riesgos y Supuestos</span>"
+    ]
+  }
+]
