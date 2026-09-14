@@ -8,7 +8,7 @@
 
 <meta name="author" content="Gúzman Ramírez Diego Arturo, Murillo Espinosa Gustavo Adrián, Vega Alonso Diego Hazael, Palacios Gónzalez Oscar">
 
-<title>5&nbsp; Riesgos y Supuestos – E0 - Comprensión de negocio</title>
+<title>5&nbsp; Preguntas priorizadas – E0 - Comprensión de negocio</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -48,7 +48,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-195880404afd59f0005e11c15cb56991.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-7b2eb1fffa4791d14f5a0418990506db.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -90,7 +90,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../entregas/E0_comprension_negocio/preguntas.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Riesgos y Supuestos</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../entregas/E0_comprension_negocio/preguntas.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Preguntas priorizadas</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -142,7 +142,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../entregas/E0_comprension_negocio/preguntas.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Riesgos y Supuestos</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Preguntas priorizadas</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -167,15 +167,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#riesgos" id="toc-riesgos" class="nav-link active" data-scroll-target="#riesgos"><span class="header-section-number">5.1</span> Riesgos</a>
+  <li><a href="#preguntas-de-investigación-priorizadas" id="toc-preguntas-de-investigación-priorizadas" class="nav-link active" data-scroll-target="#preguntas-de-investigación-priorizadas"><span class="header-section-number">5.1</span> Preguntas de investigación priorizadas</a>
   <ul class="collapse">
-  <li><a href="#heterogeneidad-y-calidad-de-la-información" id="toc-heterogeneidad-y-calidad-de-la-información" class="nav-link" data-scroll-target="#heterogeneidad-y-calidad-de-la-información"><span class="header-section-number">5.1.1</span> 1. Heterogeneidad y calidad de la información</a></li>
-  <li><a href="#agrupamientos-poco-representativos-en-el-análisis-de-clustering" id="toc-agrupamientos-poco-representativos-en-el-análisis-de-clustering" class="nav-link" data-scroll-target="#agrupamientos-poco-representativos-en-el-análisis-de-clustering"><span class="header-section-number">5.1.2</span> 2. Agrupamientos poco representativos en el análisis de clustering</a></li>
-  </ul></li>
-  <li><a href="#supuestos" id="toc-supuestos" class="nav-link" data-scroll-target="#supuestos"><span class="header-section-number">5.2</span> Supuestos</a>
-  <ul class="collapse">
-  <li><a href="#disponibilidad-y-cobertura-de-datos" id="toc-disponibilidad-y-cobertura-de-datos" class="nav-link" data-scroll-target="#disponibilidad-y-cobertura-de-datos"><span class="header-section-number">5.2.1</span> Disponibilidad y cobertura de datos</a></li>
-  <li><a href="#utilidad-para-el-usuario-objetivo" id="toc-utilidad-para-el-usuario-objetivo" class="nav-link" data-scroll-target="#utilidad-para-el-usuario-objetivo"><span class="header-section-number">5.2.2</span> Utilidad para el usuario objetivo</a></li>
+  <li><a href="#cuáles-son-las-enfermedades-yo-padecimientos-a-nivel-municipal" id="toc-cuáles-son-las-enfermedades-yo-padecimientos-a-nivel-municipal" class="nav-link" data-scroll-target="#cuáles-son-las-enfermedades-yo-padecimientos-a-nivel-municipal"><span class="header-section-number">5.1.1</span> ¿Cuáles son las enfermedades y/o padecimientos a nivel municipal?</a></li>
+  <li><a href="#qué-nos-dicen-los-indicadores-acerca-de-la-población-del-municipio" id="toc-qué-nos-dicen-los-indicadores-acerca-de-la-población-del-municipio" class="nav-link" data-scroll-target="#qué-nos-dicen-los-indicadores-acerca-de-la-población-del-municipio"><span class="header-section-number">5.1.2</span> ¿Qué nos dicen los indicadores acerca de la población del municipio?</a></li>
+  <li><a href="#qué-relación-existe-entre-los-indicadores-y-las-enfermedades" id="toc-qué-relación-existe-entre-los-indicadores-y-las-enfermedades" class="nav-link" data-scroll-target="#qué-relación-existe-entre-los-indicadores-y-las-enfermedades"><span class="header-section-number">5.1.3</span> ¿Qué relación existe entre los indicadores y las enfermedades?</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -185,7 +181,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Riesgos y Supuestos</span></h1>
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Preguntas priorizadas</span></h1>
 </div>
 
 
@@ -208,30 +204,19 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="riesgos" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="riesgos"><span class="header-section-number">5.1</span> Riesgos</h2>
-<section id="heterogeneidad-y-calidad-de-la-información" class="level3" data-number="5.1.1">
-<h3 data-number="5.1.1" class="anchored" data-anchor-id="heterogeneidad-y-calidad-de-la-información"><span class="header-section-number">5.1.1</span> 1. Heterogeneidad y calidad de la información</h3>
-<p>Las distintas instituciones pueden registrar, clasificar o reportar la información de salud bajo criterios diferentes. Además, pueden existir registros incompletos, inconsistentes o incorrectos, lo que podría introducir sesgos y generar distorsiones al comparar indicadores de salud entre distintas localidades.</p>
-<p><strong>Mitigación:</strong><br>
-Realizar un proceso previo de exploración, limpieza y estandarización de los datos, identificando valores faltantes, inconsistencias y diferencias entre las fuentes. También se documentará la cobertura y calidad de cada fuente antes de utilizarla en los análisis.</p>
+<section id="preguntas-de-investigación-priorizadas" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="preguntas-de-investigación-priorizadas"><span class="header-section-number">5.1</span> Preguntas de investigación priorizadas</h2>
+<section id="cuáles-son-las-enfermedades-yo-padecimientos-a-nivel-municipal" class="level3" data-number="5.1.1">
+<h3 data-number="5.1.1" class="anchored" data-anchor-id="cuáles-son-las-enfermedades-yo-padecimientos-a-nivel-municipal"><span class="header-section-number">5.1.1</span> ¿Cuáles son las enfermedades y/o padecimientos a nivel municipal?</h3>
+<p>La respuesta a ésta pregunta evidentemente vendrá acompañada de estadísticas para que el usuario final, que se espera que posee formación médica, pueda sacar sus conclusiones con base a la información que se le proporcione.</p>
 </section>
-<section id="agrupamientos-poco-representativos-en-el-análisis-de-clustering" class="level3" data-number="5.1.2">
-<h3 data-number="5.1.2" class="anchored" data-anchor-id="agrupamientos-poco-representativos-en-el-análisis-de-clustering"><span class="header-section-number">5.1.2</span> 2. Agrupamientos poco representativos en el análisis de clustering</h3>
-<p>Los resultados de los algoritmos de clustering pueden verse afectados por la escala de las variables, la presencia de valores atípicos, la selección de características, el número de clusters y las propias características del algoritmo utilizado. Esto podría producir agrupamientos de localidades que, aunque obtengan valores favorables en alguna métrica de evaluación, no representen correctamente similitudes reales en sus perfiles de salud.</p>
-<p><strong>Mitigación:</strong><br>
-Se normalizarán o estandarizarán las variables antes del agrupamiento y se compararán distintas configuraciones y, cuando sea necesario, diferentes algoritmos de clustering. La evaluación no dependerá de una única métrica, sino que se utilizarán indicadores como Silhouette, Davies-Bouldin y Calinski-Harabasz, complementados con la interpretación de los grupos obtenidos dentro del contexto de salud.</p>
+<section id="qué-nos-dicen-los-indicadores-acerca-de-la-población-del-municipio" class="level3" data-number="5.1.2">
+<h3 data-number="5.1.2" class="anchored" data-anchor-id="qué-nos-dicen-los-indicadores-acerca-de-la-población-del-municipio"><span class="header-section-number">5.1.2</span> ¿Qué nos dicen los indicadores acerca de la población del municipio?</h3>
+<p>Los índices de: mortalidad, morbilidad, natalidad, entre otros; son bastante útiles para que el usuario pueda darse una idea acerca del contexto en el que vive la población de su municipio su día a día.</p>
 </section>
-</section>
-<section id="supuestos" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="supuestos"><span class="header-section-number">5.2</span> Supuestos</h2>
-<section id="disponibilidad-y-cobertura-de-datos" class="level3" data-number="5.2.1">
-<h3 data-number="5.2.1" class="anchored" data-anchor-id="disponibilidad-y-cobertura-de-datos"><span class="header-section-number">5.2.1</span> Disponibilidad y cobertura de datos</h3>
-<p>Se asume que existirán bases de datos oficiales y accesibles con suficiente cobertura geográfica, temporal y epidemiológica para construir indicadores de morbilidad, mortalidad y evolución histórica de las localidades analizadas.</p>
-</section>
-<section id="utilidad-para-el-usuario-objetivo" class="level3" data-number="5.2.2">
-<h3 data-number="5.2.2" class="anchored" data-anchor-id="utilidad-para-el-usuario-objetivo"><span class="header-section-number">5.2.2</span> Utilidad para el usuario objetivo</h3>
-<p>Los médicos y estudiantes de servicio social encontrarán útil un panorama epidemiológico integrado como apoyo para contextualizar las necesidades de salud de la población, sin sustituir el diagnóstico clínico individual.</p>
+<section id="qué-relación-existe-entre-los-indicadores-y-las-enfermedades" class="level3" data-number="5.1.3">
+<h3 data-number="5.1.3" class="anchored" data-anchor-id="qué-relación-existe-entre-los-indicadores-y-las-enfermedades"><span class="header-section-number">5.1.3</span> ¿Qué relación existe entre los indicadores y las enfermedades?</h3>
+<p>Tanto en la medicina como en la ciencia de datos el objetivo principal es buscar patrones y/o relaciones con base a la información que tengamos, por lo tanto, se busca que el usuario pueda obetener la información de una manera sencilla y eficaz para que, como menciona la Dra. Durán, pueda hacer un “pequeño diagnóstico” de la población.</p>
 
 
 </section>
