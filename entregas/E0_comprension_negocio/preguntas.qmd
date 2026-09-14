@@ -8,13 +8,13 @@ format:
     toc: true
   docx: default
 ---
-Preguntas de investigación priorizadas
+##Preguntas de investigación priorizadas
 
-¿Cuáles son las enfermedades y/o padecimientos a nivel municipal?
+###¿Cuáles son las enfermedades y/o padecimientos a nivel municipal?
 La respuesta a ésta pregunta evidentemente vendrá acompañada de estadísticas para que el usuario final, que se espera que posee formación médica, pueda sacar sus conclusiones con base a la información que se le proporcione.
 
-¿Qué nos dicen los indicadores acerca de la población del municipio?
+###¿Qué nos dicen los indicadores acerca de la población del municipio?
 Los índices de: mortalidad, morbilidad, natalidad, entre otros; son bastante útiles para que el usuario pueda darse una idea acerca del contexto en el que vive la población de su municipio su día a día.
 
-¿Qué relación existe entre los indicadores y las enfermedades? 
+###¿Qué relación existe entre los indicadores y las enfermedades? 
 Tanto en la medicina como en la ciencia de datos el objetivo principal es buscar patrones y/o relaciones con base a la información que tengamos, por lo tanto, se busca que el usuario pueda obetener la información de una manera sencilla y eficaz para que, como menciona la Dra. Durán, pueda hacer un "pequeño diagnóstico" de la población.
