@@ -3,16 +3,27 @@ project:
   output-dir: docs
 
 book:
-  title: "E0 - Comprensión de negocio"
+  title: "Proyecto de Almacenes y Minería de Datos"
 
   chapters:
     - index.qmd
-    - entregas/E0_comprension_negocio/bitacora.qmd
-    - entregas/E0_comprension_negocio/canvas.qmd
-    - entregas/E0_comprension_negocio/criterio_exito.qmd
-    - entregas/E0_comprension_negocio/preguntas.qmd
-    - entregas/E0_comprension_negocio/riesgos_supuestos.qmd
-    - entregas/E0_comprension_negocio/uso_ia.qmd
+
+    - part: "E0 - Comprensión de negocio"
+      chapters:
+        - entregas/E0_comprension_negocio/bitacora.qmd
+        - entregas/E0_comprension_negocio/canvas.qmd
+        - entregas/E0_comprension_negocio/criterio_exito.qmd
+        - entregas/E0_comprension_negocio/preguntas.qmd
+        - entregas/E0_comprension_negocio/riesgos_supuestos.qmd
+        - entregas/E0_comprension_negocio/uso_ia.qmd
+
+    - part: "E1 - Arquitectura del DW"
+      chapters:
+        - entregas/E1_arquitectura_dw/fuentes.qmd
+        - entregas/E1_arquitectura_dw/arquitectura.qmd
+        - entregas/E1_arquitectura_dw/estrella.qmd
+        - entregas/E1_arquitectura_dw/trazabilidad.qmd
+        - entregas/E1_arquitectura_dw/uso_ia.qmd
 
 format:
   html:
