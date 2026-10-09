@@ -1,0 +1,272 @@
+---
+title: "Grano, Diagrama Mermaid y DDL"
+author: "Gúzman Ramírez Diego Arturo,
+Murillo Espinosa Gustavo Adrián,
+Vega Alonso Diego Hazael,
+Palacios Gónzalez Oscar"
+format:
+  html:
+    code-fold: true
+  pdf:
+    toc: true
+  docx: default
+---
+
+## Granos candidatos
+
+A partir de las fuentes seleccionadas —Estadísticas de Defunciones Registradas del INEGI, Egresos Hospitalarios de la Secretaría de Salud y población municipal de CONAPO— se proponen tres granos candidatos. Se utiliza el municipio de residencia habitual y un periodo anual, compatible con la población a mitad de año de CONAPO.
+
+### Candidato 1: Grano municipal anual
+
+**Definición:** Una fila por municipio de residencia por año.
+
+Concentra los totales de defunciones, egresos hospitalarios registrados y población estimada. Las tres fuentes permiten identificar municipio y año.
+
+**Ventaja:** Facilita comparar municipios, observar tendencias y calcular tasas generales.
+
+**Limitación:** Pierde el detalle de las causas, los diagnósticos, el sexo y los grupos de edad.
+
+### Candidato 2: Grano municipal anual con características demográficas
+
+**Definición:** Una fila por combinación de municipio de residencia, sexo y grupo de edad por año.
+
+Organiza los eventos y la población según características demográficas. INEGI y DGIS contienen sexo y edad; CONAPO proporciona población por sexo y grupos de edad.
+
+**Ventaja:** Permite calcular tasas específicas y comparar grupos demográficos.
+
+**Limitación:** Reúne distintas causas y diagnósticos, por lo que no permite identificar los padecimientos predominantes en cada grupo.
+
+### Candidato 3: Grano municipal anual por causa o diagnóstico y características demográficas
+
+**Definición:** Una fila por combinación de municipio de residencia, tipo de evento, causa o diagnóstico, sexo y grupo de edad por año.
+
+El tipo de evento distingue las defunciones de los egresos hospitalarios. Se utiliza la causa básica de muerte de INEGI y la afección principal reseleccionada de DGIS.
+
+**Ventaja:** Permite identificar causas y diagnósticos predominantes y comparar su distribución entre municipios, años y grupos demográficos.
+
+**Limitación:** Requiere igualar categorías y conservar la diferencia entre causa de muerte y diagnóstico de hospitalización. La población mantiene su propio grano y no debe duplicarse al agregar distintas causas.
+
+## Elección y justificación del grano final
+
+Se selecciona el **candidato 3**, con dos decisiones de implementación: las causas y diagnósticos se agrupan en categorías CIE-10 de tres caracteres y las edades se organizan en intervalos de cinco años, según la clasificación de CONAPO.
+
+> Una fila por combinación de municipio de residencia, tipo de evento, categoría CIE-10, sexo y grupo de edad por año
+
+Cada fila representa un **conteo anual agregado**, no una persona ni un registro individual de la fuente. El municipio se interpreta dentro de la versión territorial documentada que corresponde a la comparación.
+
+La elección se justifica por lo siguiente:
+
+1. **Preguntas del proyecto:** permite identificar causas y diagnósticos municipales (P1), calcular indicadores con la población correspondiente (P2) y explorar asociaciones con la estructura demográfica (P3).
+2. **Variables disponibles:** INEGI y DGIS contienen residencia, causa o diagnóstico, sexo, edad y fecha del evento. CONAPO aporta el denominador municipal por sexo y edad.
+3. **Periodicidad común:** los registros individuales se agregan por año para compararlos con la población a mitad de año. Se usa el año de ocurrencia de la defunción y el año de egreso hospitalario; el año de registro se conserva en el origen para trazabilidad.
+4. **Agregación posterior:** este detalle permite obtener resúmenes generales por municipio o año sin perder la posibilidad de analizar causas y grupos demográficos.
+
+La categoría CIE-10 de tres caracteres permite una clasificación común. Los subtipos de cuatro caracteres se conservan en los datos de origen, pero no se distinguen en este primer esquema. El tipo de evento determina cómo debe interpretarse el código: una causa básica de muerte y una afección principal hospitalaria representan conceptos distintos.
+
+La población conserva un grano independiente:
+
+> Una fila por combinación de municipio, sexo y grupo de edad por año.
+
+## Tablas de hechos y métricas
+
+Se proponen **dos tablas de hechos**, que comparten las dimensiones de fecha, municipio y perfil demográfico. Las tablas de hechos no se conectan directamente entre sí.
+
+### `fact_eventos_salud`
+
+Integra los conteos de defunciones de INEGI y de egresos de la **serie Secretaría de Salud** de DGIS. El origen se identifica mediante `dim_tipo_evento`.
+
+| Elemento | Definición |
+|---|---|
+| Grano | Municipio de residencia, tipo de evento, categoría CIE-10, sexo y grupo de edad en intervalos de cinco años. |
+| Llave de fila | `evento_salud_sk`, entero generado para identificar la fila agregada. |
+| Llaves foráneas | `fecha_sk`, `municipio_sk`, `causa_diagnostico_sk`, `perfil_demografico_sk`, `tipo_evento_sk`. |
+| Unicidad | La combinación de las cinco llaves foráneas no puede repetirse. |
+
+| Medida almacenada | Definición y origen | Aditividad |
+|---|---|---|
+| `conteo_eventos` | Número de registros de la combinación. Cada defunción o egreso aporta una unidad. | Aditiva por año y dimensiones, dentro del mismo tipo de evento. Sumar tipos produce un total de registros de distinta naturaleza, no una medida de enfermedad o personas. |
+| `dias_estancia_total` | Suma de `DIAS_ESTA` válidos en egresos. Los servicios de corta estancia con valor cero son válidos. | Aditiva en egresos. `NULL` para defunciones o cuando no hay estancias válidas. |
+| `egresos_estancia_valida` | Número de egresos con días de estancia válidos. Es el denominador del promedio de estancia. | Aditiva en egresos; `NULL` para defunciones. |
+| `egresos_por_defuncion` | Número de egresos con `MOTEGRE = 5`, según el catálogo DGIS 2023–2025. Debe verificarse el catálogo de cada edición utilizada. | Aditiva dentro de los egresos; `NULL` para defunciones de INEGI. |
+
+Los egresos por defunción son un subconjunto de los egresos. No se suman a las defunciones de INEGI: las fuentes pueden representar el mismo fallecimiento y no se ha establecido un enlace individual entre registros.
+
+Se utiliza una sola causa básica por defunción y una sola afección principal por egreso. Las tablas de afecciones adicionales, procedimientos y productos de DGIS no se unen al conteo principal, porque sus relaciones de uno a muchos podrían multiplicarlo.
+
+### `fact_poblacion`
+
+Representa la población estimada a mitad de año de CONAPO por municipio, sexo y grupo de las edades que se organizan en intervalos de cinco años.
+
+| Elemento | Definición |
+|---|---|
+| Grano | Municipio, sexo y grupo de edades por año. |
+| Llave de fila | `poblacion_sk`, entero generado. |
+| Llaves foráneas | `fecha_sk`, `municipio_sk`, `perfil_demografico_sk`. |
+| Unicidad | La combinación de las tres llaves foráneas no puede repetirse. |
+| Medida | `poblacion_estimada`, tomada del archivo quinquenal de CONAPO. |
+| Aditividad | **Semiaditiva:** se suma entre municipios territorialmente compatibles, sexos y grupos de edad mutuamente excluyentes, dentro del mismo año. No se suma entre años. |
+
+Las columnas `POB_00_04`, `POB_05_09`, …, `POB_85_mm` se transforman en filas. `POB_TOTAL` se utiliza como control del total; no se carga como otro grupo de edad, pues duplicaría la población al sumar el detalle.
+
+Los indicadores de envejecimiento, dependencia y relación hombres-mujeres se calculan a partir de esta población. No se repiten indicadores municipales dentro de cada fila de sexo y edad. La edad mediana publicada por CONAPO queda como dato de referencia en el archivo de indicadores; no se reproduce como una medida exacta del esquema a partir de edades agrupadas.
+
+## Dmensiones y llaves sustitutas
+
+Se definen **cinco dimensiones**. Fecha, municipio y perfil demográfico son **dimensiones conformadas**: ambas tablas de hechos utilizan los mismos miembros, llaves y definiciones.
+
+| Dimensión | Llave sustituta | Identificación de negocio | Atributos principales |
+|---|---|---|---|
+| `dim_fecha` | `fecha_sk` | Año. | `anio`, `inicio_periodo`, `fin_periodo`. Tiene una fila por año; no se inventan fechas diarias de eventos para representar agregados. |
+| `dim_municipio` | `municipio_sk` | Clave de entidad de dos posiciones + clave de municipio de tres posiciones, junto con la versión territorial. | `cvegeo`, `clave_entidad`, `nombre_entidad`, `clave_municipio`, `nombre_municipio`, `version_territorial`, `vigencia_desde`, `vigencia_hasta`, `es_actual`. |
+| `dim_causa_diagnostico` | `causa_diagnostico_sk` | Categoría CIE-10 de tres caracteres dentro del catálogo de referencia. | `categoria_cie10`, `descripcion_categoria`, `capitulo_cie10`, `descripcion_capitulo`, `version_catalogo`. |
+| `dim_perfil_demografico` | `perfil_demografico_sk` | Combinación de sexo normalizado y código de grupo de edad. | `sexo`, `codigo_grupo_edad`, `grupo_edad`, `edad_minima`, `edad_maxima`. |
+| `dim_tipo_evento` | `tipo_evento_sk` | Código de proceso: `DEFUNCION` o `EGRESO`. | `codigo_tipo`, `nombre_tipo`, `fuente`, `interpretacion_causa`. |
+
+Sexo y grupo de edad se reúnen en una dimensión de perfil demográfico para conservar ambos desgloses sin superar el límite de cinco dimensiones. Los grupos son 0–4, 5–9, …, 80–84 y 85 años y más.
+
+Todas las llaves sustitutas son enteros generados, estables e independientes de las claves de las fuentes. Se reserva el valor `0` para un miembro desconocido. En la dimensión demográfica también se conservan combinaciones parcialmente conocidas, como sexo conocido con edad no especificada.
+
+Una llave de fila de hechos identifica un agregado, no a una persona. Las restricciones de unicidad sobre las llaves dimensionales evitan cargar dos veces la misma combinación. Una recarga del mismo periodo sustituye su agregado o lo actualiza con una regla reproducible; no lo añade de nuevo como otra observación.
+
+## Tipo de SCD y justificación
+
+| Dimensión | Tipo SCD elegido | Justificación y tratamiento |
+|---|---|---|
+| `dim_fecha` | **Tipo 0: conservar.** | Los atributos del periodo anual no cambian. Se añaden nuevos años sin modificar los existentes. |
+| `dim_municipio` | **Tipo 2: nueva fila.** | Conserva versiones ante cambios territoriales o denominaciones históricas documentadas. Cada versión obtiene una nueva `municipio_sk` y un intervalo de vigencia. Un municipio nuevo recibe su propio miembro. |
+| `dim_causa_diagnostico` | **Tipo 1: sobrescribir correcciones.** | El análisis utiliza un catálogo CIE-10 de referencia fijo. Se corrigen etiquetas sin conservar errores como versiones históricas. Un cambio real de significado o versión de clasificación no se trata como una corrección: exige una nueva correspondencia y revisión del modelo. |
+| `dim_perfil_demografico` | **Tipo 0: conservar.** | La definición de sexo normalizado y los límites de cada grupo de edad permanecen fijos. Una nueva combinación se añade como miembro; no se alteran los límites de uno existente. |
+| `dim_tipo_evento` | **Tipo 0: conservar.** | Defunción y egreso tienen significados estables. Una corrección del diseño no debe cambiar el significado de eventos históricos. |
+
+En el SCD tipo 2 se utilizan intervalos sin solapamiento, con `vigencia_desde` incluida y `vigencia_hasta` excluida. La fila vigente se señala mediante `es_actual`. Las vigencias se obtienen de documentación territorial, no de la fecha de descarga.
+
+La versión geográfica es parte de la identidad del municipio en los hechos. Se resuelve antes de agregar. Una diferencia de límites territoriales entre CONAPO y una fuente de eventos no se corrige únicamente agregando una nueva fila SCD: primero se necesita una correspondencia geográfica documentada. Cuando esta no exista, se conservan los conteos identificables, se marca la comparación como no disponible y no se calcula una tasa con un denominador de otro territorio.
+
+Cabe destacar que estas políticas que utilizamos siguen la distinción entre conservar atributos (tipo 0), actualizar una fila (tipo 1) y crear versiones (tipo 2), todas estas fueron obtenidas de [Kimball Group](https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/dimensional-modeling-techniques/).
+
+## Métricas derivadas y reglas de integración
+
+Las tasas, los promedios y los índices son **no aditivos**. Se calculan después de agregar sus numeradores y denominadores al nivel solicitado.
+
+| Métrica derivada | Cálculo |
+|---|---|
+| Tasa de defunciones registradas por causa | Defunciones de INEGI de la causa y grupo seleccionado / población compatible a mitad de año × 100,000. |
+| Tasa de egresos hospitalarios registrados | Egresos de la serie Secretaría de Salud del diagnóstico y grupo seleccionado / población compatible a mitad de año × 100,000. No equivale a incidencia o prevalencia. |
+| Estancia promedio | Suma de `dias_estancia_total` / suma de `egresos_estancia_valida`, filtrando egresos. |
+| Proporción de egresos por defunción | Suma de `egresos_por_defuncion` / suma de `conteo_eventos` de egresos × 100. |
+| Índice de envejecimiento de 65 años y más | Población de 65 años y más / población de 0–14 años × 100. |
+| Razón de dependencia demográfica | (Población de 0–14 años + población de 65 años y más) / población de 15–64 años × 100. |
+| Relación hombres-mujeres | Población de hombres / población de mujeres × 100. |
+
+Se aplican las siguientes reglas:
+
+1. **Territorio:** se normalizan las claves como texto de cinco posiciones. `1001` se representa como `01001`. Se usan `ENT_RESID` + `MUN_RESID` en INEGI y `ENTIDAD` + `MUNIC` en DGIS. La CLUES identifica el hospital y no sustituye al municipio de residencia.
+2. **Edad y sexo:** se interpretan con los catálogos propios de cada fuente. Los códigos de unidad de edad de INEGI y DGIS no se consideran equivalentes. Se obtiene edad en años cumplidos para clasificarla en el intervalo de cinco años. 
+3. **Causa:** se normaliza el código CIE-10 y se asigna su categoría de tres caracteres mediante un catálogo validado. Se conserva el código original para trazabilidad. Los valores no identificados se registran como desconocidos.
+4. **Denominadores:** la población se consulta por municipio, año, sexo y edad compatibles. Para una tasa por causa se utiliza ese denominador una vez. Para un total de varias causas se agregan primero los eventos y después se consulta la población; no se suman denominadores repetidos por causa.
+5. **Faltantes:** un denominador ausente o cero produce una tasa no disponible, no cero. Los registros con sexo o edad desconocidos se conservan; no reciben una población ficticia. Pueden contribuir a totales generales si municipio y año son válidos.
+6. **Cobertura:** ausencia de registros no se interpreta automáticamente como cero eventos. Se verifica la cobertura del municipio, la edición y el periodo antes de completar combinaciones con cero.
+7. **Periodo:** se seleccionan años completos y comunes a las fuentes. Los archivos INEGI se identifican por año de registro, pero el conteo propuesto usa ocurrencia. Deben documentarse las ediciones consultadas y el corte de registros disponibles para no presentar el último año como exhaustivo si faltan registros tardíos.
+
+No se suman tasas ni promedios de grupos. La población tampoco se suma entre años. La selección concreta del intervalo de estudio y las equivalencias territoriales se verifican al preparar los datos; no se fija un quinquenio sin comprobar su cobertura.
+
+## Diagrama del esquema
+
+El diagrama contiene dos hechos y cinco dimensiones. Las relaciones indican que cada fila de hechos referencia un miembro de dimensión y cada miembro puede describir varias filas de hechos.
+
+```{mermaid}
+erDiagram
+    direction TB
+
+    DIM_FECHA ||--o{ FACT_EVENTOS_SALUD : periodo
+    DIM_MUNICIPIO ||--o{ FACT_EVENTOS_SALUD : residencia
+    DIM_CAUSA_DIAGNOSTICO ||--o{ FACT_EVENTOS_SALUD : clasifica
+    DIM_PERFIL_DEMOGRAFICO ||--o{ FACT_EVENTOS_SALUD : caracteriza
+    DIM_TIPO_EVENTO ||--o{ FACT_EVENTOS_SALUD : distingue
+
+    DIM_FECHA ||--o{ FACT_POBLACION : periodo
+    DIM_MUNICIPIO ||--o{ FACT_POBLACION : territorio
+    DIM_PERFIL_DEMOGRAFICO ||--o{ FACT_POBLACION : caracteriza
+
+    DIM_FECHA {
+        int fecha_sk PK
+        int anio UK
+        date inicio_periodo
+        date fin_periodo
+    }
+
+    DIM_MUNICIPIO {
+        int municipio_sk PK
+        string cvegeo
+        string nombre_municipio
+        string nombre_entidad
+        string version_territorial
+        date vigencia_desde
+        date vigencia_hasta
+        boolean es_actual
+    }
+
+    DIM_CAUSA_DIAGNOSTICO {
+        int causa_diagnostico_sk PK
+        string categoria_cie10 UK
+        string descripcion_categoria
+        string capitulo_cie10
+        string version_catalogo
+    }
+
+    DIM_PERFIL_DEMOGRAFICO {
+        int perfil_demografico_sk PK
+        string sexo
+        string codigo_grupo_edad
+        string grupo_edad
+        int edad_minima
+        int edad_maxima
+    }
+
+    DIM_TIPO_EVENTO {
+        int tipo_evento_sk PK
+        string codigo_tipo UK
+        string nombre_tipo
+        string fuente
+        string interpretacion_causa
+    }
+
+    FACT_EVENTOS_SALUD {
+        bigint evento_salud_sk PK
+        int fecha_sk FK
+        int municipio_sk FK
+        int causa_diagnostico_sk FK
+        int perfil_demografico_sk FK
+        int tipo_evento_sk FK
+        bigint conteo_eventos
+        bigint dias_estancia_total
+        bigint egresos_estancia_valida
+        bigint egresos_por_defuncion
+    }
+
+    FACT_POBLACION {
+        bigint poblacion_sk PK
+        int fecha_sk FK
+        int municipio_sk FK
+        int perfil_demografico_sk FK
+        bigint poblacion_estimada
+    }
+```
+
+
+## Alcance y fuentes
+
+El esquema estudia mortalidad registrada y morbilidad hospitalaria de la cobertura seleccionada. Un egreso no identifica una persona única ni todos los casos de enfermedad del municipio. La precisión de alcance se documenta en [pivote.qmd](pivote.qmd).
+
+Fuentes y referencias utilizadas:
+
+- [INEGI: Estadísticas de Defunciones Registradas](https://www.inegi.org.mx/programas/edr/#datos_abiertos). La edición 2024 se revisó como ejemplo de estructura; no determina por sí sola todo el periodo del proyecto.
+- [INEGI: diccionario de EDR 2024](https://www.inegi.org.mx/rnm/index.php/catalog/1140/data-dictionary/F6?file_name=DEFUN24).
+- [DGIS: Egresos Hospitalarios](http://www.dgis.salud.gob.mx/contenidos/basesdedatos/da_egresoshosp_gobmx.html). Se utiliza la serie Secretaría de Salud, que incluye residencia habitual.
+- [DGIS: descriptor Secretaría de Salud 2023–2025](http://www.dgis.salud.gob.mx/descargas/datosabiertos/egresos/ssa_Descriptores_Bases_de_Datos_EGRESOS_2023_2025.xlsx?v=2026.06.05). Los nombres y catálogos se verifican también en las ediciones anteriores que se utilicen.
+- [CONAPO: copia alojada en el portal del Gobierno de Guanajuato](https://portalsocial.guanajuato.gob.mx/es/node/3565). CONAPO es el productor de los datos; el portal estatal es el repositorio de descarga.
+- [Descriptor de las bases de CONAPO 1990–2040](https://portalsocial.guanajuato.gob.mx/sites/default/files/documentos/2024_CONAPO_Descriptor_bases_datos_proyecciones_poblacion_municipios_1990_2040_0.xlsx).
+- [Archivo de población quinquenal de CONAPO](https://portalsocial.guanajuato.gob.mx/sites/default/files/documentos/2024_CONAPO_Proyecciones_poblacion_mitad_a%C3%B1o_edad_quinquenal_municipios_1990_2040.xlsx).
+- [Kimball Group: definición del grano y medidas consistentes](https://www.kimballgroup.com/2008/11/fact-tables/).
+- [Kimball Group: SCD tipo 0](https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/dimensional-modeling-techniques/type-0/), [tipo 1](https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/dimensional-modeling-techniques/type-1/) y [tipo 2](https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/dimensional-modeling-techniques/type-2/).
+- [Quarto: diagramas Mermaid](https://quarto.org/docs/authoring/diagrams.html).

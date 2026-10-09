@@ -24,6 +24,7 @@ book:
         - entregas/E1_arquitectura_dw/estrella.qmd
         - entregas/E1_arquitectura_dw/trazabilidad.qmd
         - entregas/E1_arquitectura_dw/uso_ia.qmd
+        - entregas/E1_arquitectura_dw/pivote.qmd
 
 format:
   html:

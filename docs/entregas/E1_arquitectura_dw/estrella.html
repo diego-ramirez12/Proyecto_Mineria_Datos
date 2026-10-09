@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Gúzman Ramírez Diego Arturo, Murillo Espinosa Gustavo Adrián, Vega Alonso Diego Hazael, Palacios Gónzalez Oscar">
 
-<title>estrella – Proyecto de Almacenes y Minería de Datos</title>
+<title>10&nbsp; Grano, Diagrama Mermaid y DDL – Proyecto de Almacenes y Minería de Datos</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -47,7 +48,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-e691986c73e77fdb47157f5b6f624231.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-195880404afd59f0005e11c15cb56991.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -75,6 +76,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="../../styles.css">
@@ -89,7 +93,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../entregas/E1_arquitectura_dw/fuentes.html">E1 - Arquitectura del DW</a></li><li class="breadcrumb-item"><a href="../../entregas/E1_arquitectura_dw/estrella.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">estrella.html</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../entregas/E1_arquitectura_dw/fuentes.html">E1 - Arquitectura del DW</a></li><li class="breadcrumb-item"><a href="../../entregas/E1_arquitectura_dw/estrella.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Grano, Diagrama Mermaid y DDL</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -191,7 +195,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../entregas/E1_arquitectura_dw/estrella.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">estrella.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Grano, Diagrama Mermaid y DDL</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -206,6 +210,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">uso_ia.html</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../entregas/E1_arquitectura_dw/pivote.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Precisión del alcance según las fuentes disponibles</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -213,17 +223,493 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#granos-candidatos" id="toc-granos-candidatos" class="nav-link active" data-scroll-target="#granos-candidatos"><span class="header-section-number">10.1</span> Granos candidatos</a>
+  <ul class="collapse">
+  <li><a href="#candidato-1-grano-municipal-anual" id="toc-candidato-1-grano-municipal-anual" class="nav-link" data-scroll-target="#candidato-1-grano-municipal-anual"><span class="header-section-number">10.1.1</span> Candidato 1: Grano municipal anual</a></li>
+  <li><a href="#candidato-2-grano-municipal-anual-con-características-demográficas" id="toc-candidato-2-grano-municipal-anual-con-características-demográficas" class="nav-link" data-scroll-target="#candidato-2-grano-municipal-anual-con-características-demográficas"><span class="header-section-number">10.1.2</span> Candidato 2: Grano municipal anual con características demográficas</a></li>
+  <li><a href="#candidato-3-grano-municipal-anual-por-causa-o-diagnóstico-y-características-demográficas" id="toc-candidato-3-grano-municipal-anual-por-causa-o-diagnóstico-y-características-demográficas" class="nav-link" data-scroll-target="#candidato-3-grano-municipal-anual-por-causa-o-diagnóstico-y-características-demográficas"><span class="header-section-number">10.1.3</span> Candidato 3: Grano municipal anual por causa o diagnóstico y características demográficas</a></li>
+  </ul></li>
+  <li><a href="#elección-y-justificación-del-grano-final" id="toc-elección-y-justificación-del-grano-final" class="nav-link" data-scroll-target="#elección-y-justificación-del-grano-final"><span class="header-section-number">10.2</span> Elección y justificación del grano final</a></li>
+  <li><a href="#tablas-de-hechos-y-métricas" id="toc-tablas-de-hechos-y-métricas" class="nav-link" data-scroll-target="#tablas-de-hechos-y-métricas"><span class="header-section-number">10.3</span> Tablas de hechos y métricas</a>
+  <ul class="collapse">
+  <li><a href="#fact_eventos_salud" id="toc-fact_eventos_salud" class="nav-link" data-scroll-target="#fact_eventos_salud"><span class="header-section-number">10.3.1</span> <code>fact_eventos_salud</code></a></li>
+  <li><a href="#fact_poblacion" id="toc-fact_poblacion" class="nav-link" data-scroll-target="#fact_poblacion"><span class="header-section-number">10.3.2</span> <code>fact_poblacion</code></a></li>
+  </ul></li>
+  <li><a href="#dmensiones-y-llaves-sustitutas" id="toc-dmensiones-y-llaves-sustitutas" class="nav-link" data-scroll-target="#dmensiones-y-llaves-sustitutas"><span class="header-section-number">10.4</span> Dmensiones y llaves sustitutas</a></li>
+  <li><a href="#tipo-de-scd-y-justificación" id="toc-tipo-de-scd-y-justificación" class="nav-link" data-scroll-target="#tipo-de-scd-y-justificación"><span class="header-section-number">10.5</span> Tipo de SCD y justificación</a></li>
+  <li><a href="#métricas-derivadas-y-reglas-de-integración" id="toc-métricas-derivadas-y-reglas-de-integración" class="nav-link" data-scroll-target="#métricas-derivadas-y-reglas-de-integración"><span class="header-section-number">10.6</span> Métricas derivadas y reglas de integración</a></li>
+  <li><a href="#diagrama-del-esquema" id="toc-diagrama-del-esquema" class="nav-link" data-scroll-target="#diagrama-del-esquema"><span class="header-section-number">10.7</span> Diagrama del esquema</a></li>
+  <li><a href="#alcance-y-fuentes" id="toc-alcance-y-fuentes" class="nav-link" data-scroll-target="#alcance-y-fuentes"><span class="header-section-number">10.8</span> Alcance y fuentes</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../entregas/E1_arquitectura_dw/fuentes.html">E1 - Arquitectura del DW</a></li><li class="breadcrumb-item"><a href="../../entregas/E1_arquitectura_dw/estrella.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">estrella.html</span></a></li></ol></nav></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../entregas/E1_arquitectura_dw/fuentes.html">E1 - Arquitectura del DW</a></li><li class="breadcrumb-item"><a href="../../entregas/E1_arquitectura_dw/estrella.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Grano, Diagrama Mermaid y DDL</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Grano, Diagrama Mermaid y DDL</span></h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Gúzman Ramírez Diego Arturo, Murillo Espinosa Gustavo Adrián, Vega Alonso Diego Hazael, Palacios Gónzalez Oscar </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
 
 
+</header>
 
+
+<section id="granos-candidatos" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="granos-candidatos"><span class="header-section-number">10.1</span> Granos candidatos</h2>
+<p>A partir de las fuentes seleccionadas —Estadísticas de Defunciones Registradas del INEGI, Egresos Hospitalarios de la Secretaría de Salud y población municipal de CONAPO— se proponen tres granos candidatos. Se utiliza el municipio de residencia habitual y un periodo anual, compatible con la población a mitad de año de CONAPO.</p>
+<section id="candidato-1-grano-municipal-anual" class="level3" data-number="10.1.1">
+<h3 data-number="10.1.1" class="anchored" data-anchor-id="candidato-1-grano-municipal-anual"><span class="header-section-number">10.1.1</span> Candidato 1: Grano municipal anual</h3>
+<p><strong>Definición:</strong> Una fila por municipio de residencia por año.</p>
+<p>Concentra los totales de defunciones, egresos hospitalarios registrados y población estimada. Las tres fuentes permiten identificar municipio y año.</p>
+<p><strong>Ventaja:</strong> Facilita comparar municipios, observar tendencias y calcular tasas generales.</p>
+<p><strong>Limitación:</strong> Pierde el detalle de las causas, los diagnósticos, el sexo y los grupos de edad.</p>
+</section>
+<section id="candidato-2-grano-municipal-anual-con-características-demográficas" class="level3" data-number="10.1.2">
+<h3 data-number="10.1.2" class="anchored" data-anchor-id="candidato-2-grano-municipal-anual-con-características-demográficas"><span class="header-section-number">10.1.2</span> Candidato 2: Grano municipal anual con características demográficas</h3>
+<p><strong>Definición:</strong> Una fila por combinación de municipio de residencia, sexo y grupo de edad por año.</p>
+<p>Organiza los eventos y la población según características demográficas. INEGI y DGIS contienen sexo y edad; CONAPO proporciona población por sexo y grupos de edad.</p>
+<p><strong>Ventaja:</strong> Permite calcular tasas específicas y comparar grupos demográficos.</p>
+<p><strong>Limitación:</strong> Reúne distintas causas y diagnósticos, por lo que no permite identificar los padecimientos predominantes en cada grupo.</p>
+</section>
+<section id="candidato-3-grano-municipal-anual-por-causa-o-diagnóstico-y-características-demográficas" class="level3" data-number="10.1.3">
+<h3 data-number="10.1.3" class="anchored" data-anchor-id="candidato-3-grano-municipal-anual-por-causa-o-diagnóstico-y-características-demográficas"><span class="header-section-number">10.1.3</span> Candidato 3: Grano municipal anual por causa o diagnóstico y características demográficas</h3>
+<p><strong>Definición:</strong> Una fila por combinación de municipio de residencia, tipo de evento, causa o diagnóstico, sexo y grupo de edad por año.</p>
+<p>El tipo de evento distingue las defunciones de los egresos hospitalarios. Se utiliza la causa básica de muerte de INEGI y la afección principal reseleccionada de DGIS.</p>
+<p><strong>Ventaja:</strong> Permite identificar causas y diagnósticos predominantes y comparar su distribución entre municipios, años y grupos demográficos.</p>
+<p><strong>Limitación:</strong> Requiere igualar categorías y conservar la diferencia entre causa de muerte y diagnóstico de hospitalización. La población mantiene su propio grano y no debe duplicarse al agregar distintas causas.</p>
+</section>
+</section>
+<section id="elección-y-justificación-del-grano-final" class="level2" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="elección-y-justificación-del-grano-final"><span class="header-section-number">10.2</span> Elección y justificación del grano final</h2>
+<p>Se selecciona el <strong>candidato 3</strong>, con dos decisiones de implementación: las causas y diagnósticos se agrupan en categorías CIE-10 de tres caracteres y las edades se organizan en intervalos de cinco años, según la clasificación de CONAPO.</p>
+<blockquote class="blockquote">
+<p>Una fila por combinación de municipio de residencia, tipo de evento, categoría CIE-10, sexo y grupo de edad por año</p>
+</blockquote>
+<p>Cada fila representa un <strong>conteo anual agregado</strong>, no una persona ni un registro individual de la fuente. El municipio se interpreta dentro de la versión territorial documentada que corresponde a la comparación.</p>
+<p>La elección se justifica por lo siguiente:</p>
+<ol type="1">
+<li><strong>Preguntas del proyecto:</strong> permite identificar causas y diagnósticos municipales (P1), calcular indicadores con la población correspondiente (P2) y explorar asociaciones con la estructura demográfica (P3).</li>
+<li><strong>Variables disponibles:</strong> INEGI y DGIS contienen residencia, causa o diagnóstico, sexo, edad y fecha del evento. CONAPO aporta el denominador municipal por sexo y edad.</li>
+<li><strong>Periodicidad común:</strong> los registros individuales se agregan por año para compararlos con la población a mitad de año. Se usa el año de ocurrencia de la defunción y el año de egreso hospitalario; el año de registro se conserva en el origen para trazabilidad.</li>
+<li><strong>Agregación posterior:</strong> este detalle permite obtener resúmenes generales por municipio o año sin perder la posibilidad de analizar causas y grupos demográficos.</li>
+</ol>
+<p>La categoría CIE-10 de tres caracteres permite una clasificación común. Los subtipos de cuatro caracteres se conservan en los datos de origen, pero no se distinguen en este primer esquema. El tipo de evento determina cómo debe interpretarse el código: una causa básica de muerte y una afección principal hospitalaria representan conceptos distintos.</p>
+<p>La población conserva un grano independiente:</p>
+<blockquote class="blockquote">
+<p>Una fila por combinación de municipio, sexo y grupo de edad por año.</p>
+</blockquote>
+</section>
+<section id="tablas-de-hechos-y-métricas" class="level2" data-number="10.3">
+<h2 data-number="10.3" class="anchored" data-anchor-id="tablas-de-hechos-y-métricas"><span class="header-section-number">10.3</span> Tablas de hechos y métricas</h2>
+<p>Se proponen <strong>dos tablas de hechos</strong>, que comparten las dimensiones de fecha, municipio y perfil demográfico. Las tablas de hechos no se conectan directamente entre sí.</p>
+<section id="fact_eventos_salud" class="level3" data-number="10.3.1">
+<h3 data-number="10.3.1" class="anchored" data-anchor-id="fact_eventos_salud"><span class="header-section-number">10.3.1</span> <code>fact_eventos_salud</code></h3>
+<p>Integra los conteos de defunciones de INEGI y de egresos de la <strong>serie Secretaría de Salud</strong> de DGIS. El origen se identifica mediante <code>dim_tipo_evento</code>.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Elemento</th>
+<th>Definición</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Grano</td>
+<td>Municipio de residencia, tipo de evento, categoría CIE-10, sexo y grupo de edad en intervalos de cinco años.</td>
+</tr>
+<tr class="even">
+<td>Llave de fila</td>
+<td><code>evento_salud_sk</code>, entero generado para identificar la fila agregada.</td>
+</tr>
+<tr class="odd">
+<td>Llaves foráneas</td>
+<td><code>fecha_sk</code>, <code>municipio_sk</code>, <code>causa_diagnostico_sk</code>, <code>perfil_demografico_sk</code>, <code>tipo_evento_sk</code>.</td>
+</tr>
+<tr class="even">
+<td>Unicidad</td>
+<td>La combinación de las cinco llaves foráneas no puede repetirse.</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Medida almacenada</th>
+<th>Definición y origen</th>
+<th>Aditividad</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>conteo_eventos</code></td>
+<td>Número de registros de la combinación. Cada defunción o egreso aporta una unidad.</td>
+<td>Aditiva por año y dimensiones, dentro del mismo tipo de evento. Sumar tipos produce un total de registros de distinta naturaleza, no una medida de enfermedad o personas.</td>
+</tr>
+<tr class="even">
+<td><code>dias_estancia_total</code></td>
+<td>Suma de <code>DIAS_ESTA</code> válidos en egresos. Los servicios de corta estancia con valor cero son válidos.</td>
+<td>Aditiva en egresos. <code>NULL</code> para defunciones o cuando no hay estancias válidas.</td>
+</tr>
+<tr class="odd">
+<td><code>egresos_estancia_valida</code></td>
+<td>Número de egresos con días de estancia válidos. Es el denominador del promedio de estancia.</td>
+<td>Aditiva en egresos; <code>NULL</code> para defunciones.</td>
+</tr>
+<tr class="even">
+<td><code>egresos_por_defuncion</code></td>
+<td>Número de egresos con <code>MOTEGRE = 5</code>, según el catálogo DGIS 2023–2025. Debe verificarse el catálogo de cada edición utilizada.</td>
+<td>Aditiva dentro de los egresos; <code>NULL</code> para defunciones de INEGI.</td>
+</tr>
+</tbody>
+</table>
+<p>Los egresos por defunción son un subconjunto de los egresos. No se suman a las defunciones de INEGI: las fuentes pueden representar el mismo fallecimiento y no se ha establecido un enlace individual entre registros.</p>
+<p>Se utiliza una sola causa básica por defunción y una sola afección principal por egreso. Las tablas de afecciones adicionales, procedimientos y productos de DGIS no se unen al conteo principal, porque sus relaciones de uno a muchos podrían multiplicarlo.</p>
+</section>
+<section id="fact_poblacion" class="level3" data-number="10.3.2">
+<h3 data-number="10.3.2" class="anchored" data-anchor-id="fact_poblacion"><span class="header-section-number">10.3.2</span> <code>fact_poblacion</code></h3>
+<p>Representa la población estimada a mitad de año de CONAPO por municipio, sexo y grupo de las edades que se organizan en intervalos de cinco años.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Elemento</th>
+<th>Definición</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Grano</td>
+<td>Municipio, sexo y grupo de edades por año.</td>
+</tr>
+<tr class="even">
+<td>Llave de fila</td>
+<td><code>poblacion_sk</code>, entero generado.</td>
+</tr>
+<tr class="odd">
+<td>Llaves foráneas</td>
+<td><code>fecha_sk</code>, <code>municipio_sk</code>, <code>perfil_demografico_sk</code>.</td>
+</tr>
+<tr class="even">
+<td>Unicidad</td>
+<td>La combinación de las tres llaves foráneas no puede repetirse.</td>
+</tr>
+<tr class="odd">
+<td>Medida</td>
+<td><code>poblacion_estimada</code>, tomada del archivo quinquenal de CONAPO.</td>
+</tr>
+<tr class="even">
+<td>Aditividad</td>
+<td><strong>Semiaditiva:</strong> se suma entre municipios territorialmente compatibles, sexos y grupos de edad mutuamente excluyentes, dentro del mismo año. No se suma entre años.</td>
+</tr>
+</tbody>
+</table>
+<p>Las columnas <code>POB_00_04</code>, <code>POB_05_09</code>, …, <code>POB_85_mm</code> se transforman en filas. <code>POB_TOTAL</code> se utiliza como control del total; no se carga como otro grupo de edad, pues duplicaría la población al sumar el detalle.</p>
+<p>Los indicadores de envejecimiento, dependencia y relación hombres-mujeres se calculan a partir de esta población. No se repiten indicadores municipales dentro de cada fila de sexo y edad. La edad mediana publicada por CONAPO queda como dato de referencia en el archivo de indicadores; no se reproduce como una medida exacta del esquema a partir de edades agrupadas.</p>
+</section>
+</section>
+<section id="dmensiones-y-llaves-sustitutas" class="level2" data-number="10.4">
+<h2 data-number="10.4" class="anchored" data-anchor-id="dmensiones-y-llaves-sustitutas"><span class="header-section-number">10.4</span> Dmensiones y llaves sustitutas</h2>
+<p>Se definen <strong>cinco dimensiones</strong>. Fecha, municipio y perfil demográfico son <strong>dimensiones conformadas</strong>: ambas tablas de hechos utilizan los mismos miembros, llaves y definiciones.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Dimensión</th>
+<th>Llave sustituta</th>
+<th>Identificación de negocio</th>
+<th>Atributos principales</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>dim_fecha</code></td>
+<td><code>fecha_sk</code></td>
+<td>Año.</td>
+<td><code>anio</code>, <code>inicio_periodo</code>, <code>fin_periodo</code>. Tiene una fila por año; no se inventan fechas diarias de eventos para representar agregados.</td>
+</tr>
+<tr class="even">
+<td><code>dim_municipio</code></td>
+<td><code>municipio_sk</code></td>
+<td>Clave de entidad de dos posiciones + clave de municipio de tres posiciones, junto con la versión territorial.</td>
+<td><code>cvegeo</code>, <code>clave_entidad</code>, <code>nombre_entidad</code>, <code>clave_municipio</code>, <code>nombre_municipio</code>, <code>version_territorial</code>, <code>vigencia_desde</code>, <code>vigencia_hasta</code>, <code>es_actual</code>.</td>
+</tr>
+<tr class="odd">
+<td><code>dim_causa_diagnostico</code></td>
+<td><code>causa_diagnostico_sk</code></td>
+<td>Categoría CIE-10 de tres caracteres dentro del catálogo de referencia.</td>
+<td><code>categoria_cie10</code>, <code>descripcion_categoria</code>, <code>capitulo_cie10</code>, <code>descripcion_capitulo</code>, <code>version_catalogo</code>.</td>
+</tr>
+<tr class="even">
+<td><code>dim_perfil_demografico</code></td>
+<td><code>perfil_demografico_sk</code></td>
+<td>Combinación de sexo normalizado y código de grupo de edad.</td>
+<td><code>sexo</code>, <code>codigo_grupo_edad</code>, <code>grupo_edad</code>, <code>edad_minima</code>, <code>edad_maxima</code>.</td>
+</tr>
+<tr class="odd">
+<td><code>dim_tipo_evento</code></td>
+<td><code>tipo_evento_sk</code></td>
+<td>Código de proceso: <code>DEFUNCION</code> o <code>EGRESO</code>.</td>
+<td><code>codigo_tipo</code>, <code>nombre_tipo</code>, <code>fuente</code>, <code>interpretacion_causa</code>.</td>
+</tr>
+</tbody>
+</table>
+<p>Sexo y grupo de edad se reúnen en una dimensión de perfil demográfico para conservar ambos desgloses sin superar el límite de cinco dimensiones. Los grupos son 0–4, 5–9, …, 80–84 y 85 años y más.</p>
+<p>Todas las llaves sustitutas son enteros generados, estables e independientes de las claves de las fuentes. Se reserva el valor <code>0</code> para un miembro desconocido. En la dimensión demográfica también se conservan combinaciones parcialmente conocidas, como sexo conocido con edad no especificada.</p>
+<p>Una llave de fila de hechos identifica un agregado, no a una persona. Las restricciones de unicidad sobre las llaves dimensionales evitan cargar dos veces la misma combinación. Una recarga del mismo periodo sustituye su agregado o lo actualiza con una regla reproducible; no lo añade de nuevo como otra observación.</p>
+</section>
+<section id="tipo-de-scd-y-justificación" class="level2" data-number="10.5">
+<h2 data-number="10.5" class="anchored" data-anchor-id="tipo-de-scd-y-justificación"><span class="header-section-number">10.5</span> Tipo de SCD y justificación</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Dimensión</th>
+<th>Tipo SCD elegido</th>
+<th>Justificación y tratamiento</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>dim_fecha</code></td>
+<td><strong>Tipo 0: conservar.</strong></td>
+<td>Los atributos del periodo anual no cambian. Se añaden nuevos años sin modificar los existentes.</td>
+</tr>
+<tr class="even">
+<td><code>dim_municipio</code></td>
+<td><strong>Tipo 2: nueva fila.</strong></td>
+<td>Conserva versiones ante cambios territoriales o denominaciones históricas documentadas. Cada versión obtiene una nueva <code>municipio_sk</code> y un intervalo de vigencia. Un municipio nuevo recibe su propio miembro.</td>
+</tr>
+<tr class="odd">
+<td><code>dim_causa_diagnostico</code></td>
+<td><strong>Tipo 1: sobrescribir correcciones.</strong></td>
+<td>El análisis utiliza un catálogo CIE-10 de referencia fijo. Se corrigen etiquetas sin conservar errores como versiones históricas. Un cambio real de significado o versión de clasificación no se trata como una corrección: exige una nueva correspondencia y revisión del modelo.</td>
+</tr>
+<tr class="even">
+<td><code>dim_perfil_demografico</code></td>
+<td><strong>Tipo 0: conservar.</strong></td>
+<td>La definición de sexo normalizado y los límites de cada grupo de edad permanecen fijos. Una nueva combinación se añade como miembro; no se alteran los límites de uno existente.</td>
+</tr>
+<tr class="odd">
+<td><code>dim_tipo_evento</code></td>
+<td><strong>Tipo 0: conservar.</strong></td>
+<td>Defunción y egreso tienen significados estables. Una corrección del diseño no debe cambiar el significado de eventos históricos.</td>
+</tr>
+</tbody>
+</table>
+<p>En el SCD tipo 2 se utilizan intervalos sin solapamiento, con <code>vigencia_desde</code> incluida y <code>vigencia_hasta</code> excluida. La fila vigente se señala mediante <code>es_actual</code>. Las vigencias se obtienen de documentación territorial, no de la fecha de descarga.</p>
+<p>La versión geográfica es parte de la identidad del municipio en los hechos. Se resuelve antes de agregar. Una diferencia de límites territoriales entre CONAPO y una fuente de eventos no se corrige únicamente agregando una nueva fila SCD: primero se necesita una correspondencia geográfica documentada. Cuando esta no exista, se conservan los conteos identificables, se marca la comparación como no disponible y no se calcula una tasa con un denominador de otro territorio.</p>
+<p>Cabe destacar que estas políticas que utilizamos siguen la distinción entre conservar atributos (tipo 0), actualizar una fila (tipo 1) y crear versiones (tipo 2), todas estas fueron obtenidas de <a href="https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/dimensional-modeling-techniques/">Kimball Group</a>.</p>
+</section>
+<section id="métricas-derivadas-y-reglas-de-integración" class="level2" data-number="10.6">
+<h2 data-number="10.6" class="anchored" data-anchor-id="métricas-derivadas-y-reglas-de-integración"><span class="header-section-number">10.6</span> Métricas derivadas y reglas de integración</h2>
+<p>Las tasas, los promedios y los índices son <strong>no aditivos</strong>. Se calculan después de agregar sus numeradores y denominadores al nivel solicitado.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Métrica derivada</th>
+<th>Cálculo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Tasa de defunciones registradas por causa</td>
+<td>Defunciones de INEGI de la causa y grupo seleccionado / población compatible a mitad de año × 100,000.</td>
+</tr>
+<tr class="even">
+<td>Tasa de egresos hospitalarios registrados</td>
+<td>Egresos de la serie Secretaría de Salud del diagnóstico y grupo seleccionado / población compatible a mitad de año × 100,000. No equivale a incidencia o prevalencia.</td>
+</tr>
+<tr class="odd">
+<td>Estancia promedio</td>
+<td>Suma de <code>dias_estancia_total</code> / suma de <code>egresos_estancia_valida</code>, filtrando egresos.</td>
+</tr>
+<tr class="even">
+<td>Proporción de egresos por defunción</td>
+<td>Suma de <code>egresos_por_defuncion</code> / suma de <code>conteo_eventos</code> de egresos × 100.</td>
+</tr>
+<tr class="odd">
+<td>Índice de envejecimiento de 65 años y más</td>
+<td>Población de 65 años y más / población de 0–14 años × 100.</td>
+</tr>
+<tr class="even">
+<td>Razón de dependencia demográfica</td>
+<td>(Población de 0–14 años + población de 65 años y más) / población de 15–64 años × 100.</td>
+</tr>
+<tr class="odd">
+<td>Relación hombres-mujeres</td>
+<td>Población de hombres / población de mujeres × 100.</td>
+</tr>
+</tbody>
+</table>
+<p>Se aplican las siguientes reglas:</p>
+<ol type="1">
+<li><strong>Territorio:</strong> se normalizan las claves como texto de cinco posiciones. <code>1001</code> se representa como <code>01001</code>. Se usan <code>ENT_RESID</code> + <code>MUN_RESID</code> en INEGI y <code>ENTIDAD</code> + <code>MUNIC</code> en DGIS. La CLUES identifica el hospital y no sustituye al municipio de residencia.</li>
+<li><strong>Edad y sexo:</strong> se interpretan con los catálogos propios de cada fuente. Los códigos de unidad de edad de INEGI y DGIS no se consideran equivalentes. Se obtiene edad en años cumplidos para clasificarla en el intervalo de cinco años.</li>
+<li><strong>Causa:</strong> se normaliza el código CIE-10 y se asigna su categoría de tres caracteres mediante un catálogo validado. Se conserva el código original para trazabilidad. Los valores no identificados se registran como desconocidos.</li>
+<li><strong>Denominadores:</strong> la población se consulta por municipio, año, sexo y edad compatibles. Para una tasa por causa se utiliza ese denominador una vez. Para un total de varias causas se agregan primero los eventos y después se consulta la población; no se suman denominadores repetidos por causa.</li>
+<li><strong>Faltantes:</strong> un denominador ausente o cero produce una tasa no disponible, no cero. Los registros con sexo o edad desconocidos se conservan; no reciben una población ficticia. Pueden contribuir a totales generales si municipio y año son válidos.</li>
+<li><strong>Cobertura:</strong> ausencia de registros no se interpreta automáticamente como cero eventos. Se verifica la cobertura del municipio, la edición y el periodo antes de completar combinaciones con cero.</li>
+<li><strong>Periodo:</strong> se seleccionan años completos y comunes a las fuentes. Los archivos INEGI se identifican por año de registro, pero el conteo propuesto usa ocurrencia. Deben documentarse las ediciones consultadas y el corte de registros disponibles para no presentar el último año como exhaustivo si faltan registros tardíos.</li>
+</ol>
+<p>No se suman tasas ni promedios de grupos. La población tampoco se suma entre años. La selección concreta del intervalo de estudio y las equivalencias territoriales se verifican al preparar los datos; no se fija un quinquenio sin comprobar su cobertura.</p>
+</section>
+<section id="diagrama-del-esquema" class="level2" data-number="10.7">
+<h2 data-number="10.7" class="anchored" data-anchor-id="diagrama-del-esquema"><span class="header-section-number">10.7</span> Diagrama del esquema</h2>
+<p>El diagrama contiene dos hechos y cinco dimensiones. Las relaciones indican que cada fila de hechos referencia un miembro de dimensión y cada miembro puede describir varias filas de hechos.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">erDiagram
+    direction TB
+
+    DIM_FECHA ||--o{ FACT_EVENTOS_SALUD : periodo
+    DIM_MUNICIPIO ||--o{ FACT_EVENTOS_SALUD : residencia
+    DIM_CAUSA_DIAGNOSTICO ||--o{ FACT_EVENTOS_SALUD : clasifica
+    DIM_PERFIL_DEMOGRAFICO ||--o{ FACT_EVENTOS_SALUD : caracteriza
+    DIM_TIPO_EVENTO ||--o{ FACT_EVENTOS_SALUD : distingue
+
+    DIM_FECHA ||--o{ FACT_POBLACION : periodo
+    DIM_MUNICIPIO ||--o{ FACT_POBLACION : territorio
+    DIM_PERFIL_DEMOGRAFICO ||--o{ FACT_POBLACION : caracteriza
+
+    DIM_FECHA {
+        int fecha_sk PK
+        int anio UK
+        date inicio_periodo
+        date fin_periodo
+    }
+
+    DIM_MUNICIPIO {
+        int municipio_sk PK
+        string cvegeo
+        string nombre_municipio
+        string nombre_entidad
+        string version_territorial
+        date vigencia_desde
+        date vigencia_hasta
+        boolean es_actual
+    }
+
+    DIM_CAUSA_DIAGNOSTICO {
+        int causa_diagnostico_sk PK
+        string categoria_cie10 UK
+        string descripcion_categoria
+        string capitulo_cie10
+        string version_catalogo
+    }
+
+    DIM_PERFIL_DEMOGRAFICO {
+        int perfil_demografico_sk PK
+        string sexo
+        string codigo_grupo_edad
+        string grupo_edad
+        int edad_minima
+        int edad_maxima
+    }
+
+    DIM_TIPO_EVENTO {
+        int tipo_evento_sk PK
+        string codigo_tipo UK
+        string nombre_tipo
+        string fuente
+        string interpretacion_causa
+    }
+
+    FACT_EVENTOS_SALUD {
+        bigint evento_salud_sk PK
+        int fecha_sk FK
+        int municipio_sk FK
+        int causa_diagnostico_sk FK
+        int perfil_demografico_sk FK
+        int tipo_evento_sk FK
+        bigint conteo_eventos
+        bigint dias_estancia_total
+        bigint egresos_estancia_valida
+        bigint egresos_por_defuncion
+    }
+
+    FACT_POBLACION {
+        bigint poblacion_sk PK
+        int fecha_sk FK
+        int municipio_sk FK
+        int perfil_demografico_sk FK
+        bigint poblacion_estimada
+    }
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="alcance-y-fuentes" class="level2" data-number="10.8">
+<h2 data-number="10.8" class="anchored" data-anchor-id="alcance-y-fuentes"><span class="header-section-number">10.8</span> Alcance y fuentes</h2>
+<p>El esquema estudia mortalidad registrada y morbilidad hospitalaria de la cobertura seleccionada. Un egreso no identifica una persona única ni todos los casos de enfermedad del municipio. La precisión de alcance se documenta en <a href="../../entregas/E1_arquitectura_dw/pivote.html">pivote.qmd</a>.</p>
+<p>Fuentes y referencias utilizadas:</p>
+<ul>
+<li><a href="https://www.inegi.org.mx/programas/edr/#datos_abiertos">INEGI: Estadísticas de Defunciones Registradas</a>. La edición 2024 se revisó como ejemplo de estructura; no determina por sí sola todo el periodo del proyecto.</li>
+<li><a href="https://www.inegi.org.mx/rnm/index.php/catalog/1140/data-dictionary/F6?file_name=DEFUN24">INEGI: diccionario de EDR 2024</a>.</li>
+<li><a href="http://www.dgis.salud.gob.mx/contenidos/basesdedatos/da_egresoshosp_gobmx.html">DGIS: Egresos Hospitalarios</a>. Se utiliza la serie Secretaría de Salud, que incluye residencia habitual.</li>
+<li><a href="http://www.dgis.salud.gob.mx/descargas/datosabiertos/egresos/ssa_Descriptores_Bases_de_Datos_EGRESOS_2023_2025.xlsx?v=2026.06.05">DGIS: descriptor Secretaría de Salud 2023–2025</a>. Los nombres y catálogos se verifican también en las ediciones anteriores que se utilicen.</li>
+<li><a href="https://portalsocial.guanajuato.gob.mx/es/node/3565">CONAPO: copia alojada en el portal del Gobierno de Guanajuato</a>. CONAPO es el productor de los datos; el portal estatal es el repositorio de descarga.</li>
+<li><a href="https://portalsocial.guanajuato.gob.mx/sites/default/files/documentos/2024_CONAPO_Descriptor_bases_datos_proyecciones_poblacion_municipios_1990_2040_0.xlsx">Descriptor de las bases de CONAPO 1990–2040</a>.</li>
+<li><a href="https://portalsocial.guanajuato.gob.mx/sites/default/files/documentos/2024_CONAPO_Proyecciones_poblacion_mitad_a%C3%B1o_edad_quinquenal_municipios_1990_2040.xlsx">Archivo de población quinquenal de CONAPO</a>.</li>
+<li><a href="https://www.kimballgroup.com/2008/11/fact-tables/">Kimball Group: definición del grano y medidas consistentes</a>.</li>
+<li><a href="https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/dimensional-modeling-techniques/type-0/">Kimball Group: SCD tipo 0</a>, <a href="https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/dimensional-modeling-techniques/type-1/">tipo 1</a> y <a href="https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/dimensional-modeling-techniques/type-2/">tipo 2</a>.</li>
+<li><a href="https://quarto.org/docs/authoring/diagrams.html">Quarto: diagramas Mermaid</a>.</li>
+</ul>
+
+
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

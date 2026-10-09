@@ -1,0 +1,58 @@
+---
+title: "Precisión del alcance según las fuentes disponibles"
+author: "Gúzman Ramírez Diego Arturo,
+Murillo Espinosa Gustavo Adrián,
+Vega Alonso Diego Hazael,
+Palacios Gónzalez Oscar"
+format:
+  html:
+    code-fold: true
+  pdf:
+    toc: true
+  docx: default
+---
+
+## Motivo de la precisión de alcance
+
+Las tres fuentes seleccionadas permiten analizar defunciones registradas, egresos hospitalarios de la Secretaría de Salud y población municipal estimada. No constituyen un registro de todas las enfermedades ni de todas las personas enfermas del municipio.
+
+Se conserva el propósito del proyecto de apoyar un diagnóstico municipal y se mantienen las preguntas priorizadas en E0. Se precisa su alcance operativo para que las respuestas correspondan a los datos disponibles.
+
+## Trazablidad con las preguntas de E0
+
+| Pregunta original | Alcance sustentado por las fuentes | Motivo |
+|---|---|---|
+| **P1. ¿Cuáles son las enfermedades y/o padecimientos a nivel municipal?** | Identificar las principales causas de defunción registrada y las afecciones principales de los egresos hospitalarios de la Secretaría de Salud por municipio de residencia. | Los datos describen eventos sanitarios; no proporcionan todos los casos de enfermedad ni una identificación longitudinal de personas. |
+| **P2. ¿Qué nos dicen los indicadores acerca de la población del municipio?** | Analizar tasas de defunciones y egresos registrados, estructura por sexo y edad, envejecimiento y dependencia demográfica. | CONAPO permite obtener denominadores y contexto demográfico. La natalidad general y la prevalencia municipal quedan fuera del alcance de estas tres fuentes. |
+| **P3. ¿Qué relación existe entre los indicadores y las enfermedades?** | Explorar asociaciones agregadas entre las tasas de eventos sanitarios y las características demográficas municipales en periodos y territorios compatibles. | Las fuentes permiten comparaciones agregadas; por sí solas no demuestran causalidad ni relaciones individuales entre personas. |
+
+Las precisiones de esta tabla se aplican a los resultados e interpretaciones del análisis.
+
+## Limitaciones identificadas y efecto en el diseño
+
+| Limitación | Consecuencia para el modelo |
+|---|---|
+| Una persona puede tener varios egresos y las fuentes no aportan una llave común de paciente validada. | Se cuentan eventos. No se presentan como pacientes únicos, prevalencia o incidencia municipal. |
+| Los egresos de la serie Secretaría de Salud no representan toda la atención de todas las instituciones. | Se identifica la cobertura en las tasas y comparaciones. No se mezclan con la serie sectorial ni se suman ambas series. |
+| Las defunciones de INEGI y los egresos por defunción pueden describir un mismo fallecimiento. | Se conservan como métricas distintas y no se suman como un total de muertes. |
+| La población es una estimación o proyección a mitad de año y tiene un grano distinto de los eventos por causa. | Se almacena en un segundo hecho. No se replica por cada enfermedad ni se suma entre años. |
+| Los indicadores municipales generales tienen un nivel distinto al de sexo y edad. | Se derivan los índices posibles a partir de población. No se repiten indicadores municipales en cada fila demográfica. La edad mediana original se conserva como referencia de la fuente. |
+| Los códigos municipales iguales no garantizan límites territoriales iguales entre ediciones. | Se requieren versiones y correspondencias geográficas documentadas. Un SCD tipo 2 conserva historia, pero no sustituye una igualacion territorial. Sin equivalencia no se calcula una tasa territorialmente incompatible. |
+| La edición INEGI corresponde al año de registro y puede contener defunciones ocurridas antes. | El modelo utiliza el año de ocurrencia y debe documentar las ediciones y el corte consultados. No se mezcla registro con ocurrencia para una misma comparación. |
+| La población dividida en grupos de 5 años no ofrece edad individual. | Se analizan grupos de edad comunes. No se distribuyen grandes grupos o edades desconocidas mediante valores inventados. |
+
+## Ajustes concretos
+
+1. Se define el resultado como un panorama de **mortalidad registrada y morbilidad hospitalaria registrada**, acompañado de contexto demográfico.
+2. Se utiliza una categoría CIE-10 de tres caracteres para clasificar los eventos; los subtipos originales quedan disponibles en los datos de origen, fuera del primer agregado analítico.
+3. Se utilizan dos tablas de hechos —eventos sanitarios y población— con dimensiones conformadas, cumpliendo el máximo de la rúbrica.
+4. Se seleccionan años completos y comunes una vez verificada la cobertura de los archivos. Los datos preliminares se identifican y no se comparan como si fueran años completos.
+5. Los resultados con denominadores ausentes, cero o territorialmente incompatibles se presentan como no disponibles. Se conserva el conteo de eventos cuando puede identificarse de forma válida.
+
+No se requiere una reestructuración general de E0. Se delimita qué puede responderse con las fuentes seleccionadas y se evita atribuirles información que no contienen. El esquema correspondiente se desarrolla en [estrella.qmd](estrella.qmd).
+
+## Fuentes
+
+- [INEGI: Estadísticas de Defunciones Registradas](https://www.inegi.org.mx/programas/edr/#datos_abiertos).
+- [DGIS: Egresos Hospitalarios, serie Secretaría de Salud](http://www.dgis.salud.gob.mx/contenidos/basesdedatos/da_egresoshosp_gobmx.html).
+- [CONAPO: copia del Gobierno de Guanajuato y descriptor de variables](https://portalsocial.guanajuato.gob.mx/es/node/3565).

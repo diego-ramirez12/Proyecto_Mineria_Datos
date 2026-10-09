@@ -8,7 +8,7 @@
 
 <meta name="author" content="Gúzman Ramírez Diego Arturo, Murillo Espinosa Gustavo Adrián, Vega Alonso Diego Hazael, Palacios Gónzalez Oscar">
 
-<title>6&nbsp; Riesgos y Supuestos – Proyecto de Almacenes y Minería de Datos</title>
+<title>13&nbsp; Precisión del alcance según las fuentes disponibles – Proyecto de Almacenes y Minería de Datos</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -37,8 +37,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../entregas/E0_comprension_negocio/uso_ia.html" rel="next">
-<link href="../../entregas/E0_comprension_negocio/preguntas.html" rel="prev">
+<link href="../../entregas/E1_arquitectura_dw/uso_ia.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -90,7 +89,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../entregas/E0_comprension_negocio/bitacora.html">E0 - Comprensión de negocio</a></li><li class="breadcrumb-item"><a href="../../entregas/E0_comprension_negocio/riesgos_supuestos.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Riesgos y Supuestos</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../entregas/E1_arquitectura_dw/fuentes.html">E1 - Arquitectura del DW</a></li><li class="breadcrumb-item"><a href="../../entregas/E1_arquitectura_dw/pivote.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Precisión del alcance según las fuentes disponibles</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -156,7 +155,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../entregas/E0_comprension_negocio/riesgos_supuestos.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../entregas/E0_comprension_negocio/riesgos_supuestos.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Riesgos y Supuestos</span></span></a>
   </div>
 </li>
@@ -209,7 +208,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../entregas/E1_arquitectura_dw/pivote.html" class="sidebar-item-text sidebar-link">
+  <a href="../../entregas/E1_arquitectura_dw/pivote.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Precisión del alcance según las fuentes disponibles</span></span></a>
   </div>
 </li>
@@ -225,25 +224,20 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#riesgos" id="toc-riesgos" class="nav-link active" data-scroll-target="#riesgos"><span class="header-section-number">6.1</span> Riesgos</a>
-  <ul class="collapse">
-  <li><a href="#heterogeneidad-y-calidad-de-la-información" id="toc-heterogeneidad-y-calidad-de-la-información" class="nav-link" data-scroll-target="#heterogeneidad-y-calidad-de-la-información"><span class="header-section-number">6.1.1</span> 1. Heterogeneidad y calidad de la información</a></li>
-  <li><a href="#agrupamientos-poco-representativos-en-el-análisis-de-clustering" id="toc-agrupamientos-poco-representativos-en-el-análisis-de-clustering" class="nav-link" data-scroll-target="#agrupamientos-poco-representativos-en-el-análisis-de-clustering"><span class="header-section-number">6.1.2</span> 2. Agrupamientos poco representativos en el análisis de clustering</a></li>
-  </ul></li>
-  <li><a href="#supuestos" id="toc-supuestos" class="nav-link" data-scroll-target="#supuestos"><span class="header-section-number">6.2</span> Supuestos</a>
-  <ul class="collapse">
-  <li><a href="#disponibilidad-y-cobertura-de-datos" id="toc-disponibilidad-y-cobertura-de-datos" class="nav-link" data-scroll-target="#disponibilidad-y-cobertura-de-datos"><span class="header-section-number">6.2.1</span> Disponibilidad y cobertura de datos</a></li>
-  <li><a href="#utilidad-para-el-usuario-objetivo" id="toc-utilidad-para-el-usuario-objetivo" class="nav-link" data-scroll-target="#utilidad-para-el-usuario-objetivo"><span class="header-section-number">6.2.2</span> Utilidad para el usuario objetivo</a></li>
-  </ul></li>
+  <li><a href="#motivo-de-la-precisión-de-alcance" id="toc-motivo-de-la-precisión-de-alcance" class="nav-link active" data-scroll-target="#motivo-de-la-precisión-de-alcance"><span class="header-section-number">13.1</span> Motivo de la precisión de alcance</a></li>
+  <li><a href="#trazablidad-con-las-preguntas-de-e0" id="toc-trazablidad-con-las-preguntas-de-e0" class="nav-link" data-scroll-target="#trazablidad-con-las-preguntas-de-e0"><span class="header-section-number">13.2</span> Trazablidad con las preguntas de E0</a></li>
+  <li><a href="#limitaciones-identificadas-y-efecto-en-el-diseño" id="toc-limitaciones-identificadas-y-efecto-en-el-diseño" class="nav-link" data-scroll-target="#limitaciones-identificadas-y-efecto-en-el-diseño"><span class="header-section-number">13.3</span> Limitaciones identificadas y efecto en el diseño</a></li>
+  <li><a href="#ajustes-concretos" id="toc-ajustes-concretos" class="nav-link" data-scroll-target="#ajustes-concretos"><span class="header-section-number">13.4</span> Ajustes concretos</a></li>
+  <li><a href="#fuentes" id="toc-fuentes" class="nav-link" data-scroll-target="#fuentes"><span class="header-section-number">13.5</span> Fuentes</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../entregas/E0_comprension_negocio/bitacora.html">E0 - Comprensión de negocio</a></li><li class="breadcrumb-item"><a href="../../entregas/E0_comprension_negocio/riesgos_supuestos.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Riesgos y Supuestos</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../entregas/E1_arquitectura_dw/fuentes.html">E1 - Arquitectura del DW</a></li><li class="breadcrumb-item"><a href="../../entregas/E1_arquitectura_dw/pivote.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Precisión del alcance según las fuentes disponibles</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Riesgos y Supuestos</span></h1>
+<h1 class="title"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Precisión del alcance según las fuentes disponibles</span></h1>
 </div>
 
 
@@ -266,33 +260,115 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="riesgos" class="level2" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="riesgos"><span class="header-section-number">6.1</span> Riesgos</h2>
-<section id="heterogeneidad-y-calidad-de-la-información" class="level3" data-number="6.1.1">
-<h3 data-number="6.1.1" class="anchored" data-anchor-id="heterogeneidad-y-calidad-de-la-información"><span class="header-section-number">6.1.1</span> 1. Heterogeneidad y calidad de la información</h3>
-<p>Las distintas instituciones pueden registrar, clasificar o reportar la información de salud bajo criterios diferentes. Además, pueden existir registros incompletos, inconsistentes o incorrectos, lo que podría introducir sesgos y generar distorsiones al comparar indicadores de salud entre distintas localidades.</p>
-<p><strong>Mitigación:</strong><br>
-Realizar un proceso previo de exploración, limpieza y estandarización de los datos, identificando valores faltantes, inconsistencias y diferencias entre las fuentes. También se documentará la cobertura y calidad de cada fuente antes de utilizarla en los análisis.</p>
+<section id="motivo-de-la-precisión-de-alcance" class="level2" data-number="13.1">
+<h2 data-number="13.1" class="anchored" data-anchor-id="motivo-de-la-precisión-de-alcance"><span class="header-section-number">13.1</span> Motivo de la precisión de alcance</h2>
+<p>Las tres fuentes seleccionadas permiten analizar defunciones registradas, egresos hospitalarios de la Secretaría de Salud y población municipal estimada. No constituyen un registro de todas las enfermedades ni de todas las personas enfermas del municipio.</p>
+<p>Se conserva el propósito del proyecto de apoyar un diagnóstico municipal y se mantienen las preguntas priorizadas en E0. Se precisa su alcance operativo para que las respuestas correspondan a los datos disponibles.</p>
 </section>
-<section id="agrupamientos-poco-representativos-en-el-análisis-de-clustering" class="level3" data-number="6.1.2">
-<h3 data-number="6.1.2" class="anchored" data-anchor-id="agrupamientos-poco-representativos-en-el-análisis-de-clustering"><span class="header-section-number">6.1.2</span> 2. Agrupamientos poco representativos en el análisis de clustering</h3>
-<p>Los resultados de los algoritmos de clustering pueden verse afectados por la escala de las variables, la presencia de valores atípicos, la selección de características, el número de clusters y las propias características del algoritmo utilizado. Esto podría producir agrupamientos de localidades que, aunque obtengan valores favorables en alguna métrica de evaluación, no representen correctamente similitudes reales en sus perfiles de salud.</p>
-<p><strong>Mitigación:</strong><br>
-Se normalizarán o estandarizarán las variables antes del agrupamiento y se compararán distintas configuraciones y, cuando sea necesario, diferentes algoritmos de clustering. La evaluación no dependerá de una única métrica, sino que se utilizarán indicadores como Silhouette, Davies-Bouldin y Calinski-Harabasz, complementados con la interpretación de los grupos obtenidos dentro del contexto de salud.</p>
+<section id="trazablidad-con-las-preguntas-de-e0" class="level2" data-number="13.2">
+<h2 data-number="13.2" class="anchored" data-anchor-id="trazablidad-con-las-preguntas-de-e0"><span class="header-section-number">13.2</span> Trazablidad con las preguntas de E0</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Pregunta original</th>
+<th>Alcance sustentado por las fuentes</th>
+<th>Motivo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>P1. ¿Cuáles son las enfermedades y/o padecimientos a nivel municipal?</strong></td>
+<td>Identificar las principales causas de defunción registrada y las afecciones principales de los egresos hospitalarios de la Secretaría de Salud por municipio de residencia.</td>
+<td>Los datos describen eventos sanitarios; no proporcionan todos los casos de enfermedad ni una identificación longitudinal de personas.</td>
+</tr>
+<tr class="even">
+<td><strong>P2. ¿Qué nos dicen los indicadores acerca de la población del municipio?</strong></td>
+<td>Analizar tasas de defunciones y egresos registrados, estructura por sexo y edad, envejecimiento y dependencia demográfica.</td>
+<td>CONAPO permite obtener denominadores y contexto demográfico. La natalidad general y la prevalencia municipal quedan fuera del alcance de estas tres fuentes.</td>
+</tr>
+<tr class="odd">
+<td><strong>P3. ¿Qué relación existe entre los indicadores y las enfermedades?</strong></td>
+<td>Explorar asociaciones agregadas entre las tasas de eventos sanitarios y las características demográficas municipales en periodos y territorios compatibles.</td>
+<td>Las fuentes permiten comparaciones agregadas; por sí solas no demuestran causalidad ni relaciones individuales entre personas.</td>
+</tr>
+</tbody>
+</table>
+<p>Las precisiones de esta tabla se aplican a los resultados e interpretaciones del análisis.</p>
 </section>
+<section id="limitaciones-identificadas-y-efecto-en-el-diseño" class="level2" data-number="13.3">
+<h2 data-number="13.3" class="anchored" data-anchor-id="limitaciones-identificadas-y-efecto-en-el-diseño"><span class="header-section-number">13.3</span> Limitaciones identificadas y efecto en el diseño</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Limitación</th>
+<th>Consecuencia para el modelo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Una persona puede tener varios egresos y las fuentes no aportan una llave común de paciente validada.</td>
+<td>Se cuentan eventos. No se presentan como pacientes únicos, prevalencia o incidencia municipal.</td>
+</tr>
+<tr class="even">
+<td>Los egresos de la serie Secretaría de Salud no representan toda la atención de todas las instituciones.</td>
+<td>Se identifica la cobertura en las tasas y comparaciones. No se mezclan con la serie sectorial ni se suman ambas series.</td>
+</tr>
+<tr class="odd">
+<td>Las defunciones de INEGI y los egresos por defunción pueden describir un mismo fallecimiento.</td>
+<td>Se conservan como métricas distintas y no se suman como un total de muertes.</td>
+</tr>
+<tr class="even">
+<td>La población es una estimación o proyección a mitad de año y tiene un grano distinto de los eventos por causa.</td>
+<td>Se almacena en un segundo hecho. No se replica por cada enfermedad ni se suma entre años.</td>
+</tr>
+<tr class="odd">
+<td>Los indicadores municipales generales tienen un nivel distinto al de sexo y edad.</td>
+<td>Se derivan los índices posibles a partir de población. No se repiten indicadores municipales en cada fila demográfica. La edad mediana original se conserva como referencia de la fuente.</td>
+</tr>
+<tr class="even">
+<td>Los códigos municipales iguales no garantizan límites territoriales iguales entre ediciones.</td>
+<td>Se requieren versiones y correspondencias geográficas documentadas. Un SCD tipo 2 conserva historia, pero no sustituye una igualacion territorial. Sin equivalencia no se calcula una tasa territorialmente incompatible.</td>
+</tr>
+<tr class="odd">
+<td>La edición INEGI corresponde al año de registro y puede contener defunciones ocurridas antes.</td>
+<td>El modelo utiliza el año de ocurrencia y debe documentar las ediciones y el corte consultados. No se mezcla registro con ocurrencia para una misma comparación.</td>
+</tr>
+<tr class="even">
+<td>La población dividida en grupos de 5 años no ofrece edad individual.</td>
+<td>Se analizan grupos de edad comunes. No se distribuyen grandes grupos o edades desconocidas mediante valores inventados.</td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="supuestos" class="level2" data-number="6.2">
-<h2 data-number="6.2" class="anchored" data-anchor-id="supuestos"><span class="header-section-number">6.2</span> Supuestos</h2>
-<section id="disponibilidad-y-cobertura-de-datos" class="level3" data-number="6.2.1">
-<h3 data-number="6.2.1" class="anchored" data-anchor-id="disponibilidad-y-cobertura-de-datos"><span class="header-section-number">6.2.1</span> Disponibilidad y cobertura de datos</h3>
-<p>Se asume que existirán bases de datos oficiales y accesibles con suficiente cobertura geográfica, temporal y epidemiológica para construir indicadores de morbilidad, mortalidad y evolución histórica de las localidades analizadas.</p>
+<section id="ajustes-concretos" class="level2" data-number="13.4">
+<h2 data-number="13.4" class="anchored" data-anchor-id="ajustes-concretos"><span class="header-section-number">13.4</span> Ajustes concretos</h2>
+<ol type="1">
+<li>Se define el resultado como un panorama de <strong>mortalidad registrada y morbilidad hospitalaria registrada</strong>, acompañado de contexto demográfico.</li>
+<li>Se utiliza una categoría CIE-10 de tres caracteres para clasificar los eventos; los subtipos originales quedan disponibles en los datos de origen, fuera del primer agregado analítico.</li>
+<li>Se utilizan dos tablas de hechos —eventos sanitarios y población— con dimensiones conformadas, cumpliendo el máximo de la rúbrica.</li>
+<li>Se seleccionan años completos y comunes una vez verificada la cobertura de los archivos. Los datos preliminares se identifican y no se comparan como si fueran años completos.</li>
+<li>Los resultados con denominadores ausentes, cero o territorialmente incompatibles se presentan como no disponibles. Se conserva el conteo de eventos cuando puede identificarse de forma válida.</li>
+</ol>
+<p>No se requiere una reestructuración general de E0. Se delimita qué puede responderse con las fuentes seleccionadas y se evita atribuirles información que no contienen. El esquema correspondiente se desarrolla en <a href="../../entregas/E1_arquitectura_dw/estrella.html">estrella.qmd</a>.</p>
 </section>
-<section id="utilidad-para-el-usuario-objetivo" class="level3" data-number="6.2.2">
-<h3 data-number="6.2.2" class="anchored" data-anchor-id="utilidad-para-el-usuario-objetivo"><span class="header-section-number">6.2.2</span> Utilidad para el usuario objetivo</h3>
-<p>Los médicos y estudiantes de servicio social encontrarán útil un panorama epidemiológico integrado como apoyo para contextualizar las necesidades de salud de la población, sin sustituir el diagnóstico clínico individual.</p>
+<section id="fuentes" class="level2" data-number="13.5">
+<h2 data-number="13.5" class="anchored" data-anchor-id="fuentes"><span class="header-section-number">13.5</span> Fuentes</h2>
+<ul>
+<li><a href="https://www.inegi.org.mx/programas/edr/#datos_abiertos">INEGI: Estadísticas de Defunciones Registradas</a>.</li>
+<li><a href="http://www.dgis.salud.gob.mx/contenidos/basesdedatos/da_egresoshosp_gobmx.html">DGIS: Egresos Hospitalarios, serie Secretaría de Salud</a>.</li>
+<li><a href="https://portalsocial.guanajuato.gob.mx/es/node/3565">CONAPO: copia del Gobierno de Guanajuato y descriptor de variables</a>.</li>
+</ul>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -698,14 +774,11 @@ Se normalizarán o estandarizarán las variables antes del agrupamiento y se com
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../entregas/E0_comprension_negocio/preguntas.html" class="pagination-link" aria-label="Preguntas priorizadas">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Preguntas priorizadas</span></span>
+      <a href="../../entregas/E1_arquitectura_dw/uso_ia.html" class="pagination-link" aria-label="uso_ia.html">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">uso_ia.html</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../entregas/E0_comprension_negocio/uso_ia.html" class="pagination-link" aria-label="Uso de IA">
-        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Uso de IA</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
