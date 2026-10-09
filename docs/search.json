@@ -360,5 +360,126 @@
       "E1 - Arquitectura del DW",
       "<span class='chapter-number'>13</span>  <span class='chapter-title'>Precisión del alcance según las fuentes disponibles</span>"
     ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/fuentes.html",
+    "href": "entregas/E1_arquitectura_dw/fuentes.html",
+    "title": "8  Fuentes de datos e integración",
+    "section": "",
+    "text": "9 Preguntas de investigación de E0\nPara esta entrega se asignaron identificadores a las preguntas de investigación priorizadas en E0, con el fin de mantener la trazabilidad entre las preguntas, las fuentes de datos y el diseño posterior del almacén de datos.\nP1 = ¿Cuáles son las enfermedades y/o padecimientos a nivel municipal?\nLa respuesta a ésta pregunta evidentemente vendrá acompañada de estadísticas para que el usuario final, que se espera que posee formación médica, pueda sacar sus conclusiones con base a la información que se le proporcione.\nP2 = ¿Qué nos dicen los indicadores acerca de la población del municipio?\nLos índices de: mortalidad, morbilidad, natalidad, entre otros; son bastante útiles para que el usuario pueda darse una idea acerca del contexto en el que vive la población de su municipio su día a día.\nP3 = ¿Qué relación existe entre los indicadores y las enfermedades?\nTanto en la medicina como en la ciencia de datos el objetivo principal es buscar patrones y/o relaciones con base a la información que tengamos, por lo tanto, se busca que el usuario pueda obetener la información de una manera sencilla y eficaz para que, como menciona la Dra. Durán, pueda hacer un “pequeño diagnóstico” de la población.",
+    "crumbs": [
+      "E1 - Arquitectura del DW",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Fuentes de datos e integración</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/fuentes.html#herramientas-y-portales-utilizados",
+    "href": "entregas/E1_arquitectura_dw/fuentes.html#herramientas-y-portales-utilizados",
+    "title": "8  Fuentes de datos e integración",
+    "section": "12.1 Herramientas y portales utilizados",
+    "text": "12.1 Herramientas y portales utilizados\n\nChatGPT\nINEGI\nCONAPO\nDatos Abiertos de la Direccion General de Informacion en Salud\nSecretaria de Salud",
+    "crumbs": [
+      "E1 - Arquitectura del DW",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Fuentes de datos e integración</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/fuentes.html#f1.-egresos-hospitalarios",
+    "href": "entregas/E1_arquitectura_dw/fuentes.html#f1.-egresos-hospitalarios",
+    "title": "8  Fuentes de datos e integración",
+    "section": "16.1 F1. Egresos Hospitalarios",
+    "text": "16.1 F1. Egresos Hospitalarios\n\n\n\n\n\n\n\nCampo\nInformación\n\n\n\n\nNombre y dueño\nEgresos Hospitalarios de la Secretaría de Salud. Dirección General de Información en Salud\n\n\nURL y acceso\nPágina de bases de datos de la DGIS. Descarga de bases de egresos hospitalarios. (http://www.dgis.salud.gob.mx/contenidos/basesdedatos/da_egresoshosp_gobmx.html)\n\n\nFormato y tamaño\nBases de datos distribuidas por año. Dependiendo del periodo existen archivos CSV y paquetes ZIP, acompañados por catálogos y descriptores de campos. El tamaño varía según el año.\n\n\nGrano\nUna fila por egreso hospitalario de un paciente. Cada registro representa un evento de egreso e incluye variables del paciente, atención, diagnóstico y lugar\n\n\nCobertura\nCobertura nacional de unidades médicas hospitalarias de la Secretaría de Salud. Abarca 2010–2026, hasta 2025 completo y 2026 con informacion preliminar.\n\n\nLicencia y restricciones\nInformación pública disponible como datos abiertos.\n\n\nLlaves de integración\nEntidad de residencia + municipio de residencia + año. Adicionalmente, CLUES permite identificar la unidad médica y el Diag_Ini/CIE permite relacionar padecimientos con catalogos de enfermedades\n\n\nPregunta(s) de E0\nP1 — Si. Permite identificar qué padecimientos aparecen con mayor frecuencia como afección principal de los egresos hospitalarios por municipio; debe aclararse que representa morbilidad hospitalaria, no todos los enfermos de la población. P2 — Parcial. Permite obtener indicadores como numero de egresos, días de estancia o características de los pacientes, pero por sí sola no describe a toda la población municipal ni proporciona el denominador poblacional necesario para calcular tasas. P3 — Sí. Los egresos y diagnósticos pueden relacionarse con edad, sexo y otros datos del evento y, mediante municipio y año, combinarse con población o mortalidad de otras fuentes para analizar la relación entre enfermedades e indicadores.\n\n\n\n\n16.1.1 Evidencia de verificación\nPágina oficial de la fuente:\n\nVista previa o apertura de los datos:\n\nDescriptor de los datos:",
+    "crumbs": [
+      "E1 - Arquitectura del DW",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Fuentes de datos e integración</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/fuentes.html#f2.-estadísticas-de-defunciones-registradas",
+    "href": "entregas/E1_arquitectura_dw/fuentes.html#f2.-estadísticas-de-defunciones-registradas",
+    "title": "8  Fuentes de datos e integración",
+    "section": "16.2 F2. Estadísticas de Defunciones Registradas",
+    "text": "16.2 F2. Estadísticas de Defunciones Registradas\n\n\n\n\n\n\n\nCampo\nInformación\n\n\n\n\nNombre y dueño\nEstadísticas de Defunciones Registradas (EDR). Instituto Nacional de Estadística y Geografía (INEGI)\n\n\nURL y acceso\nConsulta y descarga de datos abiertos, metadatos, catálogos y documentación desde INEGI. (https://www.inegi.org.mx/programas/edr/#datos_abiertos)\n\n\nFormato y tamaño\nArchivos CSV descargables por año que contienen los registros de las defunciones y se acompañan de un diccionario de datos y catálogos que permiten interpretar los códigos utilizados. El tamaño del archivo tambien cambia segun el año\n\n\nGrano\nUna fila por defunción registrada.\n\n\nCobertura\nCobertura nacional, con información anual (2012-2024) y desglose geográfico que permite identificar la entidad y municipio relacionados con la defunción.\n\n\nLicencia y restricciones\nSujeta a los Términos de Libre Uso de la Información del INEGI. Puede copiarse, difundirse, adaptarse y extraerse siempre que se otorgue el crédito correspondiente a INEGI.\n\n\nLlaves de integración\nPara este proyecto se propone utilizar ENT_RESID,MUN_RESID y ANIO_OCUR. La variable CAUSA_DEF proporciona la causa básica de defunción\n\n\nPregunta(s) de E0\nP1 — Sí. Permite identificar qué enfermedades, padecimientos o causas de muerte tienen mayor presencia entre las defunciones de residentes de un municipio mediante CAUSA_DEF y CIE-10. Mide enfermedades asociadas a mortalidad. P2 — Sí. La mortalidad es uno de los indicadores de salud planteados en el proyecto; permite obtener número de defunciones P3 — Sí. Permite relacionar las causas de muerte con edad, sexo, municipio y otras características, además de integrarse con CONAPO para estudiar tasas de mortalidad y compararlas con los padecimientos observados en egresos hospitalarios.\n\n\n\n\n16.2.1 Evidencia de verificación\nPágina oficial de la fuente:\n\nVista previa o apertura de los datos:\n\nDiccionario de los datos:",
+    "crumbs": [
+      "E1 - Arquitectura del DW",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Fuentes de datos e integración</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/fuentes.html#f4.-reconstrucción-y-proyecciones-de-la-población-de-los-municipios-de-méxico-19902040",
+    "href": "entregas/E1_arquitectura_dw/fuentes.html#f4.-reconstrucción-y-proyecciones-de-la-población-de-los-municipios-de-méxico-19902040",
+    "title": "8  Fuentes de datos e integración",
+    "section": "16.3 F4. Reconstrucción y proyecciones de la población de los municipios de México 1990–2040",
+    "text": "16.3 F4. Reconstrucción y proyecciones de la población de los municipios de México 1990–2040\n\n\n\n\n\n\n\nCampo\nInformación\n\n\n\n\nNombre y dueño\nReconstrucción y proyecciones de la población de los municipios de México 1990–2040. Consejo Nacional de Población (CONAPO).\n\n\nURL y acceso\nLa documentación oficial se encuentra en CONAPO, pero por errores en la pagina oficial se encuentra una copia en la pagina del Gobierno de Guanajuato. (https://portalsocial.guanajuato.gob.mx/es/node/3565)\n\n\nFormato y tamaño\nArchivos de Excel (XLSX). CONAPO organiza las bases en archivos de población por sexo y grupos quinquenales de edad, grandes grupos de edad, indicadores demograficos y diccionario de datos. Tiene aprox mas de 250,000 registros\n\n\nGrano\nUna fila por municipio, año y sexo. Los distintos grupos quinquenales de edad se representan mediante columnas separadas dentro de cada registro\n\n\nCobertura\n2,475 municipios desde 1990 hasta 2040. Los valores de 1990–2020 corresponden a una reconstrucción demografica; 2021–2040 son proyecciones. Incluye sexo, edad y diversos indicadores demograficos.\n\n\nLicencia y restricciones\nPide citar a SGCONAPO en caso de usar la informacion\n\n\nLlaves de integración\nClave de entidad, clave de municipio y año. Para análisis por sexo puede añadirse la categoría de sexo\n\n\nPregunta(s) de E0\nP1 — No. La fuente no contiene enfermedades, diagnósticos ni casos de padecimientos, por lo que por sí sola no puede determinar cuales enfermedades predominan. P2 — Sí. Es una de las fuentes más importantes para esta pregunta porque proporciona población municipal, distribución por sexo y edad e indicadores demograficos que describen la estructura de la población. P3 — Sí. Permite contextualizar los casos, egresos y defunciones según el tamaño y composición poblacional. Al integrarla con las otras fuentes se pueden calcular tasas de egresos o mortalidad por cada 100,000 habitantes y analizar cómo se relacionan las enfermedades con las características demograficas del municipio.\n\n\n\n\n16.3.1 Evidencia de verificación\nPágina oficial de la fuente:\n\nPágina con copia de los datos que funciona del gobierno de Guanajuato:\n\nVista previa o apertura de los datos:\n\nDatos por edad quinquenal:",
+    "crumbs": [
+      "E1 - Arquitectura del DW",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Fuentes de datos e integración</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/fuentes.html#integración-geografica",
+    "href": "entregas/E1_arquitectura_dw/fuentes.html#integración-geografica",
+    "title": "8  Fuentes de datos e integración",
+    "section": "18.1 Integración geografica",
+    "text": "18.1 Integración geografica\nLas tres fuentes permiten identificar el municipio al que pertenece la información, por lo que la principal llave de integración geográfica será una clave de municipio, construida a partir de la clave de entidad y la clave municipal.\nEn F1, Egresos Hospitalarios, se dispone de información correspondiente a la entidad (Entidad) y municipio (Munic) asociados al egreso. En F2 se utilizarán principalmente ENT_RESID y MUN_RESID, debido a que representan la entidad y municipio de residencia habitual de la persona fallecida. En F4 se dispone de la clave geográfica correspondiente al municipio y la clave_ent a entidad.\nPara integrar las fuentes se propone generar una clave municipal común con el formato:\nclave_entidad + clave_municipio\nDe esta manera, los registros de las diferentes fuentes podrán relacionarse con una misma dimensión geografica.",
+    "crumbs": [
+      "E1 - Arquitectura del DW",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Fuentes de datos e integración</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/fuentes.html#integración-temporal",
+    "href": "entregas/E1_arquitectura_dw/fuentes.html#integración-temporal",
+    "title": "8  Fuentes de datos e integración",
+    "section": "18.2 Integración temporal",
+    "text": "18.2 Integración temporal\nEl segundo componente de integración será el año.\nF1 contiene las fechas relacionadas con los eventos hospitalarios (Ingreso y Egreso), F2 contiene el dia, mes y año de ocurrencia de la defunción (en variables distintas) y F4 contiene directamente el año de la estimación o proyección poblacional.\nDebido a que las fuentes no necesariamente cubren exactamente los mismos periodos, los análisis que involucren las tres deberán limitarse a los años para los cuales exista información compatible en todas las fuentes utilizadas.",
+    "crumbs": [
+      "E1 - Arquitectura del DW",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Fuentes de datos e integración</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/fuentes.html#diferencias-de-granularidad",
+    "href": "entregas/E1_arquitectura_dw/fuentes.html#diferencias-de-granularidad",
+    "title": "8  Fuentes de datos e integración",
+    "section": "18.3 Diferencias de granularidad",
+    "text": "18.3 Diferencias de granularidad\nLas fuentes seleccionadas no tienen el mismo nivel de granularidad:\n\nF1 tiene una fila por evento de egreso hospitalario.\nF2 tiene una fila por defunción registrada.\nF4 tiene una fila por municipio, año y sexo.\n\nPor lo tanto F1 y F2 se tienen que poner por municipio y año, para poderlo relacionar con la poblacion correspondiente de F4.",
+    "crumbs": [
+      "E1 - Arquitectura del DW",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Fuentes de datos e integración</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/fuentes.html#construcción-de-indicadores",
+    "href": "entregas/E1_arquitectura_dw/fuentes.html#construcción-de-indicadores",
+    "title": "8  Fuentes de datos e integración",
+    "section": "18.4 Construcción de indicadores",
+    "text": "18.4 Construcción de indicadores\nLa integración con F4 permitirá transformar algunos conteos absolutos en indicadores comparables entre municipios.\nPor ejemplo, para los egresos hospitalarios podrá calcularse:\n\\[\n\\text{Tasa de egresos hospitalarios} =\n\\frac{\\text{Número de egresos hospitalarios de un municipio}}\n{\\text{Población del municipio}}\n\\times 100000\n\\]\nNos da la cantidad de egresos hospotalarios por cada 100,000 habitantes, esto para tener una comparativa entre municipios teniendo en cuenta la gente que lo habita.\nEste indicador da egresos, no personas enfermas, ya que una persona puede tener diferentes egresos.\nDe esta manera tambien podemos tomar indicadores sobre enfermedades en los municipios.\nPor ejemplo:\n\\[\n\\text{Tasa egresos con enfermedad x} =\n\\frac{\\text{Número de egresos hospitalariosde un municipio con enfermedad x}}\n{\\text{Población del municipio}}\n\\times 100000\n\\]\nTambien se puede tomar para las defunciones con algo como:\n\\[\n\\text{Tasa de mortalidad} =\n\\frac{\\text{Número de defunciones en el municipio}}\n{\\text{Población del municipio}}\n\\times 100000\n\\]\nNos da la cantidad de defunciones por cada 100,000 habitantes, esto para tener una comparativa entre municipios teniendo en cuenta la gente que lo habita.\nEsto permitirá realizar comparaciones entre municipios con diferentes tamaños de población.",
+    "crumbs": [
+      "E1 - Arquitectura del DW",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Fuentes de datos e integración</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/fuentes.html#problemas-de-integración-anticipados",
+    "href": "entregas/E1_arquitectura_dw/fuentes.html#problemas-de-integración-anticipados",
+    "title": "8  Fuentes de datos e integración",
+    "section": "18.5 Problemas de integración anticipados",
+    "text": "18.5 Problemas de integración anticipados\nDurante la integración de las fuentes se anticipan los siguientes problemas:\n\nDiferencias en las claves geográficas: Las claves de entidad y municipio pueden presentarse separadas, combinadas o con distintos tipos de dato. Será necesario homologarlas.\nDiferencias en la codificación del sexo: F1 y F2 tienen la categoria de sexo por numero y F4 lo representa como hombres y mujeres, por lo que sera necesario homologar esta categoria\nDiferencias en la representación de la edad: F1 y F2 pueden contener la edad de cada registro, mientras que F4 almacena la población en grupos quinquenales de edad. Si se realizan analisis por edad, sera necesario transformar las edades individuales a los mismos grupos utilizados por CONAPO.\nNo juntar egresos y defunciones: En F1 y F2 se usa el CIE-10, que es una estandarizacion para asignar codigos a problemas en la salud, para asignarlos en la causa del egreso o causa de la defuncion, pero estos se deben analizar por separado ya que aunque se especifiquen tambien defunciones en F1, son distintas a las de F2 y podria servir el usar ambas pero en distntos fines.\nDiferencia en egresos y enfermedades. En F1 no se debe tomar como que un egreso significa una persona enferma distinta, ya que puede que una misma persona tenga distintos egresos con una misma enfermedad o distintas enfermedades. Aparte de que no toda la gente enferma va a los hopsitales, por lo que no podemos concluir que sus datos nos dan cantidad de gente con cierta enfermedad, si no cantidad de egresos con dicha enfermedad.",
+    "crumbs": [
+      "E1 - Arquitectura del DW",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Fuentes de datos e integración</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/uso_ia.html",
+    "href": "entregas/E1_arquitectura_dw/uso_ia.html",
+    "title": "12  Registro de las consultas a IA",
+    "section": "",
+    "text": "12.0.1 Búsqueda de fuentes oficiales de datos de salud\nHerramienta utilizada: ChatGPT (OpenAI)\nTarea:\nBúsqueda inicial de fuentes candidatas oficiales relacionadas con enfermedades e indicadores de salud en México que contaran con información a nivel municipal, con el objetivo de identificar posibles fuentes para el Data Warehouse.\nPrompt utilizado:\n\n“Busca 8 fuentes oficiales de información sobre enfermedades e índices de salud como morbilidad, mortalidad y otros, que tengan granularidad municipal en México.”\n\nResultado obtenido:\nLa herramienta propuso distintas fuentes institucionales de organismos como la Secretaría de Salud, INEGI y CONAPO, incluyendo fuentes relacionadas con egresos hospitalarios, defunciones, enfermedades crónicas y población municipal.\nRevisión y validación de la salida:\nLas fuentes propuestas por la herramienta se utilizaron únicamente como punto de partida para la búsqueda. Posteriormente se accedió a los portales oficiales de las instituciones responsables para comprobar que las fuentes existieran y que los datos estuvieran realmente disponibles. Tambien se revisaron sus archivos, vistas previas y/o diccionarios de datos para verificar su granularidad geografica, cobertura, variables disponibles y utilidad respecto a las preguntas de investigación.\nA partir de esta revisión se construyó una lista de fuentes candidatas. Las fuentes que no cumplieran con los criterios para ser una fuente candidatas se descartaron y se tomaron tambien fuentes que no sugirio la IA.",
+    "crumbs": [
+      "E1 - Arquitectura del DW",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Registro de las consultas a IA</span>"
+    ]
   }
 ]

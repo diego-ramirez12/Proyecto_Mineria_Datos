@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Gúzman Ramírez Diego Arturo, Murillo Espinosa Gustavo Adrián, Vega Alonso Diego Hazael, Palacios Gónzalez Oscar">
 
-<title>fuentes – Proyecto de Almacenes y Minería de Datos</title>
+<title>8&nbsp; Fuentes de datos e integración – Proyecto de Almacenes y Minería de Datos</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -47,7 +48,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-195880404afd59f0005e11c15cb56991.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-e691986c73e77fdb47157f5b6f624231.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -76,6 +77,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -89,7 +119,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../entregas/E1_arquitectura_dw/fuentes.html">E1 - Arquitectura del DW</a></li><li class="breadcrumb-item"><a href="../../entregas/E1_arquitectura_dw/fuentes.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">fuentes.html</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../entregas/E1_arquitectura_dw/fuentes.html">E1 - Arquitectura del DW</a></li><li class="breadcrumb-item"><a href="../../entregas/E1_arquitectura_dw/fuentes.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Fuentes de datos e integración</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -179,7 +209,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../entregas/E1_arquitectura_dw/fuentes.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">fuentes.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Fuentes de datos e integración</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -203,7 +233,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../entregas/E1_arquitectura_dw/uso_ia.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">uso_ia.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Registro de las consultas a IA</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -219,17 +249,512 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#preguntas-de-investigación-de-e0" id="toc-preguntas-de-investigación-de-e0" class="nav-link active" data-scroll-target="#preguntas-de-investigación-de-e0"><span class="header-section-number">9</span> Preguntas de investigación de E0</a></li>
+  <li><a href="#requisitos-de-datos-derivados-de-las-preguntas" id="toc-requisitos-de-datos-derivados-de-las-preguntas" class="nav-link" data-scroll-target="#requisitos-de-datos-derivados-de-las-preguntas"><span class="header-section-number">10</span> Requisitos de datos derivados de las preguntas</a></li>
+  <li><a href="#criterios-de-selección" id="toc-criterios-de-selección" class="nav-link" data-scroll-target="#criterios-de-selección"><span class="header-section-number">11</span> Criterios de selección</a></li>
+  <li><a href="#proceso-de-búsqueda-de-fuentes" id="toc-proceso-de-búsqueda-de-fuentes" class="nav-link" data-scroll-target="#proceso-de-búsqueda-de-fuentes"><span class="header-section-number">12</span> Proceso de búsqueda de fuentes</a>
+  <ul class="collapse">
+  <li><a href="#herramientas-y-portales-utilizados" id="toc-herramientas-y-portales-utilizados" class="nav-link" data-scroll-target="#herramientas-y-portales-utilizados"><span class="header-section-number">12.1</span> Herramientas y portales utilizados</a></li>
+  </ul></li>
+  <li><a href="#fuentes-candidatas-evaluadas" id="toc-fuentes-candidatas-evaluadas" class="nav-link" data-scroll-target="#fuentes-candidatas-evaluadas"><span class="header-section-number">13</span> Fuentes candidatas evaluadas</a></li>
+  <li><a href="#selección-de-fuentes" id="toc-selección-de-fuentes" class="nav-link" data-scroll-target="#selección-de-fuentes"><span class="header-section-number">14</span> Selección de fuentes</a></li>
+  <li><a href="#fuentes-descartadas" id="toc-fuentes-descartadas" class="nav-link" data-scroll-target="#fuentes-descartadas"><span class="header-section-number">15</span> Fuentes descartadas</a>
+  <ul class="collapse">
+  <li><a href="#f3-registro-de-enfermedades-crónicas-en-adultos" id="toc-f3-registro-de-enfermedades-crónicas-en-adultos" class="nav-link" data-scroll-target="#f3-registro-de-enfermedades-crónicas-en-adultos"><span class="header-section-number">15.0.1</span> F3 — Registro de enfermedades crónicas en adultos</a></li>
+  <li><a href="#f5-registro-de-defunciones-de-la-secretaría-de-salud" id="toc-f5-registro-de-defunciones-de-la-secretaría-de-salud" class="nav-link" data-scroll-target="#f5-registro-de-defunciones-de-la-secretaría-de-salud"><span class="header-section-number">15.0.2</span> F5 — Registro de defunciones de la Secretaría de Salud</a></li>
+  </ul></li>
+  <li><a href="#catálogo-de-fuentes-seleccionadas" id="toc-catálogo-de-fuentes-seleccionadas" class="nav-link" data-scroll-target="#catálogo-de-fuentes-seleccionadas"><span class="header-section-number">16</span> Catálogo de fuentes seleccionadas</a>
+  <ul class="collapse">
+  <li><a href="#f1.-egresos-hospitalarios" id="toc-f1.-egresos-hospitalarios" class="nav-link" data-scroll-target="#f1.-egresos-hospitalarios"><span class="header-section-number">16.1</span> F1. Egresos Hospitalarios</a>
+  <ul class="collapse">
+  <li><a href="#evidencia-de-verificación" id="toc-evidencia-de-verificación" class="nav-link" data-scroll-target="#evidencia-de-verificación"><span class="header-section-number">16.1.1</span> Evidencia de verificación</a></li>
+  </ul></li>
+  <li><a href="#f2.-estadísticas-de-defunciones-registradas" id="toc-f2.-estadísticas-de-defunciones-registradas" class="nav-link" data-scroll-target="#f2.-estadísticas-de-defunciones-registradas"><span class="header-section-number">16.2</span> F2. Estadísticas de Defunciones Registradas</a>
+  <ul class="collapse">
+  <li><a href="#evidencia-de-verificación-1" id="toc-evidencia-de-verificación-1" class="nav-link" data-scroll-target="#evidencia-de-verificación-1"><span class="header-section-number">16.2.1</span> Evidencia de verificación</a></li>
+  </ul></li>
+  <li><a href="#f4.-reconstrucción-y-proyecciones-de-la-población-de-los-municipios-de-méxico-19902040" id="toc-f4.-reconstrucción-y-proyecciones-de-la-población-de-los-municipios-de-méxico-19902040" class="nav-link" data-scroll-target="#f4.-reconstrucción-y-proyecciones-de-la-población-de-los-municipios-de-méxico-19902040"><span class="header-section-number">16.3</span> F4. Reconstrucción y proyecciones de la población de los municipios de México 1990–2040</a>
+  <ul class="collapse">
+  <li><a href="#evidencia-de-verificación-2" id="toc-evidencia-de-verificación-2" class="nav-link" data-scroll-target="#evidencia-de-verificación-2"><span class="header-section-number">16.3.1</span> Evidencia de verificación</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#diversidad-de-tipos-de-fuente" id="toc-diversidad-de-tipos-de-fuente" class="nav-link" data-scroll-target="#diversidad-de-tipos-de-fuente"><span class="header-section-number">17</span> Diversidad de tipos de fuente</a></li>
+  <li><a href="#análisis-de-integración" id="toc-análisis-de-integración" class="nav-link" data-scroll-target="#análisis-de-integración"><span class="header-section-number">18</span> Análisis de integración</a>
+  <ul class="collapse">
+  <li><a href="#integración-geografica" id="toc-integración-geografica" class="nav-link" data-scroll-target="#integración-geografica"><span class="header-section-number">18.1</span> Integración geografica</a></li>
+  <li><a href="#integración-temporal" id="toc-integración-temporal" class="nav-link" data-scroll-target="#integración-temporal"><span class="header-section-number">18.2</span> Integración temporal</a></li>
+  <li><a href="#diferencias-de-granularidad" id="toc-diferencias-de-granularidad" class="nav-link" data-scroll-target="#diferencias-de-granularidad"><span class="header-section-number">18.3</span> Diferencias de granularidad</a></li>
+  <li><a href="#construcción-de-indicadores" id="toc-construcción-de-indicadores" class="nav-link" data-scroll-target="#construcción-de-indicadores"><span class="header-section-number">18.4</span> Construcción de indicadores</a></li>
+  <li><a href="#problemas-de-integración-anticipados" id="toc-problemas-de-integración-anticipados" class="nav-link" data-scroll-target="#problemas-de-integración-anticipados"><span class="header-section-number">18.5</span> Problemas de integración anticipados</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../entregas/E1_arquitectura_dw/fuentes.html">E1 - Arquitectura del DW</a></li><li class="breadcrumb-item"><a href="../../entregas/E1_arquitectura_dw/fuentes.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">fuentes.html</span></a></li></ol></nav></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../entregas/E1_arquitectura_dw/fuentes.html">E1 - Arquitectura del DW</a></li><li class="breadcrumb-item"><a href="../../entregas/E1_arquitectura_dw/fuentes.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Fuentes de datos e integración</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Fuentes de datos e integración</span></h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Gúzman Ramírez Diego Arturo, Murillo Espinosa Gustavo Adrián, Vega Alonso Diego Hazael, Palacios Gónzalez Oscar </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
 
 
+</header>
 
+
+<section id="preguntas-de-investigación-de-e0" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> Preguntas de investigación de E0</h1>
+<p>Para esta entrega se asignaron identificadores a las preguntas de investigación priorizadas en E0, con el fin de mantener la trazabilidad entre las preguntas, las fuentes de datos y el diseño posterior del almacén de datos.</p>
+<p><strong>P1 = ¿Cuáles son las enfermedades y/o padecimientos a nivel municipal?</strong></p>
+<p>La respuesta a ésta pregunta evidentemente vendrá acompañada de estadísticas para que el usuario final, que se espera que posee formación médica, pueda sacar sus conclusiones con base a la información que se le proporcione.</p>
+<p><strong>P2 = ¿Qué nos dicen los indicadores acerca de la población del municipio?</strong></p>
+<p>Los índices de: mortalidad, morbilidad, natalidad, entre otros; son bastante útiles para que el usuario pueda darse una idea acerca del contexto en el que vive la población de su municipio su día a día.</p>
+<p><strong>P3 = ¿Qué relación existe entre los indicadores y las enfermedades?</strong></p>
+<p>Tanto en la medicina como en la ciencia de datos el objetivo principal es buscar patrones y/o relaciones con base a la información que tengamos, por lo tanto, se busca que el usuario pueda obetener la información de una manera sencilla y eficaz para que, como menciona la Dra. Durán, pueda hacer un “pequeño diagnóstico” de la población.</p>
+</section>
+<section id="requisitos-de-datos-derivados-de-las-preguntas" class="level1" data-number="10">
+<h1 data-number="10"><span class="header-section-number">10</span> Requisitos de datos derivados de las preguntas</h1>
+<p>Entonces los requisitos que se necesitan para cada pregunta serian los siguientes:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Pregunta</th>
+<th>Información requerida</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>P1</td>
+<td>Enfermedad o padecimiento, número de casos o eventos, municipio, entidad federativa y periodo. Cuando sea posible, también sexo y grupo de edad</td>
+</tr>
+<tr class="even">
+<td>P2</td>
+<td>Población municipal e indicadores como mortalidad, morbilidad, natalidad u otros disponibles</td>
+</tr>
+<tr class="odd">
+<td>P3</td>
+<td>Información que permita relacionar enfermedades e indicadores mediante atributos comunes como municipio y periodo</td>
+</tr>
+</tbody>
+</table>
+<p>De forma general, durante la búsqueda se dará prioridad a fuentes que incluyan alguno de los siguientes atributos:</p>
+<ul>
+<li>Clave de entidad federativa</li>
+<li>Clave de municipio</li>
+<li>Nombre de entidad y municipio</li>
+<li>Año o periodo de referencia</li>
+<li>Enfermedad, padecimiento, diagnóstico o causa</li>
+<li>Código de clasificación de enfermedad</li>
+<li>Número de casos, egresos o defunciones</li>
+<li>Población</li>
+<li>Sexo</li>
+<li>Grupo de edad</li>
+</ul>
+</section>
+<section id="criterios-de-selección" class="level1" data-number="11">
+<h1 data-number="11"><span class="header-section-number">11</span> Criterios de selección</h1>
+<p>Las fuentes candidatas se evaluarán considerando los siguientes criterios:</p>
+<ol type="1">
+<li><p><strong>Variables de las preguntas:</strong> la fuente debe contribuir a responder al menos una de las preguntas P1, P2 o P3.</p></li>
+<li><p><strong>Granularidad geografica:</strong> se dará prioridad a fuentes con información a nivel municipal, ya que es un requisito para mejorar la presicion de los datos.</p></li>
+<li><p><strong>Cobertura historica:</strong> se buscarán fuentes con información histórica que permita estudiar la evolución de enfermedades e indicadores.</p></li>
+<li><p><strong>Posibilidad de integración:</strong> se favorecerán fuentes que incluyan claves geograficas, periodo u otros identificadores que permitan relacionarlas con otros conjuntos de datos.</p></li>
+<li><p><strong>Confiabilidad:</strong> se dará prioridad a datos provenientes de instituciones oficiales o fuentes verificables.</p></li>
+<li><p><strong>Diversidad en la información:</strong> se buscará que las fuentes seleccionadas aporten información diferente y complementaria.</p></li>
+</ol>
+</section>
+<section id="proceso-de-búsqueda-de-fuentes" class="level1" data-number="12">
+<h1 data-number="12"><span class="header-section-number">12</span> Proceso de búsqueda de fuentes</h1>
+<p>La búsqueda de fuentes se realizó utilizando herramientas de investigación asistida por IA y busqueda directa en portales institucionales que nos recomendo la Doctora durante la entrevista.</p>
+<p>Todas las fuentes propuestas fueron evaluadas por el equipo para revisar que cumplan los criterios y que sirvan para contestar a las preguntas ante todo.</p>
+<p>Se consulto la pagina de Datos Abierto de la Direccion General de Informacion de Salud, ya que nuestra Stackholder nos recomendo esta institucion para tomar los datos, ya que cuentan con distintos tipos de bases de datos, pero de estas las que mas nos sirven son la de “Egresos Hospitalarios” y “Defunciones”. Despues de investigar en esta fuente, hicimos una consulta a la IA de Chatgpt sobre opciones de fuentes para obtener los datos que necesitamos. Solo lo ocupamos para que nos diera ideas de donde podiamos encontrar estos tipos de datos, las verificaciones las hicimos nosotros revisando que cumplan los criterios y que sirvan para contestar las preguntas. <strong>El prompt utilizado fue:</strong> “Busca 8 fuentes oficiales de información sobre enfermedades e índices de salud como morbilidad, mortalidad y otros, que tengan granularidad municipal en México” Nos regreso 8 opciones de fuentes, todas de las 3 mismas instituciones Secretaria de Salud, INEGI y CONAPO. Pero de estas solo tomamos 3 para ponerlas como candidatas, pues las demas las descartamos porque no estaban centradas en responder las preguntas, y las 5 que pusimos si tenian mayormente cumplimiento en estas. Entonces de la IA tomamos la de Estadisticas de Defunciones Registradas, Registro de Enfermedades Cronicas en Adultos y la de Problacion de CONAPO.</p>
+<section id="herramientas-y-portales-utilizados" class="level2" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="herramientas-y-portales-utilizados"><span class="header-section-number">12.1</span> Herramientas y portales utilizados</h2>
+<ul>
+<li>ChatGPT</li>
+<li>INEGI</li>
+<li>CONAPO</li>
+<li>Datos Abiertos de la Direccion General de Informacion en Salud</li>
+<li>Secretaria de Salud</li>
+</ul>
+</section>
+</section>
+<section id="fuentes-candidatas-evaluadas" class="level1" data-number="13">
+<h1 data-number="13"><span class="header-section-number">13</span> Fuentes candidatas evaluadas</h1>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Fuente</th>
+<th>Fuente</th>
+<th>Institución responsable</th>
+<th>P1</th>
+<th>P2</th>
+<th>P3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>F1</td>
+<td>Egresos Hospitalarios</td>
+<td>Secretaria de Salud</td>
+<td>✅</td>
+<td>🟨</td>
+<td>✅</td>
+</tr>
+<tr class="even">
+<td>F2</td>
+<td>Estadísticas de Defunciones Registradas</td>
+<td>INEGI</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr class="odd">
+<td>F3</td>
+<td>Registro de enfermedades crónicas en adultos</td>
+<td>Secretaria de Salud</td>
+<td>✅</td>
+<td>🟨</td>
+<td>✅</td>
+</tr>
+<tr class="even">
+<td>F4</td>
+<td>Reconstrucción y proyecciones de la población de los municipios de México 1990-2040</td>
+<td>CONAPO</td>
+<td>❎</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr class="odd">
+<td>F5</td>
+<td>Defunciones</td>
+<td>Secretaria de Salud</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="selección-de-fuentes" class="level1" data-number="14">
+<h1 data-number="14"><span class="header-section-number">14</span> Selección de fuentes</h1>
+<p>Después de evaluar las cinco fuentes candidatas, se seleccionaron tres fuentes para formar parte de la arquitectura del Data Warehouse:</p>
+<ol type="1">
+<li><strong>F1 — Egresos Hospitalarios de la Secretaría de Salud</strong></li>
+<li><strong>F2 — Estadísticas de Defunciones Registradas de INEGI</strong></li>
+<li><strong>F4 — Reconstrucción y proyecciones de la población de los municipios de México 1990-2040 de CONAPO</strong></li>
+</ol>
+<p>La selección se realizó buscando que las fuentes fueran complementarias entre sí y permitieran construir un panorama de salud a nivel municipal.</p>
+<p>La fuente de Egresos Hospitalarios proporciona información sobre los eventos de hospitalización y las afecciones principales asociadas a dichos egresos. Las Estadísticas de Defunciones Registradas permiten analizar la mortalidad y sus causas mediante la clasificación CIE-10. Y las proyecciones de población municipal de CONAPO proporcionan la información poblacional necesaria para contextualizar los conteos y calcular indicadores y tasas.</p>
+<p>En conjunto, las tres fuentes permiten analizar la frecuencia de determinados padecimientos en los egresos hospitalarios, las principales causas de mortalidad y su relación con el tamaño y características de la población municipal.</p>
+</section>
+<section id="fuentes-descartadas" class="level1" data-number="15">
+<h1 data-number="15"><span class="header-section-number">15</span> Fuentes descartadas</h1>
+<section id="f3-registro-de-enfermedades-crónicas-en-adultos" class="level3" data-number="15.0.1">
+<h3 data-number="15.0.1" class="anchored" data-anchor-id="f3-registro-de-enfermedades-crónicas-en-adultos"><span class="header-section-number">15.0.1</span> F3 — Registro de enfermedades crónicas en adultos</h3>
+<p>La fuente F3 no fue seleccionada debido a que su alcance es más específico que el requerido para las preguntas planteadas en E0. Esta base se enfoca en enfermedades crónicas no transmisibles en población adulta y adulta mayor que se encuentra en seguimiento dentro de unidades de salud.</p>
+<p>Aunque puede aportar información útil para identificar ciertos padecimientos a nivel municipal, no permite representar de manera amplia los diferentes tipos de enfermedades que pueden presentarse en la población. Ni abarca un amplio grupo de personas. En comparación, la fuente F1 de Egresos Hospitalarios contiene información sobre una mayor variedad de diagnósticos y padecimientos asociados a hospitalizaciones.</p>
+</section>
+<section id="f5-registro-de-defunciones-de-la-secretaría-de-salud" class="level3" data-number="15.0.2">
+<h3 data-number="15.0.2" class="anchored" data-anchor-id="f5-registro-de-defunciones-de-la-secretaría-de-salud"><span class="header-section-number">15.0.2</span> F5 — Registro de defunciones de la Secretaría de Salud</h3>
+<p>La fuente F5 no fue seleccionada principalmente porque existe una alta redundancia con F2, Estadísticas de Defunciones Registradas de INEGI. Ambas fuentes permiten analizar defunciones, causas de muerte y características demográficas y geográficas de las personas fallecidas.</p>
+<p>Mantener ambas fuentes aportaría información muy similar para las preguntas y aumentaría la complejidad de integración sin incorporar una dimensión sustancialmente distinta al análisis.</p>
+<p>Se decidió conservar F2 porque cumple el papel necesario para estudiar mortalidad, causas de defunción y su distribución municipal, por lo que F5 fue descartada para evitar duplicar una fuente con una función prácticamente equivalente solo de otra institucion.</p>
+</section>
+</section>
+<section id="catálogo-de-fuentes-seleccionadas" class="level1" data-number="16">
+<h1 data-number="16"><span class="header-section-number">16</span> Catálogo de fuentes seleccionadas</h1>
+<section id="f1.-egresos-hospitalarios" class="level2" data-number="16.1">
+<h2 data-number="16.1" class="anchored" data-anchor-id="f1.-egresos-hospitalarios"><span class="header-section-number">16.1</span> F1. Egresos Hospitalarios</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Campo</th>
+<th>Información</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Nombre y dueño</td>
+<td><strong>Egresos Hospitalarios de la Secretaría de Salud.</strong> Dirección General de Información en Salud</td>
+</tr>
+<tr class="even">
+<td>URL y acceso</td>
+<td>Página de bases de datos de la DGIS. Descarga de bases de egresos hospitalarios. (http://www.dgis.salud.gob.mx/contenidos/basesdedatos/da_egresoshosp_gobmx.html)</td>
+</tr>
+<tr class="odd">
+<td>Formato y tamaño</td>
+<td>Bases de datos distribuidas por año. Dependiendo del periodo existen archivos CSV y paquetes ZIP, acompañados por catálogos y descriptores de campos. El tamaño varía según el año.</td>
+</tr>
+<tr class="even">
+<td>Grano</td>
+<td>Una fila por egreso hospitalario de un paciente. Cada registro representa un evento de egreso e incluye variables del paciente, atención, diagnóstico y lugar</td>
+</tr>
+<tr class="odd">
+<td>Cobertura</td>
+<td>Cobertura nacional de unidades médicas hospitalarias de la Secretaría de Salud. Abarca <strong>2010–2026</strong>, hasta 2025 completo y 2026 con informacion preliminar.</td>
+</tr>
+<tr class="even">
+<td>Licencia y restricciones</td>
+<td>Información pública disponible como datos abiertos.</td>
+</tr>
+<tr class="odd">
+<td>Llaves de integración</td>
+<td><strong>Entidad de residencia + municipio de residencia + año</strong>. Adicionalmente, CLUES permite identificar la unidad médica y el Diag_Ini/CIE permite relacionar padecimientos con catalogos de enfermedades</td>
+</tr>
+<tr class="even">
+<td><strong>Pregunta(s) de E0</strong></td>
+<td><strong>P1 — Si.</strong> Permite identificar qué padecimientos aparecen con mayor frecuencia como afección principal de los egresos hospitalarios por municipio; debe aclararse que representa morbilidad hospitalaria, no todos los enfermos de la población. <strong>P2 — Parcial.</strong> Permite obtener indicadores como numero de egresos, días de estancia o características de los pacientes, pero por sí sola no describe a toda la población municipal ni proporciona el denominador poblacional necesario para calcular tasas. <strong>P3 — Sí.</strong> Los egresos y diagnósticos pueden relacionarse con edad, sexo y otros datos del evento y, mediante municipio y año, combinarse con población o mortalidad de otras fuentes para analizar la relación entre enfermedades e indicadores.</td>
+</tr>
+</tbody>
+</table>
+<section id="evidencia-de-verificación" class="level3" data-number="16.1.1">
+<h3 data-number="16.1.1" class="anchored" data-anchor-id="evidencia-de-verificación"><span class="header-section-number">16.1.1</span> Evidencia de verificación</h3>
+<p><strong>Página oficial de la fuente:</strong></p>
+<p><img src="img/Egresos_H__SS.png" class="img-fluid"></p>
+<p><strong>Vista previa o apertura de los datos:</strong></p>
+<p><img src="img/Datos_Egresos.png" class="img-fluid"></p>
+<p><strong>Descriptor de los datos:</strong></p>
+<p><img src="img/Descriptor_Egresos.png" class="img-fluid"></p>
+</section>
+</section>
+<section id="f2.-estadísticas-de-defunciones-registradas" class="level2" data-number="16.2">
+<h2 data-number="16.2" class="anchored" data-anchor-id="f2.-estadísticas-de-defunciones-registradas"><span class="header-section-number">16.2</span> F2. Estadísticas de Defunciones Registradas</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Campo</th>
+<th>Información</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Nombre y dueño</strong></td>
+<td><strong>Estadísticas de Defunciones Registradas (EDR)</strong>. Instituto Nacional de Estadística y Geografía (INEGI)</td>
+</tr>
+<tr class="even">
+<td><strong>URL y acceso</strong></td>
+<td>Consulta y descarga de datos abiertos, metadatos, catálogos y documentación desde INEGI. (https://www.inegi.org.mx/programas/edr/#datos_abiertos)</td>
+</tr>
+<tr class="odd">
+<td><strong>Formato y tamaño</strong></td>
+<td>Archivos CSV descargables por año que contienen los registros de las defunciones y se acompañan de un diccionario de datos y catálogos que permiten interpretar los códigos utilizados. El tamaño del archivo tambien cambia segun el año</td>
+</tr>
+<tr class="even">
+<td><strong>Grano</strong></td>
+<td>Una fila por defunción registrada.</td>
+</tr>
+<tr class="odd">
+<td><strong>Cobertura</strong></td>
+<td>Cobertura nacional, con información anual (2012-2024) y desglose geográfico que permite identificar la entidad y municipio relacionados con la defunción.</td>
+</tr>
+<tr class="even">
+<td><strong>Licencia y restricciones</strong></td>
+<td>Sujeta a los Términos de Libre Uso de la Información del INEGI. Puede copiarse, difundirse, adaptarse y extraerse siempre que se otorgue el crédito correspondiente a INEGI.</td>
+</tr>
+<tr class="odd">
+<td><strong>Llaves de integración</strong></td>
+<td>Para este proyecto se propone utilizar ENT_RESID,MUN_RESID y ANIO_OCUR. La variable CAUSA_DEF proporciona la causa básica de defunción</td>
+</tr>
+<tr class="even">
+<td><strong>Pregunta(s) de E0</strong></td>
+<td><strong>P1 — Sí.</strong> Permite identificar qué enfermedades, padecimientos o causas de muerte tienen mayor presencia entre las defunciones de residentes de un municipio mediante CAUSA_DEF y CIE-10. Mide enfermedades asociadas a mortalidad. <strong>P2 — Sí.</strong> La mortalidad es uno de los indicadores de salud planteados en el proyecto; permite obtener número de defunciones <strong>P3 — Sí.</strong> Permite relacionar las causas de muerte con edad, sexo, municipio y otras características, además de integrarse con CONAPO para estudiar tasas de mortalidad y compararlas con los padecimientos observados en egresos hospitalarios.</td>
+</tr>
+</tbody>
+</table>
+<section id="evidencia-de-verificación-1" class="level3" data-number="16.2.1">
+<h3 data-number="16.2.1" class="anchored" data-anchor-id="evidencia-de-verificación-1"><span class="header-section-number">16.2.1</span> Evidencia de verificación</h3>
+<p><strong>Página oficial de la fuente:</strong></p>
+<p><img src="img/Defunciones_INEGI.png" class="img-fluid"></p>
+<p><strong>Vista previa o apertura de los datos:</strong></p>
+<p><img src="img/Datos_Defunciones.png" class="img-fluid"></p>
+<p><strong>Diccionario de los datos:</strong></p>
+<p><img src="img/Diccionario_Defunciones.png" class="img-fluid"></p>
+</section>
+</section>
+<section id="f4.-reconstrucción-y-proyecciones-de-la-población-de-los-municipios-de-méxico-19902040" class="level2" data-number="16.3">
+<h2 data-number="16.3" class="anchored" data-anchor-id="f4.-reconstrucción-y-proyecciones-de-la-población-de-los-municipios-de-méxico-19902040"><span class="header-section-number">16.3</span> F4. Reconstrucción y proyecciones de la población de los municipios de México 1990–2040</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Campo</th>
+<th>Información</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Nombre y dueño</strong></td>
+<td><strong>Reconstrucción y proyecciones de la población de los municipios de México 1990–2040</strong>. Consejo Nacional de Población (CONAPO).</td>
+</tr>
+<tr class="even">
+<td><strong>URL y acceso</strong></td>
+<td>La documentación oficial se encuentra en CONAPO, pero por errores en la pagina oficial se encuentra una copia en la pagina del Gobierno de Guanajuato. (https://portalsocial.guanajuato.gob.mx/es/node/3565)</td>
+</tr>
+<tr class="odd">
+<td><strong>Formato y tamaño</strong></td>
+<td>Archivos de Excel (XLSX). CONAPO organiza las bases en archivos de población por sexo y grupos quinquenales de edad, grandes grupos de edad, indicadores demograficos y diccionario de datos. Tiene aprox mas de 250,000 registros</td>
+</tr>
+<tr class="even">
+<td><strong>Grano</strong></td>
+<td>Una fila por municipio, año y sexo. Los distintos grupos quinquenales de edad se representan mediante columnas separadas dentro de cada registro</td>
+</tr>
+<tr class="odd">
+<td><strong>Cobertura</strong></td>
+<td>2,475 municipios desde 1990 hasta 2040. Los valores de 1990–2020 corresponden a una reconstrucción demografica; 2021–2040 son proyecciones. Incluye sexo, edad y diversos indicadores demograficos.</td>
+</tr>
+<tr class="even">
+<td><strong>Licencia y restricciones</strong></td>
+<td>Pide citar a SGCONAPO en caso de usar la informacion</td>
+</tr>
+<tr class="odd">
+<td><strong>Llaves de integración</strong></td>
+<td>Clave de entidad, clave de municipio y año. Para análisis por sexo puede añadirse la categoría de sexo</td>
+</tr>
+<tr class="even">
+<td><strong>Pregunta(s) de E0</strong></td>
+<td><strong>P1 — No.</strong> La fuente no contiene enfermedades, diagnósticos ni casos de padecimientos, por lo que por sí sola no puede determinar cuales enfermedades predominan. <strong>P2 — Sí.</strong> Es una de las fuentes más importantes para esta pregunta porque proporciona población municipal, distribución por sexo y edad e indicadores demograficos que describen la estructura de la población. <strong>P3 — Sí.</strong> Permite contextualizar los casos, egresos y defunciones según el tamaño y composición poblacional. Al integrarla con las otras fuentes se pueden calcular tasas de egresos o mortalidad por cada 100,000 habitantes y analizar cómo se relacionan las enfermedades con las características demograficas del municipio.</td>
+</tr>
+</tbody>
+</table>
+<section id="evidencia-de-verificación-2" class="level3" data-number="16.3.1">
+<h3 data-number="16.3.1" class="anchored" data-anchor-id="evidencia-de-verificación-2"><span class="header-section-number">16.3.1</span> Evidencia de verificación</h3>
+<p><strong>Página oficial de la fuente:</strong></p>
+<p><img src="img/Poblacion_CONAPO.png" class="img-fluid"></p>
+<p><strong>Página con copia de los datos que funciona del gobierno de Guanajuato:</strong></p>
+<p><img src="img/POBLACION_CONAPO_G.png" class="img-fluid"></p>
+<p><strong>Vista previa o apertura de los datos:</strong></p>
+<p><img src="img/Datos_Poblacion.png" class="img-fluid"></p>
+<p><strong>Datos por edad quinquenal:</strong></p>
+<p><img src="img/Datos_Poblacion_quinquenales.png" class="img-fluid"></p>
+</section>
+</section>
+</section>
+<section id="diversidad-de-tipos-de-fuente" class="level1" data-number="17">
+<h1 data-number="17"><span class="header-section-number">17</span> Diversidad de tipos de fuente</h1>
+<p>Las fuentes seleccionadas corresponden a más de un tipo de fuente.</p>
+<ul>
+<li><strong>F1 — Egresos Hospitalarios:</strong> base institucional de la Secretaría de Salud / DGIS</li>
+<li><strong>F2 — Estadísticas de Defunciones Registradas:</strong> archivos de datos abiertos publicados por INEGI</li>
+<li><strong>F4 — Proyecciones de población municipal:</strong> base institucional elaborada por CONAPO y distribuida en archivos xlsx</li>
+</ul>
+<p>Por lo tanto, el proyecto incluye tanto bases institucionales como archivos provenientes de portales de datos abiertos.</p>
+</section>
+<section id="análisis-de-integración" class="level1" data-number="18">
+<h1 data-number="18"><span class="header-section-number">18</span> Análisis de integración</h1>
+<p>Las tres fuentes seleccionadas contienen información con diferentes niveles de detalle por lo que se realizara la integracion usando dimensiones en comun, principalmente la ubicación geográfica (municipal/entidad) y el tiempo.</p>
+<section id="integración-geografica" class="level2" data-number="18.1">
+<h2 data-number="18.1" class="anchored" data-anchor-id="integración-geografica"><span class="header-section-number">18.1</span> Integración geografica</h2>
+<p>Las tres fuentes permiten identificar el municipio al que pertenece la información, por lo que la principal llave de integración geográfica será una <strong>clave de municipio</strong>, construida a partir de la clave de entidad y la clave municipal.</p>
+<p>En F1, Egresos Hospitalarios, se dispone de información correspondiente a la entidad (Entidad) y municipio (Munic) asociados al egreso. En F2 se utilizarán principalmente ENT_RESID y MUN_RESID, debido a que representan la entidad y municipio de residencia habitual de la persona fallecida. En F4 se dispone de la clave geográfica correspondiente al municipio y la clave_ent a entidad.</p>
+<p>Para integrar las fuentes se propone generar una clave municipal común con el formato:</p>
+<p><code>clave_entidad + clave_municipio</code></p>
+<p>De esta manera, los registros de las diferentes fuentes podrán relacionarse con una misma dimensión geografica.</p>
+</section>
+<section id="integración-temporal" class="level2" data-number="18.2">
+<h2 data-number="18.2" class="anchored" data-anchor-id="integración-temporal"><span class="header-section-number">18.2</span> Integración temporal</h2>
+<p>El segundo componente de integración será el <strong>año</strong>.</p>
+<p>F1 contiene las fechas relacionadas con los eventos hospitalarios (Ingreso y Egreso), F2 contiene el dia, mes y año de ocurrencia de la defunción (en variables distintas) y F4 contiene directamente el año de la estimación o proyección poblacional.</p>
+<p>Debido a que las fuentes no necesariamente cubren exactamente los mismos periodos, los análisis que involucren las tres deberán limitarse a los años para los cuales exista información compatible en todas las fuentes utilizadas.</p>
+</section>
+<section id="diferencias-de-granularidad" class="level2" data-number="18.3">
+<h2 data-number="18.3" class="anchored" data-anchor-id="diferencias-de-granularidad"><span class="header-section-number">18.3</span> Diferencias de granularidad</h2>
+<p>Las fuentes seleccionadas no tienen el mismo nivel de granularidad:</p>
+<ul>
+<li>F1 tiene una fila por evento de egreso hospitalario.</li>
+<li>F2 tiene una fila por defunción registrada.</li>
+<li>F4 tiene una fila por municipio, año y sexo.</li>
+</ul>
+<p>Por lo tanto F1 y F2 se tienen que poner por municipio y año, para poderlo relacionar con la poblacion correspondiente de F4.</p>
+</section>
+<section id="construcción-de-indicadores" class="level2" data-number="18.4">
+<h2 data-number="18.4" class="anchored" data-anchor-id="construcción-de-indicadores"><span class="header-section-number">18.4</span> Construcción de indicadores</h2>
+<p>La integración con F4 permitirá transformar algunos conteos absolutos en indicadores comparables entre municipios.</p>
+<p>Por ejemplo, para los egresos hospitalarios podrá calcularse:</p>
+<p><span class="math display">\[
+\text{Tasa de egresos hospitalarios} =
+\frac{\text{Número de egresos hospitalarios de un municipio}}
+{\text{Población del municipio}}
+\times 100000
+\]</span></p>
+<p>Nos da la cantidad de egresos hospotalarios por cada 100,000 habitantes, esto para tener una comparativa entre municipios teniendo en cuenta la gente que lo habita.</p>
+<p>Este indicador da egresos, no personas enfermas, ya que una persona puede tener diferentes egresos.</p>
+<p>De esta manera tambien podemos tomar indicadores sobre enfermedades en los municipios.</p>
+<p>Por ejemplo:</p>
+<p><span class="math display">\[
+\text{Tasa egresos con enfermedad x} =
+\frac{\text{Número de egresos hospitalariosde un municipio con enfermedad x}}
+{\text{Población del municipio}}
+\times 100000
+\]</span></p>
+<p>Tambien se puede tomar para las defunciones con algo como:</p>
+<p><span class="math display">\[
+\text{Tasa de mortalidad} =
+\frac{\text{Número de defunciones en el municipio}}
+{\text{Población del municipio}}
+\times 100000
+\]</span></p>
+<p>Nos da la cantidad de defunciones por cada 100,000 habitantes, esto para tener una comparativa entre municipios teniendo en cuenta la gente que lo habita.</p>
+<p>Esto permitirá realizar comparaciones entre municipios con diferentes tamaños de población.</p>
+</section>
+<section id="problemas-de-integración-anticipados" class="level2" data-number="18.5">
+<h2 data-number="18.5" class="anchored" data-anchor-id="problemas-de-integración-anticipados"><span class="header-section-number">18.5</span> Problemas de integración anticipados</h2>
+<p>Durante la integración de las fuentes se anticipan los siguientes problemas:</p>
+<ul>
+<li><p><strong>Diferencias en las claves geográficas:</strong> Las claves de entidad y municipio pueden presentarse separadas, combinadas o con distintos tipos de dato. Será necesario homologarlas.</p></li>
+<li><p><strong>Diferencias en la codificación del sexo:</strong> F1 y F2 tienen la categoria de sexo por numero y F4 lo representa como hombres y mujeres, por lo que sera necesario homologar esta categoria</p></li>
+<li><p><strong>Diferencias en la representación de la edad:</strong> F1 y F2 pueden contener la edad de cada registro, mientras que F4 almacena la población en grupos quinquenales de edad. Si se realizan analisis por edad, sera necesario transformar las edades individuales a los mismos grupos utilizados por CONAPO.</p></li>
+<li><p><strong>No juntar egresos y defunciones:</strong> En F1 y F2 se usa el CIE-10, que es una estandarizacion para asignar codigos a problemas en la salud, para asignarlos en la causa del egreso o causa de la defuncion, pero estos se deben analizar por separado ya que aunque se especifiquen tambien defunciones en F1, son distintas a las de F2 y podria servir el usar ambas pero en distntos fines.</p></li>
+<li><p><strong>Diferencia en egresos y enfermedades.</strong> En F1 no se debe tomar como que un egreso significa una persona enferma distinta, ya que puede que una misma persona tenga distintos egresos con una misma enfermedad o distintas enfermedades. Aparte de que no toda la gente enferma va a los hopsitales, por lo que no podemos concluir que sus datos nos dan cantidad de gente con cierta enfermedad, si no cantidad de egresos con dicha enfermedad.</p></li>
+</ul>
+
+
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

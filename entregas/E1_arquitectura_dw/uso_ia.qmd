@@ -1,0 +1,44 @@
+---
+title: "Registro de las consultas a IA"
+author: "Gúzman Ramírez Diego Arturo,
+Murillo Espinosa Gustavo Adrián,
+Vega Alonso Diego Hazael,
+Palacios Gónzalez Oscar"
+format:
+  html:
+    code-fold: true
+  pdf:
+    toc: true
+  docx: default
+---
+
+### Búsqueda de fuentes oficiales de datos de salud
+
+**Herramienta utilizada:** ChatGPT (OpenAI)
+
+**Tarea:**  
+Búsqueda inicial de fuentes candidatas oficiales relacionadas con enfermedades
+e indicadores de salud en México que contaran con información a nivel municipal,
+con el objetivo de identificar posibles fuentes para el Data Warehouse.
+
+**Prompt utilizado:**
+
+> "Busca 8 fuentes oficiales de información sobre enfermedades e índices de salud
+> como morbilidad, mortalidad y otros, que tengan granularidad municipal en México."
+
+**Resultado obtenido:**  
+La herramienta propuso distintas fuentes institucionales de organismos como la
+Secretaría de Salud, INEGI y CONAPO, incluyendo fuentes relacionadas con egresos
+hospitalarios, defunciones, enfermedades crónicas y población municipal.
+
+**Revisión y validación de la salida:**  
+Las fuentes propuestas por la herramienta se utilizaron únicamente como punto de
+partida para la búsqueda. Posteriormente se accedió a los portales oficiales de
+las instituciones responsables para comprobar que las fuentes existieran y que
+los datos estuvieran realmente disponibles. Tambien se revisaron sus archivos,
+vistas previas y/o diccionarios de datos para verificar su granularidad
+geografica, cobertura, variables disponibles y utilidad respecto a las preguntas
+de investigación.
+
+A partir de esta revisión se construyó una lista de fuentes candidatas. Las
+fuentes que no cumplieran con los criterios para ser una fuente candidatas se descartaron y se tomaron tambien fuentes que no sugirio la IA.
