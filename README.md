@@ -25,17 +25,29 @@ Este repositorio contiene el desarrollo de un proyecto de Almacenes y Minería d
 ```text
 Proyecto_Mineria_Datos/
 ├── entregas/
-│   └── E0_comprension_negocio/
-│       ├── bitacora.qmd
-│       ├── canvas.qmd
-│       ├── preguntas.qmd
-│       ├── criterio_exito.qmd
-│       ├── riesgos_supuestos.qmd
-│       └── uso_ia.qmd
+│   ├── E0_comprension_negocio/
+│   │   ├── bitacora.qmd
+│   │   ├── canvas.qmd
+│   │   ├── preguntas.qmd
+│   │   ├── criterio_exito.qmd
+│   │   ├── riesgos_supuestos.qmd
+│   │   └── uso_ia.qmd
+│   │
+│   └── E1_arquitectura_dw/
+│       ├── fuentes.qmd
+│       ├── arquitectura.qmd
+│       ├── estrella.qmd
+│       ├── trazabilidad.qmd
+│       ├── pivote.qmd
+│       ├── uso_ia.qmd
+│       ├── sql/
+│       └── img/
+│
 ├── _quarto.yml
 ├── index.qmd
+├── styles.css
+├── docs/
 └── README.md
-├──styles.css
 ```
 
 ## Link del sitio del proyecto:
