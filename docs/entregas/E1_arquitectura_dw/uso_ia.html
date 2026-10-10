@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.18">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -45,10 +45,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-e691986c73e77fdb47157f5b6f624231.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-c574c73dd0d0ff61020859ffc61752ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -186,7 +186,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../entregas/E1_arquitectura_dw/arquitectura.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">arquitectura.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Arquitectura de tres capas en BigQuery</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -226,6 +226,9 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#búsqueda-de-fuentes-oficiales-de-datos-de-salud" id="toc-búsqueda-de-fuentes-oficiales-de-datos-de-salud" class="nav-link active" data-scroll-target="#búsqueda-de-fuentes-oficiales-de-datos-de-salud"><span class="header-section-number">12.0.1</span> Búsqueda de fuentes oficiales de datos de salud</a></li>
+  <li><a href="#preparación-y-carga-de-datos-en-bigquery" id="toc-preparación-y-carga-de-datos-en-bigquery" class="nav-link" data-scroll-target="#preparación-y-carga-de-datos-en-bigquery"><span class="header-section-number">12.0.2</span> Preparación y carga de datos en BigQuery</a></li>
+  <li><a href="#resolución-de-errores-y-alternativas-de-importación" id="toc-resolución-de-errores-y-alternativas-de-importación" class="nav-link" data-scroll-target="#resolución-de-errores-y-alternativas-de-importación"><span class="header-section-number">12.0.3</span> Resolución de errores y alternativas de importación</a></li>
+  <li><a href="#consideraciones-generales-sobre-el-uso-de-ia" id="toc-consideraciones-generales-sobre-el-uso-de-ia" class="nav-link" data-scroll-target="#consideraciones-generales-sobre-el-uso-de-ia"><span class="header-section-number">12.0.4</span> Consideraciones generales sobre el uso de IA</a></li>
   </ul>
 </nav>
     </div>
@@ -271,6 +274,32 @@ La herramienta propuso distintas fuentes institucionales de organismos como la S
 <p><strong>Revisión y validación de la salida:</strong><br>
 Las fuentes propuestas por la herramienta se utilizaron únicamente como punto de partida para la búsqueda. Posteriormente se accedió a los portales oficiales de las instituciones responsables para comprobar que las fuentes existieran y que los datos estuvieran realmente disponibles. Tambien se revisaron sus archivos, vistas previas y/o diccionarios de datos para verificar su granularidad geografica, cobertura, variables disponibles y utilidad respecto a las preguntas de investigación.</p>
 <p>A partir de esta revisión se construyó una lista de fuentes candidatas. Las fuentes que no cumplieran con los criterios para ser una fuente candidatas se descartaron y se tomaron tambien fuentes que no sugirio la IA.</p>
+</section>
+<section id="preparación-y-carga-de-datos-en-bigquery" class="level3" data-number="12.0.2">
+<h3 data-number="12.0.2" class="anchored" data-anchor-id="preparación-y-carga-de-datos-en-bigquery"><span class="header-section-number">12.0.2</span> Preparación y carga de datos en BigQuery</h3>
+<p><strong>Herramienta utilizada:</strong> ChatGPT (OpenAI).</p>
+<p><strong>Resumen de los prompts utilizados:</strong></p>
+<p>Se consultó cómo trabajar con archivos TXT y CSV, cómo seleccionar muestras de aproximadamente 70,000 registros y qué configuración utilizar para conservar los datos originales.</p>
+<p><strong>Respuesta obtenida:</strong></p>
+<p>La IA explicó el procedimiento de carga en BigQuery, incluyendo la selección del formato, delimitadores, encabezados, codificación y detección del esquema. También propuso utilizar Python para generar muestras de archivos que superaban el tamaño permitido por la consola.</p>
+<p><strong>Revisión y validación:</strong></p>
+<p>Las recomendaciones se contrastaron con los archivos descargados y las opciones disponibles en BigQuery. La carga fue realizada manualmente por el integrante responsable, revisando las tablas generadas y sus estructuras. El equipo delimitó el periodo de análisis a 2012–2019 para trabajar con información anterior a la pandemia de COVID-19.</p>
+</section>
+<section id="resolución-de-errores-y-alternativas-de-importación" class="level3" data-number="12.0.3">
+<h3 data-number="12.0.3" class="anchored" data-anchor-id="resolución-de-errores-y-alternativas-de-importación"><span class="header-section-number">12.0.3</span> Resolución de errores y alternativas de importación</h3>
+<p><strong>Herramienta utilizada:</strong> ChatGPT (OpenAI).</p>
+<p><strong>Tarea:</strong> Identificar y resolver problemas durante la importación de los archivos.</p>
+<p><strong>Resumen de los prompts utilizados:</strong></p>
+<p>Se presentaron errores relacionados con separadores incorrectos, columnas que aparecían agrupadas en un solo campo, diferencias entre tipos de datos y registros con cantidades inconsistentes de columnas. También se consultó si convenía utilizar Excel o desarrollar un programa en Python para convertir archivos TXT a CSV.</p>
+<p><strong>Respuesta obtenida:</strong></p>
+<p>La IA recomendó revisar directamente los encabezados y delimitadores de cada archivo antes de importarlo. Se explicó que una configuración incorrecta podía provocar que toda una fila apareciera en una columna como <code>string_field_0</code>. Se propusieron ajustes en la configuración de BigQuery y alternativas para convertir archivos mediante Excel o Python.</p>
+<p><strong>Revisión y validación:</strong></p>
+<p>Se inspeccionaron archivos y resultados de carga para identificar las diferencias entre el formato original y la configuración seleccionada. Las opciones de conversión con Excel y Python se exploraron como alternativas, pero no se implementó el convertidor general propuesto. Las decisiones de importación se tomaron de acuerdo con las características reales de cada archivo.</p>
+</section>
+<section id="consideraciones-generales-sobre-el-uso-de-ia" class="level3" data-number="12.0.4">
+<h3 data-number="12.0.4" class="anchored" data-anchor-id="consideraciones-generales-sobre-el-uso-de-ia"><span class="header-section-number">12.0.4</span> Consideraciones generales sobre el uso de IA</h3>
+<p>La herramienta se utilizó principalmente como apoyo técnico para comprender procedimientos, identificar posibles soluciones y preparar documentación y código SQL. No sustituyó la revisión de los archivos originales, la selección de fuentes, las decisiones del equipo ni la ejecución de las operaciones en BigQuery.</p>
+<p>Las propuestas generadas fueron consideradas como recomendaciones sujetas a revisión. Algunas alternativas, como la conversión general de TXT a CSV mediante Python, se analizaron pero no se incorporaron al procedimiento final.</p>
 
 
 </section>

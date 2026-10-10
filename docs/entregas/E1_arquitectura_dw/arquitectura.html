@@ -2,12 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.18">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Gúzman Ramírez Diego Arturo, Murillo Espinosa Gustavo Adrián, Vega Alonso Diego Hazael, Palacios Gónzalez Oscar">
 
-<title>arquitectura – Proyecto de Almacenes y Minería de Datos</title>
+<title>9&nbsp; Arquitectura de tres capas en BigQuery – Proyecto de Almacenes y Minería de Datos</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -44,10 +45,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-e691986c73e77fdb47157f5b6f624231.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-c574c73dd0d0ff61020859ffc61752ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -75,6 +76,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="../../styles.css">
@@ -89,7 +93,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../entregas/E1_arquitectura_dw/fuentes.html">E1 - Arquitectura del DW</a></li><li class="breadcrumb-item"><a href="../../entregas/E1_arquitectura_dw/arquitectura.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">arquitectura.html</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../entregas/E1_arquitectura_dw/fuentes.html">E1 - Arquitectura del DW</a></li><li class="breadcrumb-item"><a href="../../entregas/E1_arquitectura_dw/arquitectura.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Arquitectura de tres capas en BigQuery</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -185,7 +189,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../entregas/E1_arquitectura_dw/arquitectura.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">arquitectura.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Arquitectura de tres capas en BigQuery</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -219,17 +223,487 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#objetivo-y-alcance" id="toc-objetivo-y-alcance" class="nav-link active" data-scroll-target="#objetivo-y-alcance"><span class="header-section-number">9.1</span> Objetivo y alcance</a></li>
+  <li><a href="#diseño-de-la-arquitectura" id="toc-diseño-de-la-arquitectura" class="nav-link" data-scroll-target="#diseño-de-la-arquitectura"><span class="header-section-number">9.2</span> Diseño de la arquitectura</a>
+  <ul class="collapse">
+  <li><a href="#evidencia-de-los-conjuntos-de-datos" id="toc-evidencia-de-los-conjuntos-de-datos" class="nav-link" data-scroll-target="#evidencia-de-los-conjuntos-de-datos"><span class="header-section-number">9.2.1</span> Evidencia de los conjuntos de datos</a></li>
+  </ul></li>
+  <li><a href="#implementación-de-staging" id="toc-implementación-de-staging" class="nav-link" data-scroll-target="#implementación-de-staging"><span class="header-section-number">9.3</span> Implementación de Staging</a>
+  <ul class="collapse">
+  <li><a href="#dgis-archivos-de-afecciones" id="toc-dgis-archivos-de-afecciones" class="nav-link" data-scroll-target="#dgis-archivos-de-afecciones"><span class="header-section-number">9.3.1</span> DGIS: archivos de afecciones</a></li>
+  <li><a href="#dgis-egresos-hospitalarios" id="toc-dgis-egresos-hospitalarios" class="nav-link" data-scroll-target="#dgis-egresos-hospitalarios"><span class="header-section-number">9.3.2</span> DGIS: egresos hospitalarios</a></li>
+  <li><a href="#inegi-defunciones-registradas" id="toc-inegi-defunciones-registradas" class="nav-link" data-scroll-target="#inegi-defunciones-registradas"><span class="header-section-number">9.3.3</span> INEGI: defunciones registradas</a></li>
+  <li><a href="#conapo-población-e-indicadores-demográficos" id="toc-conapo-población-e-indicadores-demográficos" class="nav-link" data-scroll-target="#conapo-población-e-indicadores-demográficos"><span class="header-section-number">9.3.4</span> CONAPO: población e indicadores demográficos</a></li>
+  <li><a href="#trabajos-de-carga-e-historial" id="toc-trabajos-de-carga-e-historial" class="nav-link" data-scroll-target="#trabajos-de-carga-e-historial"><span class="header-section-number">9.3.5</span> Trabajos de carga e historial</a></li>
+  </ul></li>
+  <li><a href="#implementación-del-data-warehouse-dw" id="toc-implementación-del-data-warehouse-dw" class="nav-link" data-scroll-target="#implementación-del-data-warehouse-dw"><span class="header-section-number">9.4</span> Implementación del Data Warehouse (DW)</a>
+  <ul class="collapse">
+  <li><a href="#evidencia-de-las-cinco-dimensiones" id="toc-evidencia-de-las-cinco-dimensiones" class="nav-link" data-scroll-target="#evidencia-de-las-cinco-dimensiones"><span class="header-section-number">9.4.1</span> Evidencia de las cinco dimensiones</a></li>
+  <li><a href="#evidencia-de-las-dos-tablas-de-hechos" id="toc-evidencia-de-las-dos-tablas-de-hechos" class="nav-link" data-scroll-target="#evidencia-de-las-dos-tablas-de-hechos"><span class="header-section-number">9.4.2</span> Evidencia de las dos tablas de hechos</a></li>
+  <li><a href="#relaciones-y-reproducibilidad-mediante-ddl" id="toc-relaciones-y-reproducibilidad-mediante-ddl" class="nav-link" data-scroll-target="#relaciones-y-reproducibilidad-mediante-ddl"><span class="header-section-number">9.4.3</span> Relaciones y reproducibilidad mediante DDL</a></li>
+  </ul></li>
+  <li><a href="#capa-datamart" id="toc-capa-datamart" class="nav-link" data-scroll-target="#capa-datamart"><span class="header-section-number">9.5</span> Capa DataMart</a></li>
+  <li><a href="#limitaciones-y-verificaciones-pendientes" id="toc-limitaciones-y-verificaciones-pendientes" class="nav-link" data-scroll-target="#limitaciones-y-verificaciones-pendientes"><span class="header-section-number">9.6</span> Limitaciones y verificaciones pendientes</a></li>
+  <li><a href="#conclusión" id="toc-conclusión" class="nav-link" data-scroll-target="#conclusión"><span class="header-section-number">9.7</span> Conclusión</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../entregas/E1_arquitectura_dw/fuentes.html">E1 - Arquitectura del DW</a></li><li class="breadcrumb-item"><a href="../../entregas/E1_arquitectura_dw/arquitectura.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">arquitectura.html</span></a></li></ol></nav></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../entregas/E1_arquitectura_dw/fuentes.html">E1 - Arquitectura del DW</a></li><li class="breadcrumb-item"><a href="../../entregas/E1_arquitectura_dw/arquitectura.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Arquitectura de tres capas en BigQuery</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Arquitectura de tres capas en BigQuery</span></h1>
+<p class="subtitle lead">E1 — Implementación de Staging, Data Warehouse y DataMart</p>
+</div>
 
 
 
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Gúzman Ramírez Diego Arturo, Murillo Espinosa Gustavo Adrián, Vega Alonso Diego Hazael, Palacios Gónzalez Oscar </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
 
 
+</header>
 
+
+<section id="objetivo-y-alcance" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="objetivo-y-alcance"><span class="header-section-number">9.1</span> Objetivo y alcance</h2>
+<p>La arquitectura de datos del proyecto busca integrar información oficial sobre <strong>eventos de salud y características demográficas de los municipios de México</strong>. Para ello se consideran tres fuentes institucionales:</p>
+<ul>
+<li><strong>DGIS / Secretaría de Salud:</strong> egresos hospitalarios y afecciones asociadas.</li>
+<li><strong>INEGI:</strong> estadísticas de defunciones registradas.</li>
+<li><strong>CONAPO:</strong> población estimada e indicadores demográficos municipales.</li>
+</ul>
+<p>Para los registros de egresos y defunciones se delimitó el periodo <strong>2012–2019</strong>. Esta decisión permite enfocar el análisis en los años anteriores a la pandemia de COVID-19, sin incorporar directamente las alteraciones que ocurrieron durante ella. Los productos de CONAPO pueden tener una cobertura temporal más amplia; sus datos deberán alinearse con el periodo elegido cuando se integre la información.</p>
+<p>Esta entrega implementa la <strong>arquitectura inicial</strong>, no un proceso ETL completo: se cargaron muestras de las fuentes en <code>staging</code> y se crearon las estructuras del esquema estrella en <code>dw</code>. Las tablas de hechos y dimensiones todavía <strong>no contienen los datos transformados</strong>.</p>
+</section>
+<section id="diseño-de-la-arquitectura" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="diseño-de-la-arquitectura"><span class="header-section-number">9.2</span> Diseño de la arquitectura</h2>
+<p>Se utiliza Google BigQuery en el proyecto <code>proyectomineria-511105</code>, con una arquitectura organizada en tres capas: <strong>Staging → Data Warehouse → DataMart</strong>.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TB
+    DGIS["DGIS&lt;br/&gt;Egresos y afecciones"] --&gt; ST["STAGING&lt;br/&gt;Muestras de datos de origen"]
+    INEGI["INEGI&lt;br/&gt;Defunciones registradas"] --&gt; ST
+    CONAPO["CONAPO&lt;br/&gt;Población e indicadores"] --&gt; ST
+    ST -. "ETL pendiente: limpieza, homologación e integración" .-&gt; DW["DW&lt;br/&gt;5 dimensiones + 2 tablas de hechos"]
+    DW -. "Consultas analíticas sobre el esquema" .-&gt; MART["DATAMART&lt;br/&gt;Consultas de P1, P2 y P3"]
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Capa</th>
+<th style="text-align: left;">Función</th>
+<th style="text-align: left;">Estado para la entrega E1</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Staging</strong></td>
+<td style="text-align: left;">Almacenar las muestras de los archivos de origen, con separación por fuente y año.</td>
+<td style="text-align: left;">Muestras cargadas; se muestran ejemplos de sus esquemas.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>DW</strong></td>
+<td style="text-align: left;">Definir un esquema estrella común para integrar información de eventos y población.</td>
+<td style="text-align: left;">Siete tablas creadas mediante sentencias SQL; sin poblar.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>DataMart</strong></td>
+<td style="text-align: left;">Preparar consultas SQL que respondan las preguntas de E0 con operaciones analíticas.</td>
+<td style="text-align: left;">Implementación y validación del DataMart</td>
+</tr>
+</tbody>
+</table>
+<section id="evidencia-de-los-conjuntos-de-datos" class="level3" data-number="9.2.1">
+<h3 data-number="9.2.1" class="anchored" data-anchor-id="evidencia-de-los-conjuntos-de-datos"><span class="header-section-number">9.2.1</span> Evidencia de los conjuntos de datos</h3>
+<p>La Figura <a href="#fig-conjuntos" class="quarto-xref">Figure&nbsp;<span>9.1</span></a> muestra el proyecto de BigQuery y los conjuntos de datos <code>staging</code>, <code>dw</code> y <code>mart</code> utilizados en esta implementación.</p>
+<div id="fig-conjuntos" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-conjuntos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="img/Datasets.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-conjuntos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9.1: Conjuntos de datos visibles en BigQuery: staging, dw y mart
+</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="implementación-de-staging" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="implementación-de-staging"><span class="header-section-number">9.3</span> Implementación de Staging</h2>
+<p>El dataset <code>staging</code> funciona como zona de recepción de los datos. Se utilizaron muestras de los archivos institucionales para verificar que BigQuery pudiera importar sus columnas y reconocer sus tipos de datos. Las tablas se mantuvieron identificables por fuente y año, sin ejecutar aún la transformación necesaria para integrarlas al esquema estrella.</p>
+<p>Las capturas de esta sección corresponden a la pestaña <strong>Esquema</strong> de BigQuery; permiten observar campos y tipos.</p>
+<section id="dgis-archivos-de-afecciones" class="level3" data-number="9.3.1">
+<h3 data-number="9.3.1" class="anchored" data-anchor-id="dgis-archivos-de-afecciones"><span class="header-section-number">9.3.1</span> DGIS: archivos de afecciones</h3>
+<p>Los archivos de afecciones contienen diagnósticos asociados a los registros hospitalarios. En el ejemplo de <code>Afecciones_muestra_12</code> se distinguen tres columnas:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Campo observado</th>
+<th style="text-align: left;">Tipo en BigQuery</th>
+<th style="text-align: left;">Descripción para la integración futura</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>ID</code></td>
+<td style="text-align: left;"><code>INTEGER</code></td>
+<td style="text-align: left;">Identificador con el que se puede relacionar la afección con el registro correspondiente, sujeto a validación por año.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>AFEC</code></td>
+<td style="text-align: left;"><code>STRING</code></td>
+<td style="text-align: left;">Código de afección o diagnóstico.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>NUMAFEC</code></td>
+<td style="text-align: left;"><code>INTEGER</code></td>
+<td style="text-align: left;">Campo numérico de la fuente asociado al registro de afección. Su interpretación precisa debe revisarse en el descriptor.</td>
+</tr>
+</tbody>
+</table>
+<div id="fig-staging-afecciones" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-staging-afecciones-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="img/staging_afecciones.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-staging-afecciones-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9.2: Esquema de la tabla Afecciones_muestra_12 y tablas anuales visibles en staging
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="dgis-egresos-hospitalarios" class="level3" data-number="9.3.2">
+<h3 data-number="9.3.2" class="anchored" data-anchor-id="dgis-egresos-hospitalarios"><span class="header-section-number">9.3.2</span> DGIS: egresos hospitalarios</h3>
+<p>Las muestras resumidas de egresos contienen información sobre el evento hospitalario. En <code>Egreso_muestra_12</code> se observan, entre otros campos, <code>ID</code>, <code>CLUES</code>, <code>EGRESO</code>, <code>INGRE</code>, <code>DIAS_ESTA</code>, <code>EDAD</code>, <code>SEXO</code>, <code>ENTIDAD</code> y <code>MUNIC</code>.</p>
+<p>Estas columnas hacen posible plantear una integración futura por periodo, características demográficas, ubicación y estancia hospitalaria. Sin embargo, <strong>no se transformaron ni homologaron</strong> los códigos al cargar la muestra.</p>
+<div id="fig-staging-egreso" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-staging-egreso-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="img/staging_egreso.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-staging-egreso-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9.3: Esquema de Egreso_muestra_12 en BigQuery
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="inegi-defunciones-registradas" class="level3" data-number="9.3.3">
+<h3 data-number="9.3.3" class="anchored" data-anchor-id="inegi-defunciones-registradas"><span class="header-section-number">9.3.3</span> INEGI: defunciones registradas</h3>
+<p>Los archivos de defunciones permiten identificar el evento de mortalidad, la causa básica y atributos de residencia y tiempo. En la captura de <code>Defunciones_generales_19</code> se observan campos como <code>ent_resid</code>, <code>mun_resid</code>, <code>causa_def</code>, <code>sexo</code>, <code>edad</code>, <code>anio_ocur</code> y <code>anio_regis</code>, entre otros.</p>
+<div id="fig-staging-defunciones" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-staging-defunciones-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="img/staging_defunciones.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-staging-defunciones-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9.4: Esquema de Defunciones_generales_19 en el dataset staging
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="conapo-población-e-indicadores-demográficos" class="level3" data-number="9.3.4">
+<h3 data-number="9.3.4" class="anchored" data-anchor-id="conapo-población-e-indicadores-demográficos"><span class="header-section-number">9.3.4</span> CONAPO: población e indicadores demográficos</h3>
+<p>Se incorporaron datos de CONAPO relativos a proyecciones de población e indicadores municipales. Esta fuente complementa los eventos observados en DGIS e INEGI, pues permitirá construir medidas relativas a la población, como tasas por cada 100,000 habitantes.</p>
+<p>Los archivos de CONAPO procedían de hojas de cálculo y se prepararon en un formato que BigQuery pudiera importar. La <strong>compatibilidad de años, grupos de edad, sexo y claves de municipio</strong> deberá resolverse en el ETL.</p>
+<div id="fig-historial" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-historial-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="img/conapo.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-historial-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9.5: Campos de CONAPO
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="trabajos-de-carga-e-historial" class="level3" data-number="9.3.5">
+<h3 data-number="9.3.5" class="anchored" data-anchor-id="trabajos-de-carga-e-historial"><span class="header-section-number">9.3.5</span> Trabajos de carga e historial</h3>
+<p>El explorador de trabajos permite consultar el estado de ejecuciones del proyecto, así como identificar trabajos completados y trabajos con error. La siguiente imagen presenta una vista general del historial.</p>
+<div id="fig-historial" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-historial-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="img/Trabajos_De_Carga_staging_sql.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-historial-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9.6: Explorador de trabajos de BigQuery con ejecuciones completadas y con error
+</figcaption>
+</figure>
+</div>
+<p><strong>Alcance de esta evidencia:</strong> la captura identifica el historial de trabajos, van incluidos cargas de datos y consultas sql. Los picos de 4:00pm a 8:00 pm representan donde se experimentaron más cargas de datos.</p>
+</section>
+</section>
+<section id="implementación-del-data-warehouse-dw" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="implementación-del-data-warehouse-dw"><span class="header-section-number">9.4</span> Implementación del Data Warehouse (DW)</h2>
+<p>En el dataset <code>dw</code> se implementó el esquema estrella propuesto por el equipo, con <strong>cinco dimensiones y dos tablas de hechos</strong>. Las tablas fueron creadas mediante SQL y se encuentran vacías intencionalmente, pues el proceso de extracción, transformación y carga (ETL) queda fuera del alcance de E1.</p>
+<div id="fig-dw-lista" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-dw-lista-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="img/dw_dim_fact.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dw-lista-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9.7: Siete tablas creadas en el dataset dw
+</figcaption>
+</figure>
+</div>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Tipo</th>
+<th style="text-align: left;">Tabla</th>
+<th style="text-align: right;">Campos visibles</th>
+<th style="text-align: left;">Función principal</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Dimensión</td>
+<td style="text-align: left;"><code>dim_fecha</code></td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">Año y límites del periodo.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Dimensión</td>
+<td style="text-align: left;"><code>dim_municipio</code></td>
+<td style="text-align: right;">10</td>
+<td style="text-align: left;">Identidad geográfica y vigencia territorial.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Dimensión</td>
+<td style="text-align: left;"><code>dim_causa_diagnostico</code></td>
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">Categorías y capítulos CIE-10.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Dimensión</td>
+<td style="text-align: left;"><code>dim_perfil_demografico</code></td>
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">Sexo y grupos de edad.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Dimensión</td>
+<td style="text-align: left;"><code>dim_tipo_evento</code></td>
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">Distinción entre egreso y defunción.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Hechos</td>
+<td style="text-align: left;"><code>fact_eventos_salud</code></td>
+<td style="text-align: right;">10</td>
+<td style="text-align: left;">Conteos y medidas de eventos de salud.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Hechos</td>
+<td style="text-align: left;"><code>fact_poblacion</code></td>
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">Población estimada por periodo y perfil.</td>
+</tr>
+</tbody>
+</table>
+<section id="evidencia-de-las-cinco-dimensiones" class="level3" data-number="9.4.1">
+<h3 data-number="9.4.1" class="anchored" data-anchor-id="evidencia-de-las-cinco-dimensiones"><span class="header-section-number">9.4.1</span> Evidencia de las cinco dimensiones</h3>
+<p>Las siguientes capturas muestran directamente los esquemas construidos en BigQuery. En todas las dimensiones se observa la columna correspondiente a la <strong>llave primaria (PK)</strong>.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href=""><code>dim_fecha</code></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href=""><code>dim_municipio</code></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href=""><code>dim_causa_diagnostico</code></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false" href=""><code>dim_perfil_demografico</code></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-5" role="tab" aria-controls="tabset-1-5" aria-selected="false" href=""><code>dim_tipo_evento</code></a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>Contiene <code>fecha_sk</code>, <code>anio</code>, <code>inicio_periodo</code> y <code>fin_periodo</code>. La llave <code>fecha_sk</code> aparece marcada como <strong>PK</strong>.</p>
+<div id="fig-dim-fecha" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-dim-fecha-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="img/dimension_fecha.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dim-fecha-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9.8: Esquema de dim_fecha con cuatro columnas
+</figcaption>
+</figure>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>Incluye la llave <code>municipio_sk</code>, los códigos y nombres geográficos, así como <code>version_territorial</code>, <code>vigencia_desde</code>, <code>vigencia_hasta</code> y <code>es_actual</code>, previstos para gestionar el historial territorial.</p>
+<div id="fig-dim-municipio" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-dim-municipio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="img/dimension_municipio.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dim-municipio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9.9: Esquema de dim_municipio con diez columnas
+</figcaption>
+</figure>
+</div>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<p>Incluye la llave <code>causa_diagnostico_sk</code>, la categoría CIE-10, su descripción, el capítulo, la descripción del capítulo y la versión del catálogo.</p>
+<div id="fig-dim-causa" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-dim-causa-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="img/dimension_causa_diagnostico.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dim-causa-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9.10: Esquema de dim_causa_diagnostico con seis columnas
+</figcaption>
+</figure>
+</div>
+</div>
+<div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
+<p>Contiene <code>perfil_demografico_sk</code>, <code>sexo</code>, <code>codigo_grupo_edad</code>, <code>grupo_edad</code>, <code>edad_minima</code> y <code>edad_maxima</code>.</p>
+<div id="fig-dim-perfil" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-dim-perfil-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="img/dimension_perfil_demografico.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dim-perfil-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9.11: Esquema de dim_perfil_demografico con seis columnas
+</figcaption>
+</figure>
+</div>
+</div>
+<div id="tabset-1-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-5-tab">
+<p>Contiene <code>tipo_evento_sk</code>, <code>codigo_tipo</code>, <code>nombre_tipo</code>, <code>fuente</code> e <code>interpretacion_causa</code>, para distinguir tipos de eventos que tienen significados estadísticos diferentes.</p>
+<div id="fig-dim-tipo" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-dim-tipo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="img/dimension_tipo_evento.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dim-tipo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9.12: Esquema de dim_tipo_evento con cinco columnas
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="evidencia-de-las-dos-tablas-de-hechos" class="level3" data-number="9.4.2">
+<h3 data-number="9.4.2" class="anchored" data-anchor-id="evidencia-de-las-dos-tablas-de-hechos"><span class="header-section-number">9.4.2</span> Evidencia de las dos tablas de hechos</h3>
+<p>Las tablas de hechos incluyen llaves sustitutas propias, referencias a dimensiones y medidas numéricas. Las capturas de BigQuery señalan las llaves primarias como <strong>PK</strong> y las foráneas como <strong>FK</strong>.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href=""><code>fact_eventos_salud</code></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href=""><code>fact_poblacion</code></a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<p>La tabla contiene una llave primaria (<code>evento_salud_sk</code>), cinco llaves foráneas y cuatro medidas: <code>conteo_eventos</code>, <code>dias_estancia_total</code>, <code>egresos_estancia_valida</code> y <code>egresos_por_defuncion</code>.</p>
+<div id="fig-fact-eventos" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-fact-eventos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="img/fact_eventos_salud.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fact-eventos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9.13: Esquema de fact_eventos_salud con llaves PK/FK y medidas
+</figcaption>
+</figure>
+</div>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<p>La tabla contiene una llave primaria (<code>poblacion_sk</code>), tres llaves foráneas compartidas con el modelo de eventos y la medida <code>poblacion_estimada</code>.</p>
+<div id="fig-fact-poblacion" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-fact-poblacion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="img/fact_poblacion.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fact-poblacion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9.14: Esquema de fact_poblacion con llaves PK/FK y población estimada
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="relaciones-y-reproducibilidad-mediante-ddl" class="level3" data-number="9.4.3">
+<h3 data-number="9.4.3" class="anchored" data-anchor-id="relaciones-y-reproducibilidad-mediante-ddl"><span class="header-section-number">9.4.3</span> Relaciones y reproducibilidad mediante DDL</h3>
+<p>Las tablas de hechos comparten las dimensiones <code>dim_fecha</code>, <code>dim_municipio</code> y <code>dim_perfil_demografico</code>. Además, <code>fact_eventos_salud</code> utiliza <code>dim_causa_diagnostico</code> y <code>dim_tipo_evento</code>. Esto permite comparar los eventos con la población <strong>al agregar ambas fuentes a un grano compatible</strong>, sin atribuir causas de enfermedad a los registros de población.</p>
+<p>El diseño se implementó con sentencias <code>CREATE TABLE</code> y declaraciones de llaves primarias y foráneas. En BigQuery, las restricciones declaradas como <code>NOT ENFORCED</code> documentan las relaciones, pero <strong>no garantizan automáticamente</strong> la unicidad ni la integridad referencial. Dichas verificaciones deberán incorporarse al futuro proceso ETL.</p>
+<p>El código de creación se conserva en <a href="sql/ddl_dw.sql"><code>sql/ddl_dw.sql</code></a>.</p>
+</section>
+</section>
+<section id="capa-datamart" class="level2" data-number="9.5">
+<h2 data-number="9.5" class="anchored" data-anchor-id="capa-datamart"><span class="header-section-number">9.5</span> Capa DataMart</h2>
+<p>El DataMart se plantea como la capa de consultas analíticas sobre el esquema estrella. Las consultas serán desarrolladas y documentadas por el integrante responsable, utilizando el diseño ya implementado en <code>dw</code>.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Pregunta de E0</th>
+<th style="text-align: left;">Análisis previsto</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>P1. ¿Cuáles son las enfermedades y/o padecimientos a nivel municipal?</strong></td>
+<td style="text-align: left;">Analizar por separado los conteos de egresos por diagnóstico y defunciones por causa, agrupados por municipio y año.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>P2. ¿Qué nos dicen los indicadores acerca de la población del municipio?</strong></td>
+<td style="text-align: left;">Examinar características y distribución poblacional usando CONAPO y sus dimensiones compatibles.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>P3. ¿Qué relación existe entre los indicadores y las enfermedades?</strong></td>
+<td style="text-align: left;">Relacionar eventos agregados con medidas poblacionales compatibles, distinguiendo asociaciones descriptivas de explicaciones causales.</td>
+</tr>
+</tbody>
+</table>
+<p>La práctica requiere consultas SQL válidas para las preguntas de E0, así como al menos una operación OLAP (por ejemplo, <code>ROLLUP</code>, <code>GROUPING SETS</code> o funciones de ventana).</p>
+</section>
+<section id="limitaciones-y-verificaciones-pendientes" class="level2" data-number="9.6">
+<h2 data-number="9.6" class="anchored" data-anchor-id="limitaciones-y-verificaciones-pendientes"><span class="header-section-number">9.6</span> Limitaciones y verificaciones pendientes</h2>
+<ol type="1">
+<li><strong>Muestras de carga:</strong> se utilizaron muestras operativas para comprobar la lectura de archivos y sus esquemas; no deben interpretarse automáticamente como representativas de la población nacional cuando proceden de las primeras filas del archivo.</li>
+<li><strong>Cobertura temporal:</strong> el análisis principal de eventos se limitó a 2012–2019. Los periodos cubiertos por CONAPO deben alinearse antes de elaborar indicadores comparables.</li>
+<li><strong>Granos distintos:</strong> los egresos, sus afecciones, las defunciones y la población no representan la misma unidad de observación. El ETL deberá resolver las relaciones entre archivos, la agregación de categorías y el riesgo de duplicación.</li>
+<li><strong>Compatibilidad de códigos:</strong> deberán homologarse claves municipales, sexo, grupos de edad y categorías CIE-10 antes de integrar las tablas.</li>
+</ol>
+</section>
+<section id="conclusión" class="level2" data-number="9.7">
+<h2 data-number="9.7" class="anchored" data-anchor-id="conclusión"><span class="header-section-number">9.7</span> Conclusión</h2>
+<p>Se implementó la base del almacén de datos en BigQuery mediante la carga de muestras de DGIS, INEGI y CONAPO en <code>staging</code> y la creación de <strong>siete tablas estructuradas</strong> en el dataset <code>dw</code>. Las capturas del esquema acreditan la existencia de las cinco dimensiones y dos tablas de hechos, con sus atributos y llaves declaradas.</p>
+<p>Esta arquitectura permite continuar con la homologación e integración de fuentes durante una entrega posterior.</p>
+
+
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

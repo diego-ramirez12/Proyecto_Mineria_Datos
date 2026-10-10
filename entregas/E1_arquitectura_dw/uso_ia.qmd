@@ -42,3 +42,43 @@ de investigación.
 
 A partir de esta revisión se construyó una lista de fuentes candidatas. Las
 fuentes que no cumplieran con los criterios para ser una fuente candidatas se descartaron y se tomaron tambien fuentes que no sugirio la IA.
+
+### Preparación y carga de datos en BigQuery
+
+**Herramienta utilizada:** ChatGPT (OpenAI).
+
+**Resumen de los prompts utilizados:**
+
+Se consultó cómo trabajar con archivos TXT y CSV, cómo seleccionar muestras de aproximadamente 70,000 registros y qué configuración utilizar para conservar los datos originales.
+
+**Respuesta obtenida:**
+
+La IA explicó el procedimiento de carga en BigQuery, incluyendo la selección del formato, delimitadores, encabezados, codificación y detección del esquema. También propuso utilizar Python para generar muestras de archivos que superaban el tamaño permitido por la consola.
+
+**Revisión y validación:**
+
+Las recomendaciones se contrastaron con los archivos descargados y las opciones disponibles en BigQuery. La carga fue realizada manualmente por el integrante responsable, revisando las tablas generadas y sus estructuras. El equipo delimitó el periodo de análisis a 2012–2019 para trabajar con información anterior a la pandemia de COVID-19.
+
+### Resolución de errores y alternativas de importación
+
+**Herramienta utilizada:** ChatGPT (OpenAI).
+
+**Tarea:** Identificar y resolver problemas durante la importación de los archivos.
+
+**Resumen de los prompts utilizados:**
+
+Se presentaron errores relacionados con separadores incorrectos, columnas que aparecían agrupadas en un solo campo, diferencias entre tipos de datos y registros con cantidades inconsistentes de columnas. También se consultó si convenía utilizar Excel o desarrollar un programa en Python para convertir archivos TXT a CSV.
+
+**Respuesta obtenida:**
+
+La IA recomendó revisar directamente los encabezados y delimitadores de cada archivo antes de importarlo. Se explicó que una configuración incorrecta podía provocar que toda una fila apareciera en una columna como `string_field_0`. Se propusieron ajustes en la configuración de BigQuery y alternativas para convertir archivos mediante Excel o Python.
+
+**Revisión y validación:**
+
+Se inspeccionaron archivos y resultados de carga para identificar las diferencias entre el formato original y la configuración seleccionada. Las opciones de conversión con Excel y Python se exploraron como alternativas, pero no se implementó el convertidor general propuesto. Las decisiones de importación se tomaron de acuerdo con las características reales de cada archivo.
+
+### Consideraciones generales sobre el uso de IA
+
+La herramienta se utilizó principalmente como apoyo técnico para comprender procedimientos, identificar posibles soluciones y preparar documentación y código SQL. No sustituyó la revisión de los archivos originales, la selección de fuentes, las decisiones del equipo ni la ejecución de las operaciones en BigQuery.
+
+Las propuestas generadas fueron consideradas como recomendaciones sujetas a revisión. Algunas alternativas, como la conversión general de TXT a CSV mediante Python, se analizaron pero no se incorporaron al procedimiento final.
