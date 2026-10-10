@@ -2,7 +2,7 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "E0 - Comprensión de negocio",
+    "title": "Proyecto de Almacenes y Minería de Datos",
     "section": "",
     "text": "1 Introducción\nEn esta primera etapa del proyecto se busca comprender el problema antes de trabajar directamente con los datos. Para ello, se realizó una entrevista con una profesional del sector salud con el fin de identificar necesidades reales relacionadas con el acceso, integración y análisis de información epidemiológica.\nA partir de la entrevista se delimitó una problemática viable para el proyecto y se definieron los objetivos, preguntas de investigación, criterios de éxito, riesgos y supuestos que servirán como base para las siguientes fases de CRISP-DM.",
     "crumbs": [
@@ -16,6 +16,7 @@
     "section": "",
     "text": "2.1 Objetivo de la reunión\nFecha: 12 de septiembre de 2026\nModalidad: videollamada\nDuración aproximada: 33 minutos\nStakeholder: Dra. Verónica Daniela Durán Pérez – https://www.gob.mx/inger/estructuras/mtra-veronica-daniela-duran-perez\nRol: Médica con experiencia en el sector público, salud pública, análisis de datos y salud digital. Actualmente participa tanto en actividades universitarias como en la Secretaría de Salud.\nLa reunión tuvo como objetivo conocer, desde la experiencia de una profesional del sector salud, una problemática real que pudiera ser abordada mediante herramientas de análisis y minería de datos.\nInicialmente, el equipo buscó identificar dificultades relacionadas con el manejo de información en salud pública, así como conocer qué tipo de datos, análisis o herramientas podrían facilitar el trabajo de los profesionales del área. A lo largo de la entrevista también se buscó delimitar un problema cuya solución fuera factible dentro del tiempo y alcance del proyecto.",
     "crumbs": [
+      "E0 - Comprensión de negocio",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Bitacora De Reunion Con Stakeholder</span>"
     ]
   },
@@ -26,6 +27,7 @@
     "section": "2.2 Contexto de stakeholder",
     "text": "2.2 Contexto de stakeholder\nLa Dra. Verónica Durán explicó que su formación base es en Medicina y que posteriormente realizó estudios de maestría en Educación y Salud Pública, además, por ahora se encuentra concluyendo una maestría en Salud Digital.\nPor su experiencia tanto académica como dentro de la Secretaría de Salud, trabaja directamente con información epidemiológica y bases de datos relacionadas con morbilidad, mortalidad y egresos hospitalarios. También señaló que en su entorno se utilizan herramientas como R, Stata y SPSS, además de técnicas de ciencia de datos, minería de datos e inteligencia artificial. Por esta razón, desde su perspectiva, el principal problema no se encuentra en la capacidad para analizar la información, sino en la forma en que esta es recopilada, integrada y puesta a disposición desde su origen.",
     "crumbs": [
+      "E0 - Comprensión de negocio",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Bitacora De Reunion Con Stakeholder</span>"
     ]
   },
@@ -36,6 +38,7 @@
     "section": "2.3 Problemática identificada inicialmente",
     "text": "2.3 Problemática identificada inicialmente\nDurante la primera parte de la entrevista, la stakeholder señaló que uno de los principales problemas del sistema de salud mexicano es la fragmentación y falta de estandarización de los datos. Ya que la información se genera desde múltiples instituciones y niveles del sistema de salud, entre ellos IMSS, ISSSTE, Secretaría de Salud y dependencias estatales. Cada una puede manejar expedientes, formatos y sistemas diferentes, lo que dificulta la compatibilidad y obliga posteriormente a realizar procesos de estandarización para integrar la información.\nLa doctora explicó que, una vez que las bases llegan a áreas como la Dirección General de Epidemiología, suelen encontrarse más limpias y depuradas. Sin embargo, el problema se origina antes, en la forma en que los centros de salud y hospitales recopilan y envían la información. En algunos casos, los registros todavía se envían mediante archivos independientes, correos electrónicos, documentos escaneados o incluso formatos en papel, lo que provoca retrasos, inconsistencias y dificultades para disponer de datos completos.\nOtro problema importante identificado fue el desfase temporal de la información, ya que la stakeholder señaló que las bases consolidadas pueden presentar retrasos de aproximadamente uno o incluso dos años, debido al tiempo necesario para recopilar y consolidar los registros provenientes de las diferentes unidades de salud y como consecuencia, resulta difícil desarrollar sistemas de vigilancia o diagnóstico de salud en tiempo real. La doctora resumió este problema indicando que el principal rezago no se encuentra en la capacidad de análisis, sino en la recolección e integración de los datos.",
     "crumbs": [
+      "E0 - Comprensión de negocio",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Bitacora De Reunion Con Stakeholder</span>"
     ]
   },
@@ -46,6 +49,7 @@
     "section": "2.4 Fuentes de información y limitaciones actuales",
     "text": "2.4 Fuentes de información y limitaciones actuales\nLa stakeholder explicó que para sus análisis que ella realiza en su entorno, utilizan principalmente información proveniente de la Dirección General de Epidemiología y de la Dirección General de Información en Salud.También mencionó que existen mecanismos como los Cubos Dinámicos y las plataformas de Datos Abiertos, aunque ambas presentan limitaciones. En el caso de los Cubos Dinámicos, señaló dificultades tecnológicas relacionadas con plataformas antiguas y dependencia de determinados entornos de software. En el caso de Datos Abiertos, indicó que la información puede encontrarse distribuida en múltiples archivos y años, lo que dificulta realizar análisis históricos sin llevar a cabo previamente un proceso considerable de integración.\nAsimismo, señaló que los datos disponibles no necesariamente representan la totalidad de la realidad nacional, ya que existen sectores cuya información puede no estar completamente integrada, como servicios privados, consultorios anexos a farmacias u otros proveedores. Por esta razón, muchos indicadores epidemiológicos deben entenderse como estimaciones construidas con la información disponible, y no necesariamente como una representación exacta del total de los casos existentes.",
     "crumbs": [
+      "E0 - Comprensión de negocio",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Bitacora De Reunion Con Stakeholder</span>"
     ]
   },
@@ -56,6 +60,7 @@
     "section": "2.5 Restricciones tecnológicas e institucionales",
     "text": "2.5 Restricciones tecnológicas e institucionales\nOtro punto relevante fue la existencia de restricciones institucionales respecto al uso de tecnología, donde la stakeholder explicó que en el ámbito universitario y en el sector público existe preferencia por soluciones basadas en software libre y tecnologías abiertas, debido a restricciones presupuestales, administrativas y a la necesidad de evitar dependencia tecnológica.",
     "crumbs": [
+      "E0 - Comprensión de negocio",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Bitacora De Reunion Con Stakeholder</span>"
     ]
   },
@@ -66,6 +71,7 @@
     "section": "2.6 Delimitación del problema para el proyecto",
     "text": "2.6 Delimitación del problema para el proyecto\nAunque al inicio de la entrevista el problema principal identificado era la fragmentación, heterogeneidad y retraso en la recopilación de información del sistema de salud, durante la entrevista se concluyó que intentar resolver directamente este problema resultaría demasiado amplio para el alcance del proyecto. La solución de este problema implicaría modificar procesos de recopilación, lograr la operación y conexión entre instituciones, estandarizar expedientes clínicos e implementar sistemas compartidos a nivel nacional, lo cual implica varios aspectos que dependen de múltiples organismos y que exceden el tiempo disponible para el desarrollo del proyecto.\nPor esta razón, se volovio a replantear la dirección del problema y se preguntó a la stakeholder qué análisis podría desarrollarse utilizando las bases actualmente disponibles y que, al mismo tiempo, resultara útil para profesionales del sector salud. A partir de esta pregunta surgió una segunda problemática, considerablemente más viable, la Dra. Verónica Durán propuso utilizar información de la Dirección General de Epidemiología, en conjunto con las estimaciones y proyecciones de población de CONAPO, para generar algunos indicadores correspondientes a los principales grupos de enfermedades del país.\nComo ejemplos mencionó enfermedades como diabetes, hipertensión y obesidad, así como la posibilidad de estudiar su comportamiento durante un periodo aproximado de cinco años y separar los resultados por grupos de edad, además, sugirió llevar el análisis a un nivel más granular, particularmente por entidad federativa o municipio.",
     "crumbs": [
+      "E0 - Comprensión de negocio",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Bitacora De Reunion Con Stakeholder</span>"
     ]
   },
@@ -76,6 +82,7 @@
     "section": "2.7 Necesidad seleccionada",
     "text": "2.7 Necesidad seleccionada\nLa stakeholder explicó que una herramienta de este tipo podría resultar especialmente útil para médicos y estudiantes que realizan servicio social, ya que cuando un médico llega a una localidad para prestar servicio, debería contar con información que le permita comprender rápidamente cuál es el panorama de salud de la población que atenderá. Sin embargo, actualmente esta información no siempre se encuentra disponible de forma integrada y fácilmente consultable, y para obtenerla, el profesional tendría que localizar diferentes fuentes, descargar información, combinar bases de datos y realizar por sí mismo los cálculos necesarios.\nLa doctora propuso entonces desarrollar una solucion que permitiera consultar de forma sencilla información como: población estimada del municipio; principales enfermedades; indicadores de morbilidad y mortalidad; comportamiento de las enfermedades a lo largo del tiempo; posibles diferencias por grupo de edad; información disponible a nivel estatal o municipal. La stakeholder describió esta idea como un “minidiagnóstico de salud”, cuyo propósito sería permitir que un médico conozca rápidamente cuánta población existe en una localidad, cuáles son las principales enfermedades y cuáles son las principales causas de muerte. Preguntas principales realizadas durante la entrevista",
     "crumbs": [
+      "E0 - Comprensión de negocio",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Bitacora De Reunion Con Stakeholder</span>"
     ]
   },
@@ -86,6 +93,7 @@
     "section": "2.8 Peguntas que guiaron la conversación:",
     "text": "2.8 Peguntas que guiaron la conversación:\n\n¿Cuál considera que es actualmente uno de los principales problemas relacionados con los datos dentro del sector salud?\n¿El problema se encuentra en la disponibilidad, el análisis o la recopilación de la información?\n¿Qué tan frecuentes son los casos de inconsistencia o error en los datos utilizados?\n¿Qué tan actualizados se encuentran los datos utilizados para los análisis epidemiológicos?\n¿Qué fuentes de información podrían utilizarse para tomar en cuenta?\n¿Qué tipo de información o análisis considera que actualmente hace falta y podría facilitar el trabajo de profesionales de la salud?\n¿Sería útil disponer de indicadores de salud a nivel estatal o municipal?\n¿Quiénes serían los principales beneficiarios de una herramienta de este tipo?",
     "crumbs": [
+      "E0 - Comprensión de negocio",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Bitacora De Reunion Con Stakeholder</span>"
     ]
   },
@@ -96,6 +104,7 @@
     "section": "2.9 Reflexión del equipo",
     "text": "2.9 Reflexión del equipo\nLa entrevista tuvo una modificación importante sobre el entendimiento inicial del problema. En un primer momento, la entrevista se llevo a cabo con la idea de que el proyecto podría enfocarse en resolver la fragmentación y heterogeneidad existente en las fuentes de información del sistema de salud. Sin embargo, a medida que avanzó la conversación también se comprendió que intentar resolver directamente esta problemática requeriría intervenir en procesos institucionales y tecnológicos de gran escala, incluyendo la estandarización de expedientes clínicos, la integración de múltiples instituciones y la implementación de nuevos mecanismos de recopilación de información. Por lo tanto, este enfoque resultaría demasiado ambicioso para el tiempo y alcance del proyecto y, además, estaría más relacionado con el desarrollo e integración de sistemas de información que con un problema concreto de minería de datos.\nA partir de esta conclusión, la conversación permitió reformular el proyecto hacia una problemática más específica y viable, que fue la dificultad que enfrentan médicos y estudiantes de servicio social para obtener de manera rápida un panorama epidemiológico de la localidad en la que trabajarán. El nuevo enfoque consiste en aprovechar fuentes de datos ya disponibles para integrar y analizar información sobre las principales enfermedades, población, morbilidad y mortalidad a nivel estatal o municipal.\nLa entrevista también permitió identificar desde esta etapa algunas limitaciones que deberán considerarse durante el proyecto, como el retraso de las bases consolidadas, la cobertura incompleta de determinadas fuentes, la naturaleza estimada de las proyecciones poblacionales, la disponibilidad de datos a nivel municipal y las restricciones institucionales relacionadas con el uso de software y manejo de información. En conclusión, la entrevista permitió pasar de un problema sistémico demasiado amplio a una necesidad concreta, útil para profesionales del sector salud y más acorde con el alcance del proyecto.",
     "crumbs": [
+      "E0 - Comprensión de negocio",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Bitacora De Reunion Con Stakeholder</span>"
     ]
   },
@@ -106,6 +115,7 @@
     "section": "",
     "text": "3.0.1 1. OBJETIVOS DE NEGOCIO\nProveer una solución de análisis de datos que permita a los médicos entender el contexto de salud y las prevalencias de enfermedades de la comunidad a la que son asignados, facilitando su preparación clinica previa a la llegada.\n\n\n3.0.2 2. CRITERIO DE ÉXITO (NEGOCIO)\nReducir el tiempo de investigación previa que hace un estudiante o un medico sobre la situación de salud de su localidad a menos de 1 hora.\n\n\n\n\n\n3.0.3 3. EVALUACIÓN DE LA SITUACIÓN\n\n\n\nRecursos:\nAcceso a bases de datos abiertas de la Secretaría de Salud (SSA) e INEGI; acceso a una doctora como experta de dominio para validación clinica.\n\n\nRequisitos:\nLos resultados deben tener una granularidad a nivel municipio y la salida debe ser intuitiva y facil de interpretar para personal médico (no especializado en datos).\n\n\n\n\nSupuestos:\nLas tendencias históricas de enfermedades en los últimos años reflejan razonablemente bien el panorama epidemiológico que el estudiante\n\n\nRiesgos:\nDisponibilidad inconsistente de datos de salud a nivel municipal.\n\n\n\n\n\n\n\n\n3.0.4 4. OBJETIVOS DE MINERÍA DE DATOS\nGenerar un ranking de morbilidad (las 5 a 10 enfermedades principales) a nivel de municipio o de ciertas regiones, a partir de datos históricos, y descubrir patrones de similitud entre regiones para poder hacer inferencias en caso de falta de datos locales.\n\n\n3.0.5 5. ÉXITO TÉCNICO\nLograr un modelo que identifique el Top 5 de enfermedades por municipio con una confianza superior al 80%, manejando adecuadamente los valores nulos.\n\n\n\n\n\n3.0.6 6. PLAN DEL PROYECTO\n\nSemanas 1-2: Búsqueda, extracción y Análisis Exploratorio de Datos (EDA) de las fuentes abiertas de salud.\nSemanas 3-4: Limpieza de datos (tratamiento de datos faltantes por municipio) y generación de los modelos de agrupamiento y rankings\nSemana 5: Revisión y validación clinica de los resultados con la stakeholdee.\nSemana 6: Presentacion final de los resultados.",
     "crumbs": [
+      "E0 - Comprensión de negocio",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Business Understanding Canvas</span>"
     ]
   },
@@ -116,6 +126,7 @@
     "section": "",
     "text": "4.0.1 Criterio de éxito en términos de negocio\nLa solución será considerada exitosa si permite a un médico consultar, en menos de una hora y sin realizar manualmente la integración o estandarización de distintas fuentes de información, el panorama de salud de una localidad determinada. Este panorama deberá incluir las principales enfermedades de la población, indicadores de morbilidad y mortalidad y su evolución histórica, facilitando la identificación de patrones, tendencias o similitudes relevantes en el comportamiento de la salud de la comunidad.\n\n\n4.0.2 Relación con métricas técnicas\nEl cumplimiento de este criterio de negocio se relacionará posteriormente con métricas técnicas correspondientes a las distintas tareas de análisis y minería de datos realizadas en el proyecto.\nPara la identificación de las principales enfermedades se utilizarán metricas estadísticas, como tasas de morbilidad y mortalidad ajustadas por población, a partir de los cuales se construirán rankings por localidad. La consistencia de estos rankings entre distintos periodos podrá evaluarse mediante métricas de correlación de rangos, como el coeficiente de correlación de Spearman o coeficiente de correlación de rango de Kendall.\nPara la identificación de patrones y similitudes entre localidades se podrán emplear técnicas de clustering. La calidad de los agrupamientos obtenidos será evaluada mediante métricas como el coeficiente de Silhouette y el índice de Calinski-Harabasz.\nDe esta manera, las métricas estadísticas permitirán evaluar la consistencia de los indicadores y rankings presentados, mientras que las métricas de clustering permitirán evaluar la calidad de los patrones de similitud encontrados entre localidades. Ambos componentes técnicos estarán relacionados con el criterio de negocio al contribuir a que el médico disponga de un panorama de salud integrado, interpretable y consultable en un tiempo reducido.",
     "crumbs": [
+      "E0 - Comprensión de negocio",
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Criterio de Éxito</span>"
     ]
   },
@@ -126,6 +137,7 @@
     "section": "",
     "text": "5.1 Preguntas de investigación priorizadas",
     "crumbs": [
+      "E0 - Comprensión de negocio",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Preguntas priorizadas</span>"
     ]
   },
@@ -136,6 +148,7 @@
     "section": "",
     "text": "5.1.1 ¿Cuáles son las enfermedades y/o padecimientos a nivel municipal?\nLa respuesta a ésta pregunta evidentemente vendrá acompañada de estadísticas para que el usuario final, que se espera que posee formación médica, pueda sacar sus conclusiones con base a la información que se le proporcione.\n\n\n5.1.2 ¿Qué nos dicen los indicadores acerca de la población del municipio?\nLos índices de: mortalidad, morbilidad, natalidad, entre otros; son bastante útiles para que el usuario pueda darse una idea acerca del contexto en el que vive la población de su municipio su día a día.\n\n\n5.1.3 ¿Qué relación existe entre los indicadores y las enfermedades?\nTanto en la medicina como en la ciencia de datos el objetivo principal es buscar patrones y/o relaciones con base a la información que tengamos, por lo tanto, se busca que el usuario pueda obetener la información de una manera sencilla y eficaz para que, como menciona la Dra. Durán, pueda hacer un “pequeño diagnóstico” de la población.",
     "crumbs": [
+      "E0 - Comprensión de negocio",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Preguntas priorizadas</span>"
     ]
   },
@@ -146,6 +159,7 @@
     "section": "",
     "text": "6.1 Riesgos",
     "crumbs": [
+      "E0 - Comprensión de negocio",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Riesgos y Supuestos</span>"
     ]
   },
@@ -156,6 +170,7 @@
     "section": "",
     "text": "6.1.1 1. Heterogeneidad y calidad de la información\nLas distintas instituciones pueden registrar, clasificar o reportar la información de salud bajo criterios diferentes. Además, pueden existir registros incompletos, inconsistentes o incorrectos, lo que podría introducir sesgos y generar distorsiones al comparar indicadores de salud entre distintas localidades.\nMitigación:\nRealizar un proceso previo de exploración, limpieza y estandarización de los datos, identificando valores faltantes, inconsistencias y diferencias entre las fuentes. También se documentará la cobertura y calidad de cada fuente antes de utilizarla en los análisis.\n\n\n6.1.2 2. Agrupamientos poco representativos en el análisis de clustering\nLos resultados de los algoritmos de clustering pueden verse afectados por la escala de las variables, la presencia de valores atípicos, la selección de características, el número de clusters y las propias características del algoritmo utilizado. Esto podría producir agrupamientos de localidades que, aunque obtengan valores favorables en alguna métrica de evaluación, no representen correctamente similitudes reales en sus perfiles de salud.\nMitigación:\nSe normalizarán o estandarizarán las variables antes del agrupamiento y se compararán distintas configuraciones y, cuando sea necesario, diferentes algoritmos de clustering. La evaluación no dependerá de una única métrica, sino que se utilizarán indicadores como Silhouette, Davies-Bouldin y Calinski-Harabasz, complementados con la interpretación de los grupos obtenidos dentro del contexto de salud.",
     "crumbs": [
+      "E0 - Comprensión de negocio",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Riesgos y Supuestos</span>"
     ]
   },
@@ -166,6 +181,7 @@
     "section": "6.2 Supuestos",
     "text": "6.2 Supuestos\n\n6.2.1 Disponibilidad y cobertura de datos\nSe asume que existirán bases de datos oficiales y accesibles con suficiente cobertura geográfica, temporal y epidemiológica para construir indicadores de morbilidad, mortalidad y evolución histórica de las localidades analizadas.\n\n\n6.2.2 Utilidad para el usuario objetivo\nLos médicos y estudiantes de servicio social encontrarán útil un panorama epidemiológico integrado como apoyo para contextualizar las necesidades de salud de la población, sin sustituir el diagnóstico clínico individual.",
     "crumbs": [
+      "E0 - Comprensión de negocio",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Riesgos y Supuestos</span>"
     ]
   },
@@ -176,6 +192,7 @@
     "section": "",
     "text": "7.1 Uso de herramientas de IA",
     "crumbs": [
+      "E0 - Comprensión de negocio",
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Uso de IA</span>"
     ]
   },
@@ -186,7 +203,437 @@
     "section": "",
     "text": "7.1.1 Herramienta utilizada\nSe utilizó ChatGPT de OpenAI (GPT-5.6 Sol) como herramienta de apoyo durante el desarrollo de la etapa de comprensión del negocio del proyecto.\n\n\n7.1.2 Tareas para las que se utilizó\nLa herramienta se utilizó principalmente como apoyo para la discusión, revisión y redacción de diferentes apartados de los archivos Quarto correspondientes a la comprensión del negocio.\nEn particular, se utilizó para:\n\nanalizar y mejorar la redacción del criterio de éxito en términos de negocio;\nrevisar la relación entre el criterio de éxito, el objetivo general del proyecto y el objetivo de minería de datos;\nexplicar las métricas técnicas relacionadas con análisis estadístico, rankings y técnicas de clustering;\nanalizar propuestas y mejorar redacciones en supuestos y riesgos específicos del proyecto;\nrevisar que las propuestas fueran consistentes con la información obtenida durante la entrevista con el stakeholder y con el alcance definido por el equipo.\n\n\n\n7.1.3 Prompts empleados\nDebido a que se realizaron múltiples consultas durante el proceso, se presenta un resumen general de los prompts utilizados.\nLas consultas estuvieron orientadas principalmente a:\n\nsolicitar revisión y mejora de propuestas de redacción realizadas previamente por el alumno;\npreguntar si un criterio de éxito era coherente con el objetivo de negocio y el objetivo de minería de datos;\nidentificar riesgos derivados de la calidad, heterogeneidad y disponibilidad de los datos;\nidentificar riesgos relacionados con la aplicación de algoritmos de clustering;\nverificar supuestos dados por el alumno sobre disponibilidad, compatibilidad y representatividad de las fuentes de información;\nsolicitar alternativas de redacción y señalar posibles inconsistencias conceptuales.\n\nLos prompts se realizaron de manera iterativa, presentando primero las ideas desarrolladas por el alumno y utilizando la herramienta principalmente para analizarlas, cuestionarlas y mejorar su formulación.\n\n\n7.1.4 Qué se hizo con la salida obtenida\nLas respuestas generadas por la herramienta no se incorporaron directamente sin revisión.\nEl alumno se encargó de verificar que las propuestas fueran coherentes con el objetivo de negocio, el objetivo de minería de datos, el alcance del proyecto y la información proporcionada por el stakeholder.\nTambién se contrastaron los conceptos y métricas sugeridas con fuentes de consulta adicionales cuando fue necesario. Las propuestas fueron posteriormente discutidas y compartidas con los integrantes del equipo para decidir de manera conjunta qué información debía incorporarse en cada archivo Quarto.\nComo resultado de este proceso, algunas sugerencias fueron modificadas, simplificadas o descartadas cuando no correspondían con el alcance del proyecto. La herramienta se utilizó, por lo tanto, como apoyo para la reflexión y revisión del trabajo, manteniendo la decisión final y la validación del contenido bajo responsabilidad del equipo.",
     "crumbs": [
+      "E0 - Comprensión de negocio",
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Uso de IA</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/fuentes.html",
+    "href": "entregas/E1_arquitectura_dw/fuentes.html",
+    "title": "8  Fuentes de datos e integración",
+    "section": "",
+    "text": "9 Preguntas de investigación de E0\nPara esta entrega se asignaron identificadores a las preguntas de investigación priorizadas en E0, con el fin de mantener la trazabilidad entre las preguntas, las fuentes de datos y el diseño posterior del almacén de datos.\nP1 = ¿Cuáles son las enfermedades y/o padecimientos a nivel municipal?\nLa respuesta a ésta pregunta evidentemente vendrá acompañada de estadísticas para que el usuario final, que se espera que posee formación médica, pueda sacar sus conclusiones con base a la información que se le proporcione.\nP2 = ¿Qué nos dicen los indicadores acerca de la población del municipio?\nLos índices de: mortalidad, morbilidad, natalidad, entre otros; son bastante útiles para que el usuario pueda darse una idea acerca del contexto en el que vive la población de su municipio su día a día.\nP3 = ¿Qué relación existe entre los indicadores y las enfermedades?\nTanto en la medicina como en la ciencia de datos el objetivo principal es buscar patrones y/o relaciones con base a la información que tengamos, por lo tanto, se busca que el usuario pueda obetener la información de una manera sencilla y eficaz para que, como menciona la Dra. Durán, pueda hacer un “pequeño diagnóstico” de la población.",
+    "crumbs": [
+      "E1 - Arquitectura del DW",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Fuentes de datos e integración</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/fuentes.html#herramientas-y-portales-utilizados",
+    "href": "entregas/E1_arquitectura_dw/fuentes.html#herramientas-y-portales-utilizados",
+    "title": "8  Fuentes de datos e integración",
+    "section": "12.1 Herramientas y portales utilizados",
+    "text": "12.1 Herramientas y portales utilizados\n\nChatGPT\nINEGI\nCONAPO\nDatos Abiertos de la Direccion General de Informacion en Salud\nSecretaria de Salud",
+    "crumbs": [
+      "E1 - Arquitectura del DW",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Fuentes de datos e integración</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/fuentes.html#f1.-egresos-hospitalarios",
+    "href": "entregas/E1_arquitectura_dw/fuentes.html#f1.-egresos-hospitalarios",
+    "title": "8  Fuentes de datos e integración",
+    "section": "16.1 F1. Egresos Hospitalarios",
+    "text": "16.1 F1. Egresos Hospitalarios\n\n\n\n\n\n\n\nCampo\nInformación\n\n\n\n\nNombre y dueño\nEgresos Hospitalarios de la Secretaría de Salud. Dirección General de Información en Salud\n\n\nURL y acceso\nPágina de bases de datos de la DGIS. Descarga de bases de egresos hospitalarios. (http://www.dgis.salud.gob.mx/contenidos/basesdedatos/da_egresoshosp_gobmx.html)\n\n\nFormato y tamaño\nBases de datos distribuidas por año. Dependiendo del periodo existen archivos CSV y paquetes ZIP, acompañados por catálogos y descriptores de campos. El tamaño varía según el año.\n\n\nGrano\nUna fila por egreso hospitalario de un paciente. Cada registro representa un evento de egreso e incluye variables del paciente, atención, diagnóstico y lugar\n\n\nCobertura\nCobertura nacional de unidades médicas hospitalarias de la Secretaría de Salud. Abarca 2010–2026, hasta 2025 completo y 2026 con informacion preliminar.\n\n\nLicencia y restricciones\nInformación pública disponible como datos abiertos.\n\n\nLlaves de integración\nEntidad de residencia + municipio de residencia + año. Adicionalmente, CLUES permite identificar la unidad médica y el Diag_Ini/CIE permite relacionar padecimientos con catalogos de enfermedades\n\n\nPregunta(s) de E0\nP1 — Si. Permite identificar qué padecimientos aparecen con mayor frecuencia como afección principal de los egresos hospitalarios por municipio; debe aclararse que representa morbilidad hospitalaria, no todos los enfermos de la población. P2 — Parcial. Permite obtener indicadores como numero de egresos, días de estancia o características de los pacientes, pero por sí sola no describe a toda la población municipal ni proporciona el denominador poblacional necesario para calcular tasas. P3 — Sí. Los egresos y diagnósticos pueden relacionarse con edad, sexo y otros datos del evento y, mediante municipio y año, combinarse con población o mortalidad de otras fuentes para analizar la relación entre enfermedades e indicadores.\n\n\n\n\n16.1.1 Evidencia de verificación\nPágina oficial de la fuente:\n\nVista previa o apertura de los datos:\n\nDescriptor de los datos:",
+    "crumbs": [
+      "E1 - Arquitectura del DW",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Fuentes de datos e integración</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/fuentes.html#f2.-estadísticas-de-defunciones-registradas",
+    "href": "entregas/E1_arquitectura_dw/fuentes.html#f2.-estadísticas-de-defunciones-registradas",
+    "title": "8  Fuentes de datos e integración",
+    "section": "16.2 F2. Estadísticas de Defunciones Registradas",
+    "text": "16.2 F2. Estadísticas de Defunciones Registradas\n\n\n\n\n\n\n\nCampo\nInformación\n\n\n\n\nNombre y dueño\nEstadísticas de Defunciones Registradas (EDR). Instituto Nacional de Estadística y Geografía (INEGI)\n\n\nURL y acceso\nConsulta y descarga de datos abiertos, metadatos, catálogos y documentación desde INEGI. (https://www.inegi.org.mx/programas/edr/#datos_abiertos)\n\n\nFormato y tamaño\nArchivos CSV descargables por año que contienen los registros de las defunciones y se acompañan de un diccionario de datos y catálogos que permiten interpretar los códigos utilizados. El tamaño del archivo tambien cambia segun el año\n\n\nGrano\nUna fila por defunción registrada.\n\n\nCobertura\nCobertura nacional, con información anual (2012-2024) y desglose geográfico que permite identificar la entidad y municipio relacionados con la defunción.\n\n\nLicencia y restricciones\nSujeta a los Términos de Libre Uso de la Información del INEGI. Puede copiarse, difundirse, adaptarse y extraerse siempre que se otorgue el crédito correspondiente a INEGI.\n\n\nLlaves de integración\nPara este proyecto se propone utilizar ENT_RESID,MUN_RESID y ANIO_OCUR. La variable CAUSA_DEF proporciona la causa básica de defunción\n\n\nPregunta(s) de E0\nP1 — Sí. Permite identificar qué enfermedades, padecimientos o causas de muerte tienen mayor presencia entre las defunciones de residentes de un municipio mediante CAUSA_DEF y CIE-10. Mide enfermedades asociadas a mortalidad. P2 — Sí. La mortalidad es uno de los indicadores de salud planteados en el proyecto; permite obtener número de defunciones P3 — Sí. Permite relacionar las causas de muerte con edad, sexo, municipio y otras características, además de integrarse con CONAPO para estudiar tasas de mortalidad y compararlas con los padecimientos observados en egresos hospitalarios.\n\n\n\n\n16.2.1 Evidencia de verificación\nPágina oficial de la fuente:\n\nVista previa o apertura de los datos:\n\nDiccionario de los datos:",
+    "crumbs": [
+      "E1 - Arquitectura del DW",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Fuentes de datos e integración</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/fuentes.html#f4.-reconstrucción-y-proyecciones-de-la-población-de-los-municipios-de-méxico-19902040",
+    "href": "entregas/E1_arquitectura_dw/fuentes.html#f4.-reconstrucción-y-proyecciones-de-la-población-de-los-municipios-de-méxico-19902040",
+    "title": "8  Fuentes de datos e integración",
+    "section": "16.3 F4. Reconstrucción y proyecciones de la población de los municipios de México 1990–2040",
+    "text": "16.3 F4. Reconstrucción y proyecciones de la población de los municipios de México 1990–2040\n\n\n\n\n\n\n\nCampo\nInformación\n\n\n\n\nNombre y dueño\nReconstrucción y proyecciones de la población de los municipios de México 1990–2040. Consejo Nacional de Población (CONAPO).\n\n\nURL y acceso\nLa documentación oficial se encuentra en CONAPO, pero por errores en la pagina oficial se encuentra una copia en la pagina del Gobierno de Guanajuato. (https://portalsocial.guanajuato.gob.mx/es/node/3565)\n\n\nFormato y tamaño\nArchivos de Excel (XLSX). CONAPO organiza las bases en archivos de población por sexo y grupos quinquenales de edad, grandes grupos de edad, indicadores demograficos y diccionario de datos. Tiene aprox mas de 250,000 registros\n\n\nGrano\nUna fila por municipio, año y sexo. Los distintos grupos quinquenales de edad se representan mediante columnas separadas dentro de cada registro\n\n\nCobertura\n2,475 municipios desde 1990 hasta 2040. Los valores de 1990–2020 corresponden a una reconstrucción demografica; 2021–2040 son proyecciones. Incluye sexo, edad y diversos indicadores demograficos.\n\n\nLicencia y restricciones\nPide citar a SGCONAPO en caso de usar la informacion\n\n\nLlaves de integración\nClave de entidad, clave de municipio y año. Para análisis por sexo puede añadirse la categoría de sexo\n\n\nPregunta(s) de E0\nP1 — No. La fuente no contiene enfermedades, diagnósticos ni casos de padecimientos, por lo que por sí sola no puede determinar cuales enfermedades predominan. P2 — Sí. Es una de las fuentes más importantes para esta pregunta porque proporciona población municipal, distribución por sexo y edad e indicadores demograficos que describen la estructura de la población. P3 — Sí. Permite contextualizar los casos, egresos y defunciones según el tamaño y composición poblacional. Al integrarla con las otras fuentes se pueden calcular tasas de egresos o mortalidad por cada 100,000 habitantes y analizar cómo se relacionan las enfermedades con las características demograficas del municipio.\n\n\n\n\n16.3.1 Evidencia de verificación\nPágina oficial de la fuente:\n\nPágina con copia de los datos que funciona del gobierno de Guanajuato:\n\nVista previa o apertura de los datos:\n\nDatos por edad quinquenal:",
+    "crumbs": [
+      "E1 - Arquitectura del DW",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Fuentes de datos e integración</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/fuentes.html#integración-geografica",
+    "href": "entregas/E1_arquitectura_dw/fuentes.html#integración-geografica",
+    "title": "8  Fuentes de datos e integración",
+    "section": "18.1 Integración geografica",
+    "text": "18.1 Integración geografica\nLas tres fuentes permiten identificar el municipio al que pertenece la información, por lo que la principal llave de integración geográfica será una clave de municipio, construida a partir de la clave de entidad y la clave municipal.\nEn F1, Egresos Hospitalarios, se dispone de información correspondiente a la entidad (Entidad) y municipio (Munic) asociados al egreso. En F2 se utilizarán principalmente ENT_RESID y MUN_RESID, debido a que representan la entidad y municipio de residencia habitual de la persona fallecida. En F4 se dispone de la clave geográfica correspondiente al municipio y la clave_ent a entidad.\nPara integrar las fuentes se propone generar una clave municipal común con el formato:\nclave_entidad + clave_municipio\nDe esta manera, los registros de las diferentes fuentes podrán relacionarse con una misma dimensión geografica.",
+    "crumbs": [
+      "E1 - Arquitectura del DW",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Fuentes de datos e integración</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/fuentes.html#integración-temporal",
+    "href": "entregas/E1_arquitectura_dw/fuentes.html#integración-temporal",
+    "title": "8  Fuentes de datos e integración",
+    "section": "18.2 Integración temporal",
+    "text": "18.2 Integración temporal\nEl segundo componente de integración será el año.\nF1 contiene las fechas relacionadas con los eventos hospitalarios (Ingreso y Egreso), F2 contiene el dia, mes y año de ocurrencia de la defunción (en variables distintas) y F4 contiene directamente el año de la estimación o proyección poblacional.\nDebido a que las fuentes no necesariamente cubren exactamente los mismos periodos, los análisis que involucren las tres deberán limitarse a los años para los cuales exista información compatible en todas las fuentes utilizadas.",
+    "crumbs": [
+      "E1 - Arquitectura del DW",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Fuentes de datos e integración</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/fuentes.html#diferencias-de-granularidad",
+    "href": "entregas/E1_arquitectura_dw/fuentes.html#diferencias-de-granularidad",
+    "title": "8  Fuentes de datos e integración",
+    "section": "18.3 Diferencias de granularidad",
+    "text": "18.3 Diferencias de granularidad\nLas fuentes seleccionadas no tienen el mismo nivel de granularidad:\n\nF1 tiene una fila por evento de egreso hospitalario.\nF2 tiene una fila por defunción registrada.\nF4 tiene una fila por municipio, año y sexo.\n\nPor lo tanto F1 y F2 se tienen que poner por municipio y año, para poderlo relacionar con la poblacion correspondiente de F4.",
+    "crumbs": [
+      "E1 - Arquitectura del DW",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Fuentes de datos e integración</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/fuentes.html#construcción-de-indicadores",
+    "href": "entregas/E1_arquitectura_dw/fuentes.html#construcción-de-indicadores",
+    "title": "8  Fuentes de datos e integración",
+    "section": "18.4 Construcción de indicadores",
+    "text": "18.4 Construcción de indicadores\nLa integración con F4 permitirá transformar algunos conteos absolutos en indicadores comparables entre municipios.\nPor ejemplo, para los egresos hospitalarios podrá calcularse:\n\\[\n\\text{Tasa de egresos hospitalarios} =\n\\frac{\\text{Número de egresos hospitalarios de un municipio}}\n{\\text{Población del municipio}}\n\\times 100000\n\\]\nNos da la cantidad de egresos hospotalarios por cada 100,000 habitantes, esto para tener una comparativa entre municipios teniendo en cuenta la gente que lo habita.\nEste indicador da egresos, no personas enfermas, ya que una persona puede tener diferentes egresos.\nDe esta manera tambien podemos tomar indicadores sobre enfermedades en los municipios.\nPor ejemplo:\n\\[\n\\text{Tasa egresos con enfermedad x} =\n\\frac{\\text{Número de egresos hospitalariosde un municipio con enfermedad x}}\n{\\text{Población del municipio}}\n\\times 100000\n\\]\nTambien se puede tomar para las defunciones con algo como:\n\\[\n\\text{Tasa de mortalidad} =\n\\frac{\\text{Número de defunciones en el municipio}}\n{\\text{Población del municipio}}\n\\times 100000\n\\]\nNos da la cantidad de defunciones por cada 100,000 habitantes, esto para tener una comparativa entre municipios teniendo en cuenta la gente que lo habita.\nEsto permitirá realizar comparaciones entre municipios con diferentes tamaños de población.",
+    "crumbs": [
+      "E1 - Arquitectura del DW",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Fuentes de datos e integración</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/fuentes.html#problemas-de-integración-anticipados",
+    "href": "entregas/E1_arquitectura_dw/fuentes.html#problemas-de-integración-anticipados",
+    "title": "8  Fuentes de datos e integración",
+    "section": "18.5 Problemas de integración anticipados",
+    "text": "18.5 Problemas de integración anticipados\nDurante la integración de las fuentes se anticipan los siguientes problemas:\n\nDiferencias en las claves geográficas: Las claves de entidad y municipio pueden presentarse separadas, combinadas o con distintos tipos de dato. Será necesario homologarlas.\nDiferencias en la codificación del sexo: F1 y F2 tienen la categoria de sexo por numero y F4 lo representa como hombres y mujeres, por lo que sera necesario homologar esta categoria\nDiferencias en la representación de la edad: F1 y F2 pueden contener la edad de cada registro, mientras que F4 almacena la población en grupos quinquenales de edad. Si se realizan analisis por edad, sera necesario transformar las edades individuales a los mismos grupos utilizados por CONAPO.\nNo juntar egresos y defunciones: En F1 y F2 se usa el CIE-10, que es una estandarizacion para asignar codigos a problemas en la salud, para asignarlos en la causa del egreso o causa de la defuncion, pero estos se deben analizar por separado ya que aunque se especifiquen tambien defunciones en F1, son distintas a las de F2 y podria servir el usar ambas pero en distntos fines.\nDiferencia en egresos y enfermedades. En F1 no se debe tomar como que un egreso significa una persona enferma distinta, ya que puede que una misma persona tenga distintos egresos con una misma enfermedad o distintas enfermedades. Aparte de que no toda la gente enferma va a los hopsitales, por lo que no podemos concluir que sus datos nos dan cantidad de gente con cierta enfermedad, si no cantidad de egresos con dicha enfermedad.",
+    "crumbs": [
+      "E1 - Arquitectura del DW",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Fuentes de datos e integración</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/arquitectura.html",
+    "href": "entregas/E1_arquitectura_dw/arquitectura.html",
+    "title": "9  Arquitectura de tres capas en BigQuery",
+    "section": "",
+    "text": "9.1 Objetivo y alcance\nLa arquitectura de datos del proyecto busca integrar información oficial sobre eventos de salud y características demográficas de los municipios de México. Para ello se consideran tres fuentes institucionales:\nPara los registros de egresos y defunciones se delimitó el periodo 2012–2019. Esta decisión permite enfocar el análisis en los años anteriores a la pandemia de COVID-19, sin incorporar directamente las alteraciones que ocurrieron durante ella. Los productos de CONAPO pueden tener una cobertura temporal más amplia; sus datos deberán alinearse con el periodo elegido cuando se integre la información.\nEsta entrega implementa la arquitectura inicial, no un proceso ETL completo: se cargaron muestras de las fuentes en staging y se crearon las estructuras del esquema estrella en dw. Las tablas de hechos y dimensiones todavía no contienen los datos transformados.",
+    "crumbs": [
+      "E1 - Arquitectura del DW",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Arquitectura de tres capas en BigQuery</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/arquitectura.html#objetivo-y-alcance",
+    "href": "entregas/E1_arquitectura_dw/arquitectura.html#objetivo-y-alcance",
+    "title": "9  Arquitectura de tres capas en BigQuery",
+    "section": "",
+    "text": "DGIS / Secretaría de Salud: egresos hospitalarios y afecciones asociadas.\nINEGI: estadísticas de defunciones registradas.\nCONAPO: población estimada e indicadores demográficos municipales.",
+    "crumbs": [
+      "E1 - Arquitectura del DW",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Arquitectura de tres capas en BigQuery</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/arquitectura.html#diseño-de-la-arquitectura",
+    "href": "entregas/E1_arquitectura_dw/arquitectura.html#diseño-de-la-arquitectura",
+    "title": "9  Arquitectura de tres capas en BigQuery",
+    "section": "9.2 Diseño de la arquitectura",
+    "text": "9.2 Diseño de la arquitectura\nSe utiliza Google BigQuery en el proyecto proyectomineria-511105, con una arquitectura organizada en tres capas: Staging → Data Warehouse → DataMart.\n\n\n\n\n\nflowchart TB\n    DGIS[\"DGIS&lt;br/&gt;Egresos y afecciones\"] --&gt; ST[\"STAGING&lt;br/&gt;Muestras de datos de origen\"]\n    INEGI[\"INEGI&lt;br/&gt;Defunciones registradas\"] --&gt; ST\n    CONAPO[\"CONAPO&lt;br/&gt;Población e indicadores\"] --&gt; ST\n    ST -. \"ETL pendiente: limpieza, homologación e integración\" .-&gt; DW[\"DW&lt;br/&gt;5 dimensiones + 2 tablas de hechos\"]\n    DW -. \"Consultas analíticas sobre el esquema\" .-&gt; MART[\"DATAMART&lt;br/&gt;Consultas de P1, P2 y P3\"]\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCapa\nFunción\nEstado para la entrega E1\n\n\n\n\nStaging\nAlmacenar las muestras de los archivos de origen, con separación por fuente y año.\nMuestras cargadas; se muestran ejemplos de sus esquemas.\n\n\nDW\nDefinir un esquema estrella común para integrar información de eventos y población.\nSiete tablas creadas mediante sentencias SQL; sin poblar.\n\n\nDataMart\nPreparar consultas SQL que respondan las preguntas de E0 con operaciones analíticas.\nImplementación y validación del DataMart\n\n\n\n\n9.2.1 Evidencia de los conjuntos de datos\nLa Figura Figure 9.1 muestra el proyecto de BigQuery y los conjuntos de datos staging, dw y mart utilizados en esta implementación.\n\n\n\n\n\n\nFigure 9.1: Conjuntos de datos visibles en BigQuery: staging, dw y mart",
+    "crumbs": [
+      "E1 - Arquitectura del DW",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Arquitectura de tres capas en BigQuery</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/arquitectura.html#implementación-de-staging",
+    "href": "entregas/E1_arquitectura_dw/arquitectura.html#implementación-de-staging",
+    "title": "9  Arquitectura de tres capas en BigQuery",
+    "section": "9.3 Implementación de Staging",
+    "text": "9.3 Implementación de Staging\nEl dataset staging funciona como zona de recepción de los datos. Se utilizaron muestras de los archivos institucionales para verificar que BigQuery pudiera importar sus columnas y reconocer sus tipos de datos. Las tablas se mantuvieron identificables por fuente y año, sin ejecutar aún la transformación necesaria para integrarlas al esquema estrella.\nLas capturas de esta sección corresponden a la pestaña Esquema de BigQuery; permiten observar campos y tipos.\n\n9.3.1 DGIS: archivos de afecciones\nLos archivos de afecciones contienen diagnósticos asociados a los registros hospitalarios. En el ejemplo de Afecciones_muestra_12 se distinguen tres columnas:\n\n\n\n\n\n\n\n\nCampo observado\nTipo en BigQuery\nDescripción para la integración futura\n\n\n\n\nID\nINTEGER\nIdentificador con el que se puede relacionar la afección con el registro correspondiente, sujeto a validación por año.\n\n\nAFEC\nSTRING\nCódigo de afección o diagnóstico.\n\n\nNUMAFEC\nINTEGER\nCampo numérico de la fuente asociado al registro de afección. Su interpretación precisa debe revisarse en el descriptor.\n\n\n\n\n\n\n\n\n\nFigure 9.2: Esquema de la tabla Afecciones_muestra_12 y tablas anuales visibles en staging\n\n\n\n\n\n9.3.2 DGIS: egresos hospitalarios\nLas muestras resumidas de egresos contienen información sobre el evento hospitalario. En Egreso_muestra_12 se observan, entre otros campos, ID, CLUES, EGRESO, INGRE, DIAS_ESTA, EDAD, SEXO, ENTIDAD y MUNIC.\nEstas columnas hacen posible plantear una integración futura por periodo, características demográficas, ubicación y estancia hospitalaria. Sin embargo, no se transformaron ni homologaron los códigos al cargar la muestra.\n\n\n\n\n\n\nFigure 9.3: Esquema de Egreso_muestra_12 en BigQuery\n\n\n\n\n\n9.3.3 INEGI: defunciones registradas\nLos archivos de defunciones permiten identificar el evento de mortalidad, la causa básica y atributos de residencia y tiempo. En la captura de Defunciones_generales_19 se observan campos como ent_resid, mun_resid, causa_def, sexo, edad, anio_ocur y anio_regis, entre otros.\n\n\n\n\n\n\nFigure 9.4: Esquema de Defunciones_generales_19 en el dataset staging\n\n\n\n\n\n9.3.4 CONAPO: población e indicadores demográficos\nSe incorporaron datos de CONAPO relativos a proyecciones de población e indicadores municipales. Esta fuente complementa los eventos observados en DGIS e INEGI, pues permitirá construir medidas relativas a la población, como tasas por cada 100,000 habitantes.\nLos archivos de CONAPO procedían de hojas de cálculo y se prepararon en un formato que BigQuery pudiera importar. La compatibilidad de años, grupos de edad, sexo y claves de municipio deberá resolverse en el ETL.\n\n\n\n\n\n\nFigure 9.5: Campos de CONAPO\n\n\n\n\n\n9.3.5 Trabajos de carga e historial\nEl explorador de trabajos permite consultar el estado de ejecuciones del proyecto, así como identificar trabajos completados y trabajos con error. La siguiente imagen presenta una vista general del historial.\n\n\n\n\n\n\nFigure 9.6: Explorador de trabajos de BigQuery con ejecuciones completadas y con error\n\n\n\nAlcance de esta evidencia: la captura identifica el historial de trabajos, van incluidos cargas de datos y consultas sql. Los picos de 4:00pm a 8:00 pm representan donde se experimentaron más cargas de datos.",
+    "crumbs": [
+      "E1 - Arquitectura del DW",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Arquitectura de tres capas en BigQuery</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/arquitectura.html#implementación-del-data-warehouse-dw",
+    "href": "entregas/E1_arquitectura_dw/arquitectura.html#implementación-del-data-warehouse-dw",
+    "title": "9  Arquitectura de tres capas en BigQuery",
+    "section": "9.4 Implementación del Data Warehouse (DW)",
+    "text": "9.4 Implementación del Data Warehouse (DW)\nEn el dataset dw se implementó el esquema estrella propuesto por el equipo, con cinco dimensiones y dos tablas de hechos. Las tablas fueron creadas mediante SQL y se encuentran vacías intencionalmente, pues el proceso de extracción, transformación y carga (ETL) queda fuera del alcance de E1.\n\n\n\n\n\n\nFigure 9.7: Siete tablas creadas en el dataset dw\n\n\n\n\n\n\n\n\n\n\n\n\nTipo\nTabla\nCampos visibles\nFunción principal\n\n\n\n\nDimensión\ndim_fecha\n4\nAño y límites del periodo.\n\n\nDimensión\ndim_municipio\n10\nIdentidad geográfica y vigencia territorial.\n\n\nDimensión\ndim_causa_diagnostico\n6\nCategorías y capítulos CIE-10.\n\n\nDimensión\ndim_perfil_demografico\n6\nSexo y grupos de edad.\n\n\nDimensión\ndim_tipo_evento\n5\nDistinción entre egreso y defunción.\n\n\nHechos\nfact_eventos_salud\n10\nConteos y medidas de eventos de salud.\n\n\nHechos\nfact_poblacion\n5\nPoblación estimada por periodo y perfil.\n\n\n\n\n9.4.1 Evidencia de las cinco dimensiones\nLas siguientes capturas muestran directamente los esquemas construidos en BigQuery. En todas las dimensiones se observa la columna correspondiente a la llave primaria (PK).\n\ndim_fechadim_municipiodim_causa_diagnosticodim_perfil_demograficodim_tipo_evento\n\n\nContiene fecha_sk, anio, inicio_periodo y fin_periodo. La llave fecha_sk aparece marcada como PK.\n\n\n\n\n\n\nFigure 9.8: Esquema de dim_fecha con cuatro columnas\n\n\n\n\n\nIncluye la llave municipio_sk, los códigos y nombres geográficos, así como version_territorial, vigencia_desde, vigencia_hasta y es_actual, previstos para gestionar el historial territorial.\n\n\n\n\n\n\nFigure 9.9: Esquema de dim_municipio con diez columnas\n\n\n\n\n\nIncluye la llave causa_diagnostico_sk, la categoría CIE-10, su descripción, el capítulo, la descripción del capítulo y la versión del catálogo.\n\n\n\n\n\n\nFigure 9.10: Esquema de dim_causa_diagnostico con seis columnas\n\n\n\n\n\nContiene perfil_demografico_sk, sexo, codigo_grupo_edad, grupo_edad, edad_minima y edad_maxima.\n\n\n\n\n\n\nFigure 9.11: Esquema de dim_perfil_demografico con seis columnas\n\n\n\n\n\nContiene tipo_evento_sk, codigo_tipo, nombre_tipo, fuente e interpretacion_causa, para distinguir tipos de eventos que tienen significados estadísticos diferentes.\n\n\n\n\n\n\nFigure 9.12: Esquema de dim_tipo_evento con cinco columnas\n\n\n\n\n\n\n\n\n9.4.2 Evidencia de las dos tablas de hechos\nLas tablas de hechos incluyen llaves sustitutas propias, referencias a dimensiones y medidas numéricas. Las capturas de BigQuery señalan las llaves primarias como PK y las foráneas como FK.\n\nfact_eventos_saludfact_poblacion\n\n\nLa tabla contiene una llave primaria (evento_salud_sk), cinco llaves foráneas y cuatro medidas: conteo_eventos, dias_estancia_total, egresos_estancia_valida y egresos_por_defuncion.\n\n\n\n\n\n\nFigure 9.13: Esquema de fact_eventos_salud con llaves PK/FK y medidas\n\n\n\n\n\nLa tabla contiene una llave primaria (poblacion_sk), tres llaves foráneas compartidas con el modelo de eventos y la medida poblacion_estimada.\n\n\n\n\n\n\nFigure 9.14: Esquema de fact_poblacion con llaves PK/FK y población estimada\n\n\n\n\n\n\n\n\n9.4.3 Relaciones y reproducibilidad mediante DDL\nLas tablas de hechos comparten las dimensiones dim_fecha, dim_municipio y dim_perfil_demografico. Además, fact_eventos_salud utiliza dim_causa_diagnostico y dim_tipo_evento. Esto permite comparar los eventos con la población al agregar ambas fuentes a un grano compatible, sin atribuir causas de enfermedad a los registros de población.\nEl diseño se implementó con sentencias CREATE TABLE y declaraciones de llaves primarias y foráneas. En BigQuery, las restricciones declaradas como NOT ENFORCED documentan las relaciones, pero no garantizan automáticamente la unicidad ni la integridad referencial. Dichas verificaciones deberán incorporarse al futuro proceso ETL.\nEl código de creación se conserva en sql/ddl_dw.sql.",
+    "crumbs": [
+      "E1 - Arquitectura del DW",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Arquitectura de tres capas en BigQuery</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/arquitectura.html#capa-datamart",
+    "href": "entregas/E1_arquitectura_dw/arquitectura.html#capa-datamart",
+    "title": "9  Arquitectura de tres capas en BigQuery",
+    "section": "9.5 Capa DataMart",
+    "text": "9.5 Capa DataMart\nEl DataMart se plantea como la capa de consultas analíticas sobre el esquema estrella. Las consultas serán desarrolladas y documentadas por el integrante responsable, utilizando el diseño ya implementado en dw.\n\n\n\n\n\n\n\nPregunta de E0\nAnálisis previsto\n\n\n\n\nP1. ¿Cuáles son las enfermedades y/o padecimientos a nivel municipal?\nAnalizar por separado los conteos de egresos por diagnóstico y defunciones por causa, agrupados por municipio y año.\n\n\nP2. ¿Qué nos dicen los indicadores acerca de la población del municipio?\nExaminar características y distribución poblacional usando CONAPO y sus dimensiones compatibles.\n\n\nP3. ¿Qué relación existe entre los indicadores y las enfermedades?\nRelacionar eventos agregados con medidas poblacionales compatibles, distinguiendo asociaciones descriptivas de explicaciones causales.\n\n\n\nLa práctica requiere consultas SQL válidas para las preguntas de E0, así como al menos una operación OLAP (por ejemplo, ROLLUP, GROUPING SETS o funciones de ventana).",
+    "crumbs": [
+      "E1 - Arquitectura del DW",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Arquitectura de tres capas en BigQuery</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/arquitectura.html#limitaciones-y-verificaciones-pendientes",
+    "href": "entregas/E1_arquitectura_dw/arquitectura.html#limitaciones-y-verificaciones-pendientes",
+    "title": "9  Arquitectura de tres capas en BigQuery",
+    "section": "9.6 Limitaciones y verificaciones pendientes",
+    "text": "9.6 Limitaciones y verificaciones pendientes\n\nMuestras de carga: se utilizaron muestras operativas para comprobar la lectura de archivos y sus esquemas; no deben interpretarse automáticamente como representativas de la población nacional cuando proceden de las primeras filas del archivo.\nCobertura temporal: el análisis principal de eventos se limitó a 2012–2019. Los periodos cubiertos por CONAPO deben alinearse antes de elaborar indicadores comparables.\nGranos distintos: los egresos, sus afecciones, las defunciones y la población no representan la misma unidad de observación. El ETL deberá resolver las relaciones entre archivos, la agregación de categorías y el riesgo de duplicación.\nCompatibilidad de códigos: deberán homologarse claves municipales, sexo, grupos de edad y categorías CIE-10 antes de integrar las tablas.",
+    "crumbs": [
+      "E1 - Arquitectura del DW",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Arquitectura de tres capas en BigQuery</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/arquitectura.html#conclusión",
+    "href": "entregas/E1_arquitectura_dw/arquitectura.html#conclusión",
+    "title": "9  Arquitectura de tres capas en BigQuery",
+    "section": "9.7 Conclusión",
+    "text": "9.7 Conclusión\nSe implementó la base del almacén de datos en BigQuery mediante la carga de muestras de DGIS, INEGI y CONAPO en staging y la creación de siete tablas estructuradas en el dataset dw. Las capturas del esquema acreditan la existencia de las cinco dimensiones y dos tablas de hechos, con sus atributos y llaves declaradas.\nEsta arquitectura permite continuar con la homologación e integración de fuentes durante una entrega posterior.",
+    "crumbs": [
+      "E1 - Arquitectura del DW",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Arquitectura de tres capas en BigQuery</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/estrella.html",
+    "href": "entregas/E1_arquitectura_dw/estrella.html",
+    "title": "10  Grano, Diagrama Mermaid y DDL",
+    "section": "",
+    "text": "10.1 Granos candidatos\nA partir de las fuentes seleccionadas —Estadísticas de Defunciones Registradas del INEGI, Egresos Hospitalarios de la Secretaría de Salud y población municipal de CONAPO— se proponen tres granos candidatos. Se utiliza el municipio de residencia habitual y un periodo anual, compatible con la población a mitad de año de CONAPO.",
+    "crumbs": [
+      "E1 - Arquitectura del DW",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Grano, Diagrama Mermaid y DDL</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/estrella.html#granos-candidatos",
+    "href": "entregas/E1_arquitectura_dw/estrella.html#granos-candidatos",
+    "title": "10  Grano, Diagrama Mermaid y DDL",
+    "section": "",
+    "text": "10.1.1 Candidato 1: Grano municipal anual\nDefinición: Una fila por municipio de residencia por año.\nConcentra los totales de defunciones, egresos hospitalarios registrados y población estimada. Las tres fuentes permiten identificar municipio y año.\nVentaja: Facilita comparar municipios, observar tendencias y calcular tasas generales.\nLimitación: Pierde el detalle de las causas, los diagnósticos, el sexo y los grupos de edad.\n\n\n10.1.2 Candidato 2: Grano municipal anual con características demográficas\nDefinición: Una fila por combinación de municipio de residencia, sexo y grupo de edad por año.\nOrganiza los eventos y la población según características demográficas. INEGI y DGIS contienen sexo y edad; CONAPO proporciona población por sexo y grupos de edad.\nVentaja: Permite calcular tasas específicas y comparar grupos demográficos.\nLimitación: Reúne distintas causas y diagnósticos, por lo que no permite identificar los padecimientos predominantes en cada grupo.\n\n\n10.1.3 Candidato 3: Grano municipal anual por causa o diagnóstico y características demográficas\nDefinición: Una fila por combinación de municipio de residencia, tipo de evento, causa o diagnóstico, sexo y grupo de edad por año.\nEl tipo de evento distingue las defunciones de los egresos hospitalarios. Se utiliza la causa básica de muerte de INEGI y la afección principal reseleccionada de DGIS.\nVentaja: Permite identificar causas y diagnósticos predominantes y comparar su distribución entre municipios, años y grupos demográficos.\nLimitación: Requiere igualar categorías y conservar la diferencia entre causa de muerte y diagnóstico de hospitalización. La población mantiene su propio grano y no debe duplicarse al agregar distintas causas.",
+    "crumbs": [
+      "E1 - Arquitectura del DW",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Grano, Diagrama Mermaid y DDL</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/estrella.html#elección-y-justificación-del-grano-final",
+    "href": "entregas/E1_arquitectura_dw/estrella.html#elección-y-justificación-del-grano-final",
+    "title": "10  Grano, Diagrama Mermaid y DDL",
+    "section": "10.2 Elección y justificación del grano final",
+    "text": "10.2 Elección y justificación del grano final\nSe selecciona el candidato 3, con dos decisiones de implementación: las causas y diagnósticos se agrupan en categorías CIE-10 de tres caracteres y las edades se organizan en intervalos de cinco años, según la clasificación de CONAPO.\n\nUna fila por combinación de municipio de residencia, tipo de evento, categoría CIE-10, sexo y grupo de edad por año\n\nCada fila representa un conteo anual agregado, no una persona ni un registro individual de la fuente. El municipio se interpreta dentro de la versión territorial documentada que corresponde a la comparación.\nLa elección se justifica por lo siguiente:\n\nPreguntas del proyecto: permite identificar causas y diagnósticos municipales (P1), calcular indicadores con la población correspondiente (P2) y explorar asociaciones con la estructura demográfica (P3).\nVariables disponibles: INEGI y DGIS contienen residencia, causa o diagnóstico, sexo, edad y fecha del evento. CONAPO aporta el denominador municipal por sexo y edad.\nPeriodicidad común: los registros individuales se agregan por año para compararlos con la población a mitad de año. Se usa el año de ocurrencia de la defunción y el año de egreso hospitalario; el año de registro se conserva en el origen para trazabilidad.\nAgregación posterior: este detalle permite obtener resúmenes generales por municipio o año sin perder la posibilidad de analizar causas y grupos demográficos.\n\nLa categoría CIE-10 de tres caracteres permite una clasificación común. Los subtipos de cuatro caracteres se conservan en los datos de origen, pero no se distinguen en este primer esquema. El tipo de evento determina cómo debe interpretarse el código: una causa básica de muerte y una afección principal hospitalaria representan conceptos distintos.\nLa población conserva un grano independiente:\n\nUna fila por combinación de municipio, sexo y grupo de edad por año.",
+    "crumbs": [
+      "E1 - Arquitectura del DW",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Grano, Diagrama Mermaid y DDL</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/estrella.html#tablas-de-hechos-y-métricas",
+    "href": "entregas/E1_arquitectura_dw/estrella.html#tablas-de-hechos-y-métricas",
+    "title": "10  Grano, Diagrama Mermaid y DDL",
+    "section": "10.3 Tablas de hechos y métricas",
+    "text": "10.3 Tablas de hechos y métricas\nSe proponen dos tablas de hechos, que comparten las dimensiones de fecha, municipio y perfil demográfico. Las tablas de hechos no se conectan directamente entre sí.\n\n10.3.1 fact_eventos_salud\nIntegra los conteos de defunciones de INEGI y de egresos de la serie Secretaría de Salud de DGIS. El origen se identifica mediante dim_tipo_evento.\n\n\n\n\n\n\n\nElemento\nDefinición\n\n\n\n\nGrano\nMunicipio de residencia, tipo de evento, categoría CIE-10, sexo y grupo de edad en intervalos de cinco años.\n\n\nLlave de fila\nevento_salud_sk, entero generado para identificar la fila agregada.\n\n\nLlaves foráneas\nfecha_sk, municipio_sk, causa_diagnostico_sk, perfil_demografico_sk, tipo_evento_sk.\n\n\nUnicidad\nLa combinación de las cinco llaves foráneas no puede repetirse.\n\n\n\n\n\n\n\n\n\n\n\nMedida almacenada\nDefinición y origen\nAditividad\n\n\n\n\nconteo_eventos\nNúmero de registros de la combinación. Cada defunción o egreso aporta una unidad.\nAditiva por año y dimensiones, dentro del mismo tipo de evento. Sumar tipos produce un total de registros de distinta naturaleza, no una medida de enfermedad o personas.\n\n\ndias_estancia_total\nSuma de DIAS_ESTA válidos en egresos. Los servicios de corta estancia con valor cero son válidos.\nAditiva en egresos. NULL para defunciones o cuando no hay estancias válidas.\n\n\negresos_estancia_valida\nNúmero de egresos con días de estancia válidos. Es el denominador del promedio de estancia.\nAditiva en egresos; NULL para defunciones.\n\n\negresos_por_defuncion\nNúmero de egresos con MOTEGRE = 5, según el catálogo DGIS 2023–2025. Debe verificarse el catálogo de cada edición utilizada.\nAditiva dentro de los egresos; NULL para defunciones de INEGI.\n\n\n\nLos egresos por defunción son un subconjunto de los egresos. No se suman a las defunciones de INEGI: las fuentes pueden representar el mismo fallecimiento y no se ha establecido un enlace individual entre registros.\nSe utiliza una sola causa básica por defunción y una sola afección principal por egreso. Las tablas de afecciones adicionales, procedimientos y productos de DGIS no se unen al conteo principal, porque sus relaciones de uno a muchos podrían multiplicarlo.\n\n\n10.3.2 fact_poblacion\nRepresenta la población estimada a mitad de año de CONAPO por municipio, sexo y grupo de las edades que se organizan en intervalos de cinco años.\n\n\n\n\n\n\n\nElemento\nDefinición\n\n\n\n\nGrano\nMunicipio, sexo y grupo de edades por año.\n\n\nLlave de fila\npoblacion_sk, entero generado.\n\n\nLlaves foráneas\nfecha_sk, municipio_sk, perfil_demografico_sk.\n\n\nUnicidad\nLa combinación de las tres llaves foráneas no puede repetirse.\n\n\nMedida\npoblacion_estimada, tomada del archivo quinquenal de CONAPO.\n\n\nAditividad\nSemiaditiva: se suma entre municipios territorialmente compatibles, sexos y grupos de edad mutuamente excluyentes, dentro del mismo año. No se suma entre años.\n\n\n\nLas columnas POB_00_04, POB_05_09, …, POB_85_mm se transforman en filas. POB_TOTAL se utiliza como control del total; no se carga como otro grupo de edad, pues duplicaría la población al sumar el detalle.\nLos indicadores de envejecimiento, dependencia y relación hombres-mujeres se calculan a partir de esta población. No se repiten indicadores municipales dentro de cada fila de sexo y edad. La edad mediana publicada por CONAPO queda como dato de referencia en el archivo de indicadores; no se reproduce como una medida exacta del esquema a partir de edades agrupadas.",
+    "crumbs": [
+      "E1 - Arquitectura del DW",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Grano, Diagrama Mermaid y DDL</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/estrella.html#dmensiones-y-llaves-sustitutas",
+    "href": "entregas/E1_arquitectura_dw/estrella.html#dmensiones-y-llaves-sustitutas",
+    "title": "10  Grano, Diagrama Mermaid y DDL",
+    "section": "10.4 Dmensiones y llaves sustitutas",
+    "text": "10.4 Dmensiones y llaves sustitutas\nSe definen cinco dimensiones. Fecha, municipio y perfil demográfico son dimensiones conformadas: ambas tablas de hechos utilizan los mismos miembros, llaves y definiciones.\n\n\n\n\n\n\n\n\n\nDimensión\nLlave sustituta\nIdentificación de negocio\nAtributos principales\n\n\n\n\ndim_fecha\nfecha_sk\nAño.\nanio, inicio_periodo, fin_periodo. Tiene una fila por año; no se inventan fechas diarias de eventos para representar agregados.\n\n\ndim_municipio\nmunicipio_sk\nClave de entidad de dos posiciones + clave de municipio de tres posiciones, junto con la versión territorial.\ncvegeo, clave_entidad, nombre_entidad, clave_municipio, nombre_municipio, version_territorial, vigencia_desde, vigencia_hasta, es_actual.\n\n\ndim_causa_diagnostico\ncausa_diagnostico_sk\nCategoría CIE-10 de tres caracteres dentro del catálogo de referencia.\ncategoria_cie10, descripcion_categoria, capitulo_cie10, descripcion_capitulo, version_catalogo.\n\n\ndim_perfil_demografico\nperfil_demografico_sk\nCombinación de sexo normalizado y código de grupo de edad.\nsexo, codigo_grupo_edad, grupo_edad, edad_minima, edad_maxima.\n\n\ndim_tipo_evento\ntipo_evento_sk\nCódigo de proceso: DEFUNCION o EGRESO.\ncodigo_tipo, nombre_tipo, fuente, interpretacion_causa.\n\n\n\nSexo y grupo de edad se reúnen en una dimensión de perfil demográfico para conservar ambos desgloses sin superar el límite de cinco dimensiones. Los grupos son 0–4, 5–9, …, 80–84 y 85 años y más.\nTodas las llaves sustitutas son enteros generados, estables e independientes de las claves de las fuentes. Se reserva el valor 0 para un miembro desconocido. En la dimensión demográfica también se conservan combinaciones parcialmente conocidas, como sexo conocido con edad no especificada.\nUna llave de fila de hechos identifica un agregado, no a una persona. Las restricciones de unicidad sobre las llaves dimensionales evitan cargar dos veces la misma combinación. Una recarga del mismo periodo sustituye su agregado o lo actualiza con una regla reproducible; no lo añade de nuevo como otra observación.",
+    "crumbs": [
+      "E1 - Arquitectura del DW",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Grano, Diagrama Mermaid y DDL</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/estrella.html#tipo-de-scd-y-justificación",
+    "href": "entregas/E1_arquitectura_dw/estrella.html#tipo-de-scd-y-justificación",
+    "title": "10  Grano, Diagrama Mermaid y DDL",
+    "section": "10.5 Tipo de SCD y justificación",
+    "text": "10.5 Tipo de SCD y justificación\n\n\n\n\n\n\n\n\nDimensión\nTipo SCD elegido\nJustificación y tratamiento\n\n\n\n\ndim_fecha\nTipo 0: conservar.\nLos atributos del periodo anual no cambian. Se añaden nuevos años sin modificar los existentes.\n\n\ndim_municipio\nTipo 2: nueva fila.\nConserva versiones ante cambios territoriales o denominaciones históricas documentadas. Cada versión obtiene una nueva municipio_sk y un intervalo de vigencia. Un municipio nuevo recibe su propio miembro.\n\n\ndim_causa_diagnostico\nTipo 1: sobrescribir correcciones.\nEl análisis utiliza un catálogo CIE-10 de referencia fijo. Se corrigen etiquetas sin conservar errores como versiones históricas. Un cambio real de significado o versión de clasificación no se trata como una corrección: exige una nueva correspondencia y revisión del modelo.\n\n\ndim_perfil_demografico\nTipo 0: conservar.\nLa definición de sexo normalizado y los límites de cada grupo de edad permanecen fijos. Una nueva combinación se añade como miembro; no se alteran los límites de uno existente.\n\n\ndim_tipo_evento\nTipo 0: conservar.\nDefunción y egreso tienen significados estables. Una corrección del diseño no debe cambiar el significado de eventos históricos.\n\n\n\nEn el SCD tipo 2 se utilizan intervalos sin solapamiento, con vigencia_desde incluida y vigencia_hasta excluida. La fila vigente se señala mediante es_actual. Las vigencias se obtienen de documentación territorial, no de la fecha de descarga.\nLa versión geográfica es parte de la identidad del municipio en los hechos. Se resuelve antes de agregar. Una diferencia de límites territoriales entre CONAPO y una fuente de eventos no se corrige únicamente agregando una nueva fila SCD: primero se necesita una correspondencia geográfica documentada. Cuando esta no exista, se conservan los conteos identificables, se marca la comparación como no disponible y no se calcula una tasa con un denominador de otro territorio.\nCabe destacar que estas políticas que utilizamos siguen la distinción entre conservar atributos (tipo 0), actualizar una fila (tipo 1) y crear versiones (tipo 2), todas estas fueron obtenidas de Kimball Group.",
+    "crumbs": [
+      "E1 - Arquitectura del DW",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Grano, Diagrama Mermaid y DDL</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/estrella.html#métricas-derivadas-y-reglas-de-integración",
+    "href": "entregas/E1_arquitectura_dw/estrella.html#métricas-derivadas-y-reglas-de-integración",
+    "title": "10  Grano, Diagrama Mermaid y DDL",
+    "section": "10.6 Métricas derivadas y reglas de integración",
+    "text": "10.6 Métricas derivadas y reglas de integración\nLas tasas, los promedios y los índices son no aditivos. Se calculan después de agregar sus numeradores y denominadores al nivel solicitado.\n\n\n\n\n\n\n\nMétrica derivada\nCálculo\n\n\n\n\nTasa de defunciones registradas por causa\nDefunciones de INEGI de la causa y grupo seleccionado / población compatible a mitad de año × 100,000.\n\n\nTasa de egresos hospitalarios registrados\nEgresos de la serie Secretaría de Salud del diagnóstico y grupo seleccionado / población compatible a mitad de año × 100,000. No equivale a incidencia o prevalencia.\n\n\nEstancia promedio\nSuma de dias_estancia_total / suma de egresos_estancia_valida, filtrando egresos.\n\n\nProporción de egresos por defunción\nSuma de egresos_por_defuncion / suma de conteo_eventos de egresos × 100.\n\n\nÍndice de envejecimiento de 65 años y más\nPoblación de 65 años y más / población de 0–14 años × 100.\n\n\nRazón de dependencia demográfica\n(Población de 0–14 años + población de 65 años y más) / población de 15–64 años × 100.\n\n\nRelación hombres-mujeres\nPoblación de hombres / población de mujeres × 100.\n\n\n\nSe aplican las siguientes reglas:\n\nTerritorio: se normalizan las claves como texto de cinco posiciones. 1001 se representa como 01001. Se usan ENT_RESID + MUN_RESID en INEGI y ENTIDAD + MUNIC en DGIS. La CLUES identifica el hospital y no sustituye al municipio de residencia.\nEdad y sexo: se interpretan con los catálogos propios de cada fuente. Los códigos de unidad de edad de INEGI y DGIS no se consideran equivalentes. Se obtiene edad en años cumplidos para clasificarla en el intervalo de cinco años.\nCausa: se normaliza el código CIE-10 y se asigna su categoría de tres caracteres mediante un catálogo validado. Se conserva el código original para trazabilidad. Los valores no identificados se registran como desconocidos.\nDenominadores: la población se consulta por municipio, año, sexo y edad compatibles. Para una tasa por causa se utiliza ese denominador una vez. Para un total de varias causas se agregan primero los eventos y después se consulta la población; no se suman denominadores repetidos por causa.\nFaltantes: un denominador ausente o cero produce una tasa no disponible, no cero. Los registros con sexo o edad desconocidos se conservan; no reciben una población ficticia. Pueden contribuir a totales generales si municipio y año son válidos.\nCobertura: ausencia de registros no se interpreta automáticamente como cero eventos. Se verifica la cobertura del municipio, la edición y el periodo antes de completar combinaciones con cero.\nPeriodo: se seleccionan años completos y comunes a las fuentes. Los archivos INEGI se identifican por año de registro, pero el conteo propuesto usa ocurrencia. Deben documentarse las ediciones consultadas y el corte de registros disponibles para no presentar el último año como exhaustivo si faltan registros tardíos.\n\nNo se suman tasas ni promedios de grupos. La población tampoco se suma entre años. La selección concreta del intervalo de estudio y las equivalencias territoriales se verifican al preparar los datos; no se fija un quinquenio sin comprobar su cobertura.",
+    "crumbs": [
+      "E1 - Arquitectura del DW",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Grano, Diagrama Mermaid y DDL</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/estrella.html#diagrama-del-esquema",
+    "href": "entregas/E1_arquitectura_dw/estrella.html#diagrama-del-esquema",
+    "title": "10  Grano, Diagrama Mermaid y DDL",
+    "section": "10.7 Diagrama del esquema",
+    "text": "10.7 Diagrama del esquema\nEl diagrama contiene dos hechos y cinco dimensiones. Las relaciones indican que cada fila de hechos referencia un miembro de dimensión y cada miembro puede describir varias filas de hechos.\n\n\n\n\n\nerDiagram\n    direction TB\n\n    DIM_FECHA ||--o{ FACT_EVENTOS_SALUD : periodo\n    DIM_MUNICIPIO ||--o{ FACT_EVENTOS_SALUD : residencia\n    DIM_CAUSA_DIAGNOSTICO ||--o{ FACT_EVENTOS_SALUD : clasifica\n    DIM_PERFIL_DEMOGRAFICO ||--o{ FACT_EVENTOS_SALUD : caracteriza\n    DIM_TIPO_EVENTO ||--o{ FACT_EVENTOS_SALUD : distingue\n\n    DIM_FECHA ||--o{ FACT_POBLACION : periodo\n    DIM_MUNICIPIO ||--o{ FACT_POBLACION : territorio\n    DIM_PERFIL_DEMOGRAFICO ||--o{ FACT_POBLACION : caracteriza\n\n    DIM_FECHA {\n        int fecha_sk PK\n        int anio UK\n        date inicio_periodo\n        date fin_periodo\n    }\n\n    DIM_MUNICIPIO {\n        int municipio_sk PK\n        string cvegeo\n        string nombre_municipio\n        string nombre_entidad\n        string version_territorial\n        date vigencia_desde\n        date vigencia_hasta\n        boolean es_actual\n    }\n\n    DIM_CAUSA_DIAGNOSTICO {\n        int causa_diagnostico_sk PK\n        string categoria_cie10 UK\n        string descripcion_categoria\n        string capitulo_cie10\n        string version_catalogo\n    }\n\n    DIM_PERFIL_DEMOGRAFICO {\n        int perfil_demografico_sk PK\n        string sexo\n        string codigo_grupo_edad\n        string grupo_edad\n        int edad_minima\n        int edad_maxima\n    }\n\n    DIM_TIPO_EVENTO {\n        int tipo_evento_sk PK\n        string codigo_tipo UK\n        string nombre_tipo\n        string fuente\n        string interpretacion_causa\n    }\n\n    FACT_EVENTOS_SALUD {\n        bigint evento_salud_sk PK\n        int fecha_sk FK\n        int municipio_sk FK\n        int causa_diagnostico_sk FK\n        int perfil_demografico_sk FK\n        int tipo_evento_sk FK\n        bigint conteo_eventos\n        bigint dias_estancia_total\n        bigint egresos_estancia_valida\n        bigint egresos_por_defuncion\n    }\n\n    FACT_POBLACION {\n        bigint poblacion_sk PK\n        int fecha_sk FK\n        int municipio_sk FK\n        int perfil_demografico_sk FK\n        bigint poblacion_estimada\n    }",
+    "crumbs": [
+      "E1 - Arquitectura del DW",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Grano, Diagrama Mermaid y DDL</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/estrella.html#alcance-y-fuentes",
+    "href": "entregas/E1_arquitectura_dw/estrella.html#alcance-y-fuentes",
+    "title": "10  Grano, Diagrama Mermaid y DDL",
+    "section": "10.8 Alcance y fuentes",
+    "text": "10.8 Alcance y fuentes\nEl esquema estudia mortalidad registrada y morbilidad hospitalaria de la cobertura seleccionada. Un egreso no identifica una persona única ni todos los casos de enfermedad del municipio. La precisión de alcance se documenta en pivote.qmd.\nFuentes y referencias utilizadas:\n\nINEGI: Estadísticas de Defunciones Registradas. La edición 2024 se revisó como ejemplo de estructura; no determina por sí sola todo el periodo del proyecto.\nINEGI: diccionario de EDR 2024.\nDGIS: Egresos Hospitalarios. Se utiliza la serie Secretaría de Salud, que incluye residencia habitual.\nDGIS: descriptor Secretaría de Salud 2023–2025. Los nombres y catálogos se verifican también en las ediciones anteriores que se utilicen.\nCONAPO: copia alojada en el portal del Gobierno de Guanajuato. CONAPO es el productor de los datos; el portal estatal es el repositorio de descarga.\nDescriptor de las bases de CONAPO 1990–2040.\nArchivo de población quinquenal de CONAPO.\nKimball Group: definición del grano y medidas consistentes.\nKimball Group: SCD tipo 0, tipo 1 y tipo 2.\nQuarto: diagramas Mermaid.",
+    "crumbs": [
+      "E1 - Arquitectura del DW",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Grano, Diagrama Mermaid y DDL</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/trazabilidad.html",
+    "href": "entregas/E1_arquitectura_dw/trazabilidad.html",
+    "title": "11  Trazabilidad y justificación",
+    "section": "",
+    "text": "12 Trazabilidad y justificación",
+    "crumbs": [
+      "E1 - Arquitectura del DW",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Trazabilidad y justificación</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/trazabilidad.html#matriz-de-trazabilidad",
+    "href": "entregas/E1_arquitectura_dw/trazabilidad.html#matriz-de-trazabilidad",
+    "title": "11  Trazabilidad y justificación",
+    "section": "12.1 Matriz de trazabilidad",
+    "text": "12.1 Matriz de trazabilidad\n\n\n\n\n\n\n\n\n\n\n\nPregunta\nTarea de minería\nMétricas\nDimensiones\nFuentes\nEstado\n\n\n\n\nP1. Enfermedades y padecimientos municipales\nAnálisis descriptivo y clasificación de diagnósticos\nconteo_eventos, estancia promedio, tasas por causa o diagnóstico\ndim_fecha, dim_municipio, dim_causa_diagnostico, dim_perfil_demografico, dim_tipo_evento\nINEGI, DGIS, CONAPO\nParcial\n\n\nP2. Indicadores poblacionales\nAnálisis descriptivo y comparación temporal\nTasas de defunciones y egresos, índice de envejecimiento, razón de dependencia, relación hombres-mujeres\ndim_fecha, dim_municipio, dim_perfil_demografico, dim_tipo_evento\nINEGI, DGIS, CONAPO\nParcial\n\n\nP3. Relación entre indicadores y enfermedades\nAnálisis exploratorio de asociaciones y correlaciones\nTasas por diagnóstico, tasas por causa de defunción, indicadores demográficos\ndim_fecha, dim_municipio, dim_causa_diagnostico, dim_perfil_demografico, dim_tipo_evento\nINEGI, DGIS, CONAPO\nParcial",
+    "crumbs": [
+      "E1 - Arquitectura del DW",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Trazabilidad y justificación</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/trazabilidad.html#justificación-de-cobertura",
+    "href": "entregas/E1_arquitectura_dw/trazabilidad.html#justificación-de-cobertura",
+    "title": "11  Trazabilidad y justificación",
+    "section": "12.2 Justificación de cobertura",
+    "text": "12.2 Justificación de cobertura\n\n12.2.1 P1. Enfermedades y padecimientos municipales\nEstado: cubierta parcialmente.\nEl DataMart permite identificar y cuantificar las causas básicas de defunción y los diagnósticos principales de egresos hospitalarios, además, los clasifica mediante categorías del CIE-10.\nSin embargo, las fuentes seleccionadas no representan la totalidad de enfermedades presentes en la población, por lo tanto, no es posible calcular directamente la incidencia o prevalencia.\n\n\n12.2.2 P2. Indicadores poblacionales\nEstado: cubierta parcialmente.\nEl esquema permite calcular tasas de defunciones registradas, tasas de egresos hospitalarios e indicadores de estructura demográfica al utilizzar las estimaciones poblacionales de CONAPO.\nPero, no incorpora registros sobre nacimientos, así que, no se puede llevar un registro de la natalidad.\n\n\n12.2.3 P3. Relación entre indicadores y enfermedades\nEstado: cubierta parcialmente.\nLas dimensiones compartidas permiten relacionar indicadores demográficos con la distribución de defunciones y egresos hospitalarios por municipio y año.\nÉsto permite realizar análisis de asociaciones entre variables, aunque, no permite establecer relaciones causales, ni medir directamente incidencia o prevalencia de enfermedades.",
+    "crumbs": [
+      "E1 - Arquitectura del DW",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Trazabilidad y justificación</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/trazabilidad.html#verificación-de-dimensiones-huérfanas",
+    "href": "entregas/E1_arquitectura_dw/trazabilidad.html#verificación-de-dimensiones-huérfanas",
+    "title": "11  Trazabilidad y justificación",
+    "section": "12.3 Verificación de dimensiones huérfanas",
+    "text": "12.3 Verificación de dimensiones huérfanas\n\n\n\nDimensión\nP1\nP2\nP3\n\n\n\n\ndim_fecha\n✅\n✅\n✅\n\n\ndim_municipio\n✅\n✅\n✅\n\n\ndim_causa_diagnostico\n✅\n—\n✅\n\n\ndim_perfil_demografico\n✅\n✅\n✅\n\n\ndim_tipo_evento\n✅\n✅\n✅\n\n\n\nTodas las dimensiones contribuyen a por lo menos una pregunta de investigación, entonces, podemos decir que no se identificaron dimensiones huérfanas.",
+    "crumbs": [
+      "E1 - Arquitectura del DW",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Trazabilidad y justificación</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/trazabilidad.html#trazabilidad-de-métricas",
+    "href": "entregas/E1_arquitectura_dw/trazabilidad.html#trazabilidad-de-métricas",
+    "title": "11  Trazabilidad y justificación",
+    "section": "12.4 Trazabilidad de métricas",
+    "text": "12.4 Trazabilidad de métricas\n\n\n\n\n\n\n\n\nMétrica\nPreguntas\nJustificación\n\n\n\n\nconteo_eventos\nP1, P2, P3\nCuantifica defunciones o egresos hospitalarios.\n\n\npoblacion_estimada\nP1, P2, P3\nPermite calcular tasas e indicadores demográficos.\n\n\ndias_estancia_total\nP1\nPermite estudiar la duración de las hospitalizaciones.\n\n\negresos_estancia_valida\nP1\nDenominador para calcular la estancia promedio.\n\n\negresos_por_defuncion\nP1, P2\nPermite calcular la proporción de egresos cuyo motivo fue una defunción.",
+    "crumbs": [
+      "E1 - Arquitectura del DW",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Trazabilidad y justificación</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/trazabilidad.html#limitaciones-y-retroalimentación-del-stakeholder",
+    "href": "entregas/E1_arquitectura_dw/trazabilidad.html#limitaciones-y-retroalimentación-del-stakeholder",
+    "title": "11  Trazabilidad y justificación",
+    "section": "12.5 Limitaciones y retroalimentación del stakeholder",
+    "text": "12.5 Limitaciones y retroalimentación del stakeholder\nEl DataMart está orientado al análisis de mortalidad registrada, egresos hospitalarios y características demográficas municipales.\nSe le solicitó orientación y retroalimentación a la stakeholder, la Dra Durán, y mencionó que la obtención de prevalencia e incidencia sería muy útil y podría ser la piedra angular del proyecto, sin embargo, como se mencionó anteriormente, no sería posible calcularlos directamente, se tomará en cuenta para la siguiente etapa del proyecto.",
+    "crumbs": [
+      "E1 - Arquitectura del DW",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Trazabilidad y justificación</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/uso_ia.html",
+    "href": "entregas/E1_arquitectura_dw/uso_ia.html",
+    "title": "12  Registro de las consultas a IA",
+    "section": "",
+    "text": "12.0.1 Búsqueda de fuentes oficiales de datos de salud\nHerramienta utilizada: ChatGPT (OpenAI)\nTarea:\nBúsqueda inicial de fuentes candidatas oficiales relacionadas con enfermedades e indicadores de salud en México que contaran con información a nivel municipal, con el objetivo de identificar posibles fuentes para el Data Warehouse.\nPrompt utilizado:\n\n“Busca 8 fuentes oficiales de información sobre enfermedades e índices de salud como morbilidad, mortalidad y otros, que tengan granularidad municipal en México.”\n\nResultado obtenido:\nLa herramienta propuso distintas fuentes institucionales de organismos como la Secretaría de Salud, INEGI y CONAPO, incluyendo fuentes relacionadas con egresos hospitalarios, defunciones, enfermedades crónicas y población municipal.\nRevisión y validación de la salida:\nLas fuentes propuestas por la herramienta se utilizaron únicamente como punto de partida para la búsqueda. Posteriormente se accedió a los portales oficiales de las instituciones responsables para comprobar que las fuentes existieran y que los datos estuvieran realmente disponibles. Tambien se revisaron sus archivos, vistas previas y/o diccionarios de datos para verificar su granularidad geografica, cobertura, variables disponibles y utilidad respecto a las preguntas de investigación.\nA partir de esta revisión se construyó una lista de fuentes candidatas. Las fuentes que no cumplieran con los criterios para ser una fuente candidatas se descartaron y se tomaron tambien fuentes que no sugirio la IA.\n\n\n12.0.2 Preparación y carga de datos en BigQuery\nHerramienta utilizada: ChatGPT (OpenAI).\nResumen de los prompts utilizados:\nSe consultó cómo trabajar con archivos TXT y CSV, cómo seleccionar muestras de aproximadamente 70,000 registros y qué configuración utilizar para conservar los datos originales.\nRespuesta obtenida:\nLa IA explicó el procedimiento de carga en BigQuery, incluyendo la selección del formato, delimitadores, encabezados, codificación y detección del esquema. También propuso utilizar Python para generar muestras de archivos que superaban el tamaño permitido por la consola.\nRevisión y validación:\nLas recomendaciones se contrastaron con los archivos descargados y las opciones disponibles en BigQuery. La carga fue realizada manualmente por el integrante responsable, revisando las tablas generadas y sus estructuras. El equipo delimitó el periodo de análisis a 2012–2019 para trabajar con información anterior a la pandemia de COVID-19.\n\n\n12.0.3 Resolución de errores y alternativas de importación\nHerramienta utilizada: ChatGPT (OpenAI).\nTarea: Identificar y resolver problemas durante la importación de los archivos.\nResumen de los prompts utilizados:\nSe presentaron errores relacionados con separadores incorrectos, columnas que aparecían agrupadas en un solo campo, diferencias entre tipos de datos y registros con cantidades inconsistentes de columnas. También se consultó si convenía utilizar Excel o desarrollar un programa en Python para convertir archivos TXT a CSV.\nRespuesta obtenida:\nLa IA recomendó revisar directamente los encabezados y delimitadores de cada archivo antes de importarlo. Se explicó que una configuración incorrecta podía provocar que toda una fila apareciera en una columna como string_field_0. Se propusieron ajustes en la configuración de BigQuery y alternativas para convertir archivos mediante Excel o Python.\nRevisión y validación:\nSe inspeccionaron archivos y resultados de carga para identificar las diferencias entre el formato original y la configuración seleccionada. Las opciones de conversión con Excel y Python se exploraron como alternativas, pero no se implementó el convertidor general propuesto. Las decisiones de importación se tomaron de acuerdo con las características reales de cada archivo.\n\n\n12.0.4 Consideraciones generales sobre el uso de IA\nLa herramienta se utilizó principalmente como apoyo técnico para comprender procedimientos, identificar posibles soluciones y preparar documentación y código SQL. No sustituyó la revisión de los archivos originales, la selección de fuentes, las decisiones del equipo ni la ejecución de las operaciones en BigQuery.\nLas propuestas generadas fueron consideradas como recomendaciones sujetas a revisión. Algunas alternativas, como la conversión general de TXT a CSV mediante Python, se analizaron pero no se incorporaron al procedimiento final.",
+    "crumbs": [
+      "E1 - Arquitectura del DW",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Registro de las consultas a IA</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/pivote.html",
+    "href": "entregas/E1_arquitectura_dw/pivote.html",
+    "title": "13  Precisión del alcance según las fuentes disponibles",
+    "section": "",
+    "text": "13.1 Motivo de la precisión de alcance\nLas tres fuentes seleccionadas permiten analizar defunciones registradas, egresos hospitalarios de la Secretaría de Salud y población municipal estimada. No constituyen un registro de todas las enfermedades ni de todas las personas enfermas del municipio.\nSe conserva el propósito del proyecto de apoyar un diagnóstico municipal y se mantienen las preguntas priorizadas en E0. Se precisa su alcance operativo para que las respuestas correspondan a los datos disponibles.",
+    "crumbs": [
+      "E1 - Arquitectura del DW",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Precisión del alcance según las fuentes disponibles</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/pivote.html#trazablidad-con-las-preguntas-de-e0",
+    "href": "entregas/E1_arquitectura_dw/pivote.html#trazablidad-con-las-preguntas-de-e0",
+    "title": "13  Precisión del alcance según las fuentes disponibles",
+    "section": "13.2 Trazablidad con las preguntas de E0",
+    "text": "13.2 Trazablidad con las preguntas de E0\n\n\n\n\n\n\n\n\nPregunta original\nAlcance sustentado por las fuentes\nMotivo\n\n\n\n\nP1. ¿Cuáles son las enfermedades y/o padecimientos a nivel municipal?\nIdentificar las principales causas de defunción registrada y las afecciones principales de los egresos hospitalarios de la Secretaría de Salud por municipio de residencia.\nLos datos describen eventos sanitarios; no proporcionan todos los casos de enfermedad ni una identificación longitudinal de personas.\n\n\nP2. ¿Qué nos dicen los indicadores acerca de la población del municipio?\nAnalizar tasas de defunciones y egresos registrados, estructura por sexo y edad, envejecimiento y dependencia demográfica.\nCONAPO permite obtener denominadores y contexto demográfico. La natalidad general y la prevalencia municipal quedan fuera del alcance de estas tres fuentes.\n\n\nP3. ¿Qué relación existe entre los indicadores y las enfermedades?\nExplorar asociaciones agregadas entre las tasas de eventos sanitarios y las características demográficas municipales en periodos y territorios compatibles.\nLas fuentes permiten comparaciones agregadas; por sí solas no demuestran causalidad ni relaciones individuales entre personas.\n\n\n\nLas precisiones de esta tabla se aplican a los resultados e interpretaciones del análisis.",
+    "crumbs": [
+      "E1 - Arquitectura del DW",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Precisión del alcance según las fuentes disponibles</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/pivote.html#limitaciones-identificadas-y-efecto-en-el-diseño",
+    "href": "entregas/E1_arquitectura_dw/pivote.html#limitaciones-identificadas-y-efecto-en-el-diseño",
+    "title": "13  Precisión del alcance según las fuentes disponibles",
+    "section": "13.3 Limitaciones identificadas y efecto en el diseño",
+    "text": "13.3 Limitaciones identificadas y efecto en el diseño\n\n\n\n\n\n\n\nLimitación\nConsecuencia para el modelo\n\n\n\n\nUna persona puede tener varios egresos y las fuentes no aportan una llave común de paciente validada.\nSe cuentan eventos. No se presentan como pacientes únicos, prevalencia o incidencia municipal.\n\n\nLos egresos de la serie Secretaría de Salud no representan toda la atención de todas las instituciones.\nSe identifica la cobertura en las tasas y comparaciones. No se mezclan con la serie sectorial ni se suman ambas series.\n\n\nLas defunciones de INEGI y los egresos por defunción pueden describir un mismo fallecimiento.\nSe conservan como métricas distintas y no se suman como un total de muertes.\n\n\nLa población es una estimación o proyección a mitad de año y tiene un grano distinto de los eventos por causa.\nSe almacena en un segundo hecho. No se replica por cada enfermedad ni se suma entre años.\n\n\nLos indicadores municipales generales tienen un nivel distinto al de sexo y edad.\nSe derivan los índices posibles a partir de población. No se repiten indicadores municipales en cada fila demográfica. La edad mediana original se conserva como referencia de la fuente.\n\n\nLos códigos municipales iguales no garantizan límites territoriales iguales entre ediciones.\nSe requieren versiones y correspondencias geográficas documentadas. Un SCD tipo 2 conserva historia, pero no sustituye una igualacion territorial. Sin equivalencia no se calcula una tasa territorialmente incompatible.\n\n\nLa edición INEGI corresponde al año de registro y puede contener defunciones ocurridas antes.\nEl modelo utiliza el año de ocurrencia y debe documentar las ediciones y el corte consultados. No se mezcla registro con ocurrencia para una misma comparación.\n\n\nLa población dividida en grupos de 5 años no ofrece edad individual.\nSe analizan grupos de edad comunes. No se distribuyen grandes grupos o edades desconocidas mediante valores inventados.",
+    "crumbs": [
+      "E1 - Arquitectura del DW",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Precisión del alcance según las fuentes disponibles</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/pivote.html#ajustes-concretos",
+    "href": "entregas/E1_arquitectura_dw/pivote.html#ajustes-concretos",
+    "title": "13  Precisión del alcance según las fuentes disponibles",
+    "section": "13.4 Ajustes concretos",
+    "text": "13.4 Ajustes concretos\n\nSe define el resultado como un panorama de mortalidad registrada y morbilidad hospitalaria registrada, acompañado de contexto demográfico.\nSe utiliza una categoría CIE-10 de tres caracteres para clasificar los eventos; los subtipos originales quedan disponibles en los datos de origen, fuera del primer agregado analítico.\nSe utilizan dos tablas de hechos —eventos sanitarios y población— con dimensiones conformadas, cumpliendo el máximo de la rúbrica.\nSe seleccionan años completos y comunes una vez verificada la cobertura de los archivos. Los datos preliminares se identifican y no se comparan como si fueran años completos.\nLos resultados con denominadores ausentes, cero o territorialmente incompatibles se presentan como no disponibles. Se conserva el conteo de eventos cuando puede identificarse de forma válida.\n\nNo se requiere una reestructuración general de E0. Se delimita qué puede responderse con las fuentes seleccionadas y se evita atribuirles información que no contienen. El esquema correspondiente se desarrolla en estrella.qmd.",
+    "crumbs": [
+      "E1 - Arquitectura del DW",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Precisión del alcance según las fuentes disponibles</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/pivote.html#fuentes",
+    "href": "entregas/E1_arquitectura_dw/pivote.html#fuentes",
+    "title": "13  Precisión del alcance según las fuentes disponibles",
+    "section": "13.5 Fuentes",
+    "text": "13.5 Fuentes\n\nINEGI: Estadísticas de Defunciones Registradas.\nDGIS: Egresos Hospitalarios, serie Secretaría de Salud.\nCONAPO: copia del Gobierno de Guanajuato y descriptor de variables.",
+    "crumbs": [
+      "E1 - Arquitectura del DW",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Precisión del alcance según las fuentes disponibles</span>"
     ]
   }
 ]
