@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Gúzman Ramírez Diego Arturo, Murillo Espinosa Gustavo Adrián, Vega Alonso Diego Hazael, Palacios Gónzalez Oscar">
 
-<title>trazabilidad – Proyecto de Almacenes y Minería de Datos</title>
+<title>11&nbsp; Trazabilidad y justificación – Proyecto de Almacenes y Minería de Datos</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -89,7 +90,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../entregas/E1_arquitectura_dw/fuentes.html">E1 - Arquitectura del DW</a></li><li class="breadcrumb-item"><a href="../../entregas/E1_arquitectura_dw/trazabilidad.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">trazabilidad.html</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../entregas/E1_arquitectura_dw/fuentes.html">E1 - Arquitectura del DW</a></li><li class="breadcrumb-item"><a href="../../entregas/E1_arquitectura_dw/trazabilidad.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Trazabilidad y justificación</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -197,7 +198,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../entregas/E1_arquitectura_dw/trazabilidad.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">trazabilidad.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Trazabilidad y justificación</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -219,17 +220,225 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#trazabilidad-y-justificación" id="toc-trazabilidad-y-justificación" class="nav-link active" data-scroll-target="#trazabilidad-y-justificación"><span class="header-section-number">12</span> Trazabilidad y justificación</a>
+  <ul class="collapse">
+  <li><a href="#matriz-de-trazabilidad" id="toc-matriz-de-trazabilidad" class="nav-link" data-scroll-target="#matriz-de-trazabilidad"><span class="header-section-number">12.1</span> Matriz de trazabilidad</a></li>
+  <li><a href="#justificación-de-cobertura" id="toc-justificación-de-cobertura" class="nav-link" data-scroll-target="#justificación-de-cobertura"><span class="header-section-number">12.2</span> Justificación de cobertura</a>
+  <ul class="collapse">
+  <li><a href="#p1.-enfermedades-y-padecimientos-municipales" id="toc-p1.-enfermedades-y-padecimientos-municipales" class="nav-link" data-scroll-target="#p1.-enfermedades-y-padecimientos-municipales"><span class="header-section-number">12.2.1</span> P1. Enfermedades y padecimientos municipales</a></li>
+  <li><a href="#p2.-indicadores-poblacionales" id="toc-p2.-indicadores-poblacionales" class="nav-link" data-scroll-target="#p2.-indicadores-poblacionales"><span class="header-section-number">12.2.2</span> P2. Indicadores poblacionales</a></li>
+  <li><a href="#p3.-relación-entre-indicadores-y-enfermedades" id="toc-p3.-relación-entre-indicadores-y-enfermedades" class="nav-link" data-scroll-target="#p3.-relación-entre-indicadores-y-enfermedades"><span class="header-section-number">12.2.3</span> P3. Relación entre indicadores y enfermedades</a></li>
+  </ul></li>
+  <li><a href="#verificación-de-dimensiones-huérfanas" id="toc-verificación-de-dimensiones-huérfanas" class="nav-link" data-scroll-target="#verificación-de-dimensiones-huérfanas"><span class="header-section-number">12.3</span> Verificación de dimensiones huérfanas</a></li>
+  <li><a href="#trazabilidad-de-métricas" id="toc-trazabilidad-de-métricas" class="nav-link" data-scroll-target="#trazabilidad-de-métricas"><span class="header-section-number">12.4</span> Trazabilidad de métricas</a></li>
+  <li><a href="#limitaciones-y-retroalimentación-del-stakeholder" id="toc-limitaciones-y-retroalimentación-del-stakeholder" class="nav-link" data-scroll-target="#limitaciones-y-retroalimentación-del-stakeholder"><span class="header-section-number">12.5</span> Limitaciones y retroalimentación del stakeholder</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../entregas/E1_arquitectura_dw/fuentes.html">E1 - Arquitectura del DW</a></li><li class="breadcrumb-item"><a href="../../entregas/E1_arquitectura_dw/trazabilidad.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">trazabilidad.html</span></a></li></ol></nav></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../entregas/E1_arquitectura_dw/fuentes.html">E1 - Arquitectura del DW</a></li><li class="breadcrumb-item"><a href="../../entregas/E1_arquitectura_dw/trazabilidad.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Trazabilidad y justificación</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Trazabilidad y justificación</span></h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Gúzman Ramírez Diego Arturo, Murillo Espinosa Gustavo Adrián, Vega Alonso Diego Hazael, Palacios Gónzalez Oscar </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
 
 
+</header>
 
+
+<section id="trazabilidad-y-justificación" class="level1" data-number="12">
+<h1 data-number="12"><span class="header-section-number">12</span> Trazabilidad y justificación</h1>
+<section id="matriz-de-trazabilidad" class="level2" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="matriz-de-trazabilidad"><span class="header-section-number">12.1</span> Matriz de trazabilidad</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Pregunta</th>
+<th style="text-align: left;">Tarea de minería</th>
+<th style="text-align: left;">Métricas</th>
+<th style="text-align: left;">Dimensiones</th>
+<th style="text-align: left;">Fuentes</th>
+<th style="text-align: left;">Estado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>P1.</strong> Enfermedades y padecimientos municipales</td>
+<td style="text-align: left;">Análisis descriptivo y clasificación de diagnósticos</td>
+<td style="text-align: left;"><code>conteo_eventos</code>, estancia promedio, tasas por causa o diagnóstico</td>
+<td style="text-align: left;"><code>dim_fecha</code>, <code>dim_municipio</code>, <code>dim_causa_diagnostico</code>, <code>dim_perfil_demografico</code>, <code>dim_tipo_evento</code></td>
+<td style="text-align: left;">INEGI, DGIS, CONAPO</td>
+<td style="text-align: left;">Parcial</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>P2.</strong> Indicadores poblacionales</td>
+<td style="text-align: left;">Análisis descriptivo y comparación temporal</td>
+<td style="text-align: left;">Tasas de defunciones y egresos, índice de envejecimiento, razón de dependencia, relación hombres-mujeres</td>
+<td style="text-align: left;"><code>dim_fecha</code>, <code>dim_municipio</code>, <code>dim_perfil_demografico</code>, <code>dim_tipo_evento</code></td>
+<td style="text-align: left;">INEGI, DGIS, CONAPO</td>
+<td style="text-align: left;">Parcial</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>P3.</strong> Relación entre indicadores y enfermedades</td>
+<td style="text-align: left;">Análisis exploratorio de asociaciones y correlaciones</td>
+<td style="text-align: left;">Tasas por diagnóstico, tasas por causa de defunción, indicadores demográficos</td>
+<td style="text-align: left;"><code>dim_fecha</code>, <code>dim_municipio</code>, <code>dim_causa_diagnostico</code>, <code>dim_perfil_demografico</code>, <code>dim_tipo_evento</code></td>
+<td style="text-align: left;">INEGI, DGIS, CONAPO</td>
+<td style="text-align: left;">Parcial</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="justificación-de-cobertura" class="level2" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="justificación-de-cobertura"><span class="header-section-number">12.2</span> Justificación de cobertura</h2>
+<section id="p1.-enfermedades-y-padecimientos-municipales" class="level3" data-number="12.2.1">
+<h3 data-number="12.2.1" class="anchored" data-anchor-id="p1.-enfermedades-y-padecimientos-municipales"><span class="header-section-number">12.2.1</span> P1. Enfermedades y padecimientos municipales</h3>
+<p><strong>Estado: cubierta parcialmente.</strong></p>
+<p>El DataMart permite identificar y cuantificar las causas básicas de defunción y los diagnósticos principales de egresos hospitalarios, además, los clasifica mediante categorías del CIE-10.</p>
+<p>Sin embargo, las fuentes seleccionadas no representan la totalidad de enfermedades presentes en la población, por lo tanto, no es posible calcular directamente la incidencia o prevalencia.</p>
+</section>
+<section id="p2.-indicadores-poblacionales" class="level3" data-number="12.2.2">
+<h3 data-number="12.2.2" class="anchored" data-anchor-id="p2.-indicadores-poblacionales"><span class="header-section-number">12.2.2</span> P2. Indicadores poblacionales</h3>
+<p><strong>Estado: cubierta parcialmente.</strong></p>
+<p>El esquema permite calcular tasas de defunciones registradas, tasas de egresos hospitalarios e indicadores de estructura demográfica al utilizzar las estimaciones poblacionales de CONAPO.</p>
+<p>Pero, no incorpora registros sobre nacimientos, así que, no se puede llevar un registro de la natalidad.</p>
+</section>
+<section id="p3.-relación-entre-indicadores-y-enfermedades" class="level3" data-number="12.2.3">
+<h3 data-number="12.2.3" class="anchored" data-anchor-id="p3.-relación-entre-indicadores-y-enfermedades"><span class="header-section-number">12.2.3</span> P3. Relación entre indicadores y enfermedades</h3>
+<p><strong>Estado: cubierta parcialmente.</strong></p>
+<p>Las dimensiones compartidas permiten relacionar indicadores demográficos con la distribución de defunciones y egresos hospitalarios por municipio y año.</p>
+<p>Ésto permite realizar análisis de asociaciones entre variables, aunque, no permite establecer relaciones causales, ni medir directamente incidencia o prevalencia de enfermedades.</p>
+</section>
+</section>
+<section id="verificación-de-dimensiones-huérfanas" class="level2" data-number="12.3">
+<h2 data-number="12.3" class="anchored" data-anchor-id="verificación-de-dimensiones-huérfanas"><span class="header-section-number">12.3</span> Verificación de dimensiones huérfanas</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Dimensión</th>
+<th style="text-align: center;">P1</th>
+<th style="text-align: center;">P2</th>
+<th style="text-align: center;">P3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>dim_fecha</code></td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>dim_municipio</code></td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>dim_causa_diagnostico</code></td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>dim_perfil_demografico</code></td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>dim_tipo_evento</code></td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+</tr>
+</tbody>
+</table>
+<p>Todas las dimensiones contribuyen a por lo menos una pregunta de investigación, entonces, podemos decir que no se identificaron dimensiones huérfanas.</p>
+</section>
+<section id="trazabilidad-de-métricas" class="level2" data-number="12.4">
+<h2 data-number="12.4" class="anchored" data-anchor-id="trazabilidad-de-métricas"><span class="header-section-number">12.4</span> Trazabilidad de métricas</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Métrica</th>
+<th style="text-align: left;">Preguntas</th>
+<th style="text-align: left;">Justificación</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>conteo_eventos</code></td>
+<td style="text-align: left;">P1, P2, P3</td>
+<td style="text-align: left;">Cuantifica defunciones o egresos hospitalarios.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>poblacion_estimada</code></td>
+<td style="text-align: left;">P1, P2, P3</td>
+<td style="text-align: left;">Permite calcular tasas e indicadores demográficos.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>dias_estancia_total</code></td>
+<td style="text-align: left;">P1</td>
+<td style="text-align: left;">Permite estudiar la duración de las hospitalizaciones.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>egresos_estancia_valida</code></td>
+<td style="text-align: left;">P1</td>
+<td style="text-align: left;">Denominador para calcular la estancia promedio.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>egresos_por_defuncion</code></td>
+<td style="text-align: left;">P1, P2</td>
+<td style="text-align: left;">Permite calcular la proporción de egresos cuyo motivo fue una defunción.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="limitaciones-y-retroalimentación-del-stakeholder" class="level2" data-number="12.5">
+<h2 data-number="12.5" class="anchored" data-anchor-id="limitaciones-y-retroalimentación-del-stakeholder"><span class="header-section-number">12.5</span> Limitaciones y retroalimentación del stakeholder</h2>
+<p>El DataMart está orientado al análisis de mortalidad registrada, egresos hospitalarios y características demográficas municipales.</p>
+<p>Se le solicitó orientación y retroalimentación a la stakeholder, la Dra Durán, y mencionó que la obtención de prevalencia e incidencia sería muy útil y podría ser la piedra angular del proyecto, sin embargo, como se mencionó anteriormente, no sería posible calcularlos directamente, se tomará en cuenta para la siguiente etapa del proyecto.</p>
+
+
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

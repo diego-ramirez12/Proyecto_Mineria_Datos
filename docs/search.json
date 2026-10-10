@@ -329,33 +329,44 @@
     ]
   },
   {
-    "objectID": "entregas/E1_arquitectura_dw/arquitectura.html#arquitectura-general",
-    "href": "entregas/E1_arquitectura_dw/arquitectura.html#arquitectura-general",
+    "objectID": "entregas/E1_arquitectura_dw/arquitectura.html#objetivo-y-alcance",
+    "href": "entregas/E1_arquitectura_dw/arquitectura.html#objetivo-y-alcance",
     "title": "9  Arquitectura de tres capas en BigQuery",
-    "section": "9.2 Arquitectura general",
-    "text": "9.2 Arquitectura general\nSe plantea una arquitectura de tres capas para separar los archivos originales, el modelo integrado y las consultas analíticas.\n\n\n\n\n\nflowchart TD\n    F1[\"DGIS: egresos y afecciones\"] --&gt; ST[\"staging: muestras de las fuentes\"]\n    F2[\"INEGI: defunciones registradas\"] --&gt; ST\n    F3[\"CONAPO: población e indicadores\"] --&gt; ST\n    ST -. \"ETL en una entrega posterior\" .-&gt; DW[\"dw: cinco dimensiones y dos hechos\"]\n    DW --&gt; SQL[\"Consultas SQL: P1, P2 y P3\"]\n    SQL --&gt; MART[\"mart: capa de consulta analítica\"]\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCapa\nPropósito\nAlcance en E1\n\n\n\n\nStaging\nConservar muestras de las fuentes sin homologar las variables de negocio.\nTablas de muestra cargadas en BigQuery.\n\n\nDW\nOrganizar los datos en un esquema estrella con dimensiones y hechos.\nEstructuras creadas mediante DDL; tablas vacías.\n\n\nDataMart\nConsultar el DW para responder las preguntas de E0, incluyendo operaciones OLAP.\nDiseño de consultas SQL, sin requerir resultados poblados.\n\n\n\nLa implementación se realizó en el proyecto de Google Cloud proyectomineria-511105. En la Figura Figure 9.1 se observan los conjuntos de datos disponibles en la consola de BigQuery.\n\n\n\n\n\n\nFigure 9.1: Conjuntos de datos del proyecto en BigQuery\n\n\n\nRegión de BigQuery: pendiente de registrar a partir de la pestaña Detalles de los datasets. staging, dw y mart deben encontrarse en la misma ubicación.",
+    "section": "",
+    "text": "DGIS / Secretaría de Salud: egresos hospitalarios y afecciones asociadas.\nINEGI: estadísticas de defunciones registradas.\nCONAPO: población estimada e indicadores demográficos municipales.",
     "crumbs": [
       "E1 - Arquitectura del DW",
       "<span class='chapter-number'>9</span>  <span class='chapter-title'>Arquitectura de tres capas en BigQuery</span>"
     ]
   },
   {
-    "objectID": "entregas/E1_arquitectura_dw/arquitectura.html#implementación-de-la-capa-staging",
-    "href": "entregas/E1_arquitectura_dw/arquitectura.html#implementación-de-la-capa-staging",
+    "objectID": "entregas/E1_arquitectura_dw/arquitectura.html#diseño-de-la-arquitectura",
+    "href": "entregas/E1_arquitectura_dw/arquitectura.html#diseño-de-la-arquitectura",
     "title": "9  Arquitectura de tres capas en BigQuery",
-    "section": "9.3 Implementación de la capa Staging",
-    "text": "9.3 Implementación de la capa Staging\nEl conjunto de datos staging contiene muestras de los archivos de las fuentes seleccionadas. Se mantuvieron las tablas separadas por fuente y, cuando corresponde, por año, para conservar el detalle de origen y facilitar su identificación.\nLas muestras permiten demostrar la lectura, la carga y la estructura de los archivos. No deben interpretarse como una muestra estadística representativa de todos los municipios cuando se obtuvieron mediante una selección de las primeras filas del archivo. En esta etapa tampoco se homologaron códigos geográficos, categorías de sexo, edades o diagnósticos.\n\n9.3.1 DGIS: egresos hospitalarios\nSe cargaron muestras de los archivos de egresos hospitalarios de la Secretaría de Salud correspondientes al periodo seleccionado. Estos registros documentan eventos de hospitalización y se utilizarán posteriormente para construir los conteos de egresos de la tabla de hechos.\n\n\n\n\n\n\nFigure 9.2: Tablas de muestras de egresos hospitalarios en staging\n\n\n\n\n\n9.3.2 DGIS: afecciones\nSe cargaron muestras de los archivos de afecciones de DGIS. Estas contienen información sobre diagnósticos asociados a los egresos y requieren especial cuidado al integrarse, ya que un egreso puede relacionarse con más de una afección. En el modelo de hechos se utilizará la afección principal definida por las reglas de integración, para evitar duplicar los conteos.\n\n\n\n\n\n\nFigure 9.3: Tablas de muestras de afecciones en staging\n\n\n\n\n\n9.3.3 INEGI: defunciones registradas\nTambién se cargaron muestras anuales de las Estadísticas de Defunciones Registradas del INEGI. Los registros permitirán identificar causas básicas de muerte y relacionarlas con el municipio de residencia, el periodo y las características demográficas.\n\n\n\n\n\n\nFigure 9.4: Tablas de muestras de defunciones en staging\n\n\n\n\n\n9.3.4 CONAPO: población e indicadores\nSe incorporaron archivos de CONAPO correspondientes a población municipal por grupos de edad e indicadores demográficos. Para su importación en BigQuery, los archivos de Excel se prepararon en un formato compatible con la carga. Esta fuente proporcionará los denominadores de población necesarios para calcular tasas y contextualizar los eventos de salud.\nLas fuentes y sus características se documentan con mayor detalle en Fuentes de datos e integración.",
+    "section": "9.2 Diseño de la arquitectura",
+    "text": "9.2 Diseño de la arquitectura\nSe utiliza Google BigQuery en el proyecto proyectomineria-511105, con una arquitectura organizada en tres capas: Staging → Data Warehouse → DataMart.\n\n\n\n\n\nflowchart TB\n    DGIS[\"DGIS&lt;br/&gt;Egresos y afecciones\"] --&gt; ST[\"STAGING&lt;br/&gt;Muestras de datos de origen\"]\n    INEGI[\"INEGI&lt;br/&gt;Defunciones registradas\"] --&gt; ST\n    CONAPO[\"CONAPO&lt;br/&gt;Población e indicadores\"] --&gt; ST\n    ST -. \"ETL pendiente: limpieza, homologación e integración\" .-&gt; DW[\"DW&lt;br/&gt;5 dimensiones + 2 tablas de hechos\"]\n    DW -. \"Consultas analíticas sobre el esquema\" .-&gt; MART[\"DATAMART&lt;br/&gt;Consultas de P1, P2 y P3\"]\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCapa\nFunción\nEstado para la entrega E1\n\n\n\n\nStaging\nAlmacenar las muestras de los archivos de origen, con separación por fuente y año.\nMuestras cargadas; se muestran ejemplos de sus esquemas.\n\n\nDW\nDefinir un esquema estrella común para integrar información de eventos y población.\nSiete tablas creadas mediante sentencias SQL; sin poblar.\n\n\nDataMart\nPreparar consultas SQL que respondan las preguntas de E0 con operaciones analíticas.\nImplementación y validación del DataMart\n\n\n\n\n9.2.1 Evidencia de los conjuntos de datos\nLa Figura Figure 9.1 muestra el proyecto de BigQuery y los conjuntos de datos staging, dw y mart utilizados en esta implementación.\n\n\n\n\n\n\nFigure 9.1: Conjuntos de datos visibles en BigQuery: staging, dw y mart",
     "crumbs": [
       "E1 - Arquitectura del DW",
       "<span class='chapter-number'>9</span>  <span class='chapter-title'>Arquitectura de tres capas en BigQuery</span>"
     ]
   },
   {
-    "objectID": "entregas/E1_arquitectura_dw/arquitectura.html#implementación-de-la-capa-data-warehouse",
-    "href": "entregas/E1_arquitectura_dw/arquitectura.html#implementación-de-la-capa-data-warehouse",
+    "objectID": "entregas/E1_arquitectura_dw/arquitectura.html#implementación-de-staging",
+    "href": "entregas/E1_arquitectura_dw/arquitectura.html#implementación-de-staging",
     "title": "9  Arquitectura de tres capas en BigQuery",
-    "section": "9.4 Implementación de la capa Data Warehouse",
-    "text": "9.4 Implementación de la capa Data Warehouse\nSe creó el conjunto de datos dw y se implementó el esquema estrella diseñado por el equipo. La estructura contiene cinco dimensiones y dos tablas de hechos.\n\n\n\n\n\n\n\n\nTipo\nTabla\nFunción\n\n\n\n\nDimensión\ndim_fecha\nPeriodo anual de análisis.\n\n\nDimensión\ndim_municipio\nIdentificación geográfica municipal y vigencia territorial.\n\n\nDimensión\ndim_causa_diagnostico\nClasificación de causas y diagnósticos CIE-10.\n\n\nDimensión\ndim_perfil_demografico\nSexo y grupos quinquenales de edad.\n\n\nDimensión\ndim_tipo_evento\nDiferenciación entre defunciones y egresos.\n\n\nHechos\nfact_eventos_salud\nConteos y medidas asociadas a defunciones y egresos hospitalarios.\n\n\nHechos\nfact_poblacion\nPoblación estimada de CONAPO por municipio, año y perfil demográfico.\n\n\n\nLas dos tablas de hechos comparten las dimensiones de fecha, municipio y perfil demográfico. La tabla fact_eventos_salud también se relaciona con causa/diagnóstico y tipo de evento. La definición del grano, las llaves sustitutas y los tipos de dimensiones lentamente cambiantes (SCD) se encuentra en Grano y esquema estrella.\n\n\n\n\n\n\nFigure 9.5: Tablas de dimensiones y hechos creadas en el dataset dw\n\n\n\n\n9.4.1 DDL y estado de las tablas\nLas siete tablas se crearon mediante sentencias CREATE TABLE de BigQuery, con atributos tipados y relaciones declaradas mediante llaves primarias y foráneas NOT ENFORCED. Estas restricciones documentan el diseño, aunque BigQuery no comprueba automáticamente la unicidad ni la integridad referencial.\nEl archivo que reúne las sentencias utilizadas es sql/ddl_dw.sql.\nTodas las tablas de dw permanecen vacías intencionalmente. Poblar las dimensiones, homologar las fuentes y generar los agregados de hechos corresponde al ETL de una entrega posterior.\n\n\n9.4.2 Consulta de verificación\nPara verificar qué tablas y columnas se crearon en dw se puede consultar el catálogo de metadatos de BigQuery:\nSELECT\n    t.table_name AS tabla,\n    COUNT(c.column_name) AS total_columnas\nFROM `proyectomineria-511105.dw.INFORMATION_SCHEMA.TABLES` AS t\nLEFT JOIN `proyectomineria-511105.dw.INFORMATION_SCHEMA.COLUMNS` AS c\n    ON t.table_name = c.table_name\nWHERE t.table_type = 'BASE TABLE'\nGROUP BY t.table_name\nORDER BY t.table_name;\nEsta consulta permite corroborar los nombres de las tablas y su cantidad de columnas. Las capturas individuales de los esquemas proporcionan evidencia complementaria sobre los tipos de datos y atributos creados.",
+    "section": "9.3 Implementación de Staging",
+    "text": "9.3 Implementación de Staging\nEl dataset staging funciona como zona de recepción de los datos. Se utilizaron muestras de los archivos institucionales para verificar que BigQuery pudiera importar sus columnas y reconocer sus tipos de datos. Las tablas se mantuvieron identificables por fuente y año, sin ejecutar aún la transformación necesaria para integrarlas al esquema estrella.\nLas capturas de esta sección corresponden a la pestaña Esquema de BigQuery; permiten observar campos y tipos.\n\n9.3.1 DGIS: archivos de afecciones\nLos archivos de afecciones contienen diagnósticos asociados a los registros hospitalarios. En el ejemplo de Afecciones_muestra_12 se distinguen tres columnas:\n\n\n\n\n\n\n\n\nCampo observado\nTipo en BigQuery\nDescripción para la integración futura\n\n\n\n\nID\nINTEGER\nIdentificador con el que se puede relacionar la afección con el registro correspondiente, sujeto a validación por año.\n\n\nAFEC\nSTRING\nCódigo de afección o diagnóstico.\n\n\nNUMAFEC\nINTEGER\nCampo numérico de la fuente asociado al registro de afección. Su interpretación precisa debe revisarse en el descriptor.\n\n\n\n\n\n\n\n\n\nFigure 9.2: Esquema de la tabla Afecciones_muestra_12 y tablas anuales visibles en staging\n\n\n\n\n\n9.3.2 DGIS: egresos hospitalarios\nLas muestras resumidas de egresos contienen información sobre el evento hospitalario. En Egreso_muestra_12 se observan, entre otros campos, ID, CLUES, EGRESO, INGRE, DIAS_ESTA, EDAD, SEXO, ENTIDAD y MUNIC.\nEstas columnas hacen posible plantear una integración futura por periodo, características demográficas, ubicación y estancia hospitalaria. Sin embargo, no se transformaron ni homologaron los códigos al cargar la muestra.\n\n\n\n\n\n\nFigure 9.3: Esquema de Egreso_muestra_12 en BigQuery\n\n\n\n\n\n9.3.3 INEGI: defunciones registradas\nLos archivos de defunciones permiten identificar el evento de mortalidad, la causa básica y atributos de residencia y tiempo. En la captura de Defunciones_generales_19 se observan campos como ent_resid, mun_resid, causa_def, sexo, edad, anio_ocur y anio_regis, entre otros.\n\n\n\n\n\n\nFigure 9.4: Esquema de Defunciones_generales_19 en el dataset staging\n\n\n\n\n\n9.3.4 CONAPO: población e indicadores demográficos\nSe incorporaron datos de CONAPO relativos a proyecciones de población e indicadores municipales. Esta fuente complementa los eventos observados en DGIS e INEGI, pues permitirá construir medidas relativas a la población, como tasas por cada 100,000 habitantes.\nLos archivos de CONAPO procedían de hojas de cálculo y se prepararon en un formato que BigQuery pudiera importar. La compatibilidad de años, grupos de edad, sexo y claves de municipio deberá resolverse en el ETL.\n\n\n\n\n\n\nFigure 9.5: Campos de CONAPO\n\n\n\n\n\n9.3.5 Trabajos de carga e historial\nEl explorador de trabajos permite consultar el estado de ejecuciones del proyecto, así como identificar trabajos completados y trabajos con error. La siguiente imagen presenta una vista general del historial.\n\n\n\n\n\n\nFigure 9.6: Explorador de trabajos de BigQuery con ejecuciones completadas y con error\n\n\n\nAlcance de esta evidencia: la captura identifica el historial de trabajos, van incluidos cargas de datos y consultas sql. Los picos de 4:00pm a 8:00 pm representan donde se experimentaron más cargas de datos.",
+    "crumbs": [
+      "E1 - Arquitectura del DW",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Arquitectura de tres capas en BigQuery</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/arquitectura.html#implementación-del-data-warehouse-dw",
+    "href": "entregas/E1_arquitectura_dw/arquitectura.html#implementación-del-data-warehouse-dw",
+    "title": "9  Arquitectura de tres capas en BigQuery",
+    "section": "9.4 Implementación del Data Warehouse (DW)",
+    "text": "9.4 Implementación del Data Warehouse (DW)\nEn el dataset dw se implementó el esquema estrella propuesto por el equipo, con cinco dimensiones y dos tablas de hechos. Las tablas fueron creadas mediante SQL y se encuentran vacías intencionalmente, pues el proceso de extracción, transformación y carga (ETL) queda fuera del alcance de E1.\n\n\n\n\n\n\nFigure 9.7: Siete tablas creadas en el dataset dw\n\n\n\n\n\n\n\n\n\n\n\n\nTipo\nTabla\nCampos visibles\nFunción principal\n\n\n\n\nDimensión\ndim_fecha\n4\nAño y límites del periodo.\n\n\nDimensión\ndim_municipio\n10\nIdentidad geográfica y vigencia territorial.\n\n\nDimensión\ndim_causa_diagnostico\n6\nCategorías y capítulos CIE-10.\n\n\nDimensión\ndim_perfil_demografico\n6\nSexo y grupos de edad.\n\n\nDimensión\ndim_tipo_evento\n5\nDistinción entre egreso y defunción.\n\n\nHechos\nfact_eventos_salud\n10\nConteos y medidas de eventos de salud.\n\n\nHechos\nfact_poblacion\n5\nPoblación estimada por periodo y perfil.\n\n\n\n\n9.4.1 Evidencia de las cinco dimensiones\nLas siguientes capturas muestran directamente los esquemas construidos en BigQuery. En todas las dimensiones se observa la columna correspondiente a la llave primaria (PK).\n\ndim_fechadim_municipiodim_causa_diagnosticodim_perfil_demograficodim_tipo_evento\n\n\nContiene fecha_sk, anio, inicio_periodo y fin_periodo. La llave fecha_sk aparece marcada como PK.\n\n\n\n\n\n\nFigure 9.8: Esquema de dim_fecha con cuatro columnas\n\n\n\n\n\nIncluye la llave municipio_sk, los códigos y nombres geográficos, así como version_territorial, vigencia_desde, vigencia_hasta y es_actual, previstos para gestionar el historial territorial.\n\n\n\n\n\n\nFigure 9.9: Esquema de dim_municipio con diez columnas\n\n\n\n\n\nIncluye la llave causa_diagnostico_sk, la categoría CIE-10, su descripción, el capítulo, la descripción del capítulo y la versión del catálogo.\n\n\n\n\n\n\nFigure 9.10: Esquema de dim_causa_diagnostico con seis columnas\n\n\n\n\n\nContiene perfil_demografico_sk, sexo, codigo_grupo_edad, grupo_edad, edad_minima y edad_maxima.\n\n\n\n\n\n\nFigure 9.11: Esquema de dim_perfil_demografico con seis columnas\n\n\n\n\n\nContiene tipo_evento_sk, codigo_tipo, nombre_tipo, fuente e interpretacion_causa, para distinguir tipos de eventos que tienen significados estadísticos diferentes.\n\n\n\n\n\n\nFigure 9.12: Esquema de dim_tipo_evento con cinco columnas\n\n\n\n\n\n\n\n\n9.4.2 Evidencia de las dos tablas de hechos\nLas tablas de hechos incluyen llaves sustitutas propias, referencias a dimensiones y medidas numéricas. Las capturas de BigQuery señalan las llaves primarias como PK y las foráneas como FK.\n\nfact_eventos_saludfact_poblacion\n\n\nLa tabla contiene una llave primaria (evento_salud_sk), cinco llaves foráneas y cuatro medidas: conteo_eventos, dias_estancia_total, egresos_estancia_valida y egresos_por_defuncion.\n\n\n\n\n\n\nFigure 9.13: Esquema de fact_eventos_salud con llaves PK/FK y medidas\n\n\n\n\n\nLa tabla contiene una llave primaria (poblacion_sk), tres llaves foráneas compartidas con el modelo de eventos y la medida poblacion_estimada.\n\n\n\n\n\n\nFigure 9.14: Esquema de fact_poblacion con llaves PK/FK y población estimada\n\n\n\n\n\n\n\n\n9.4.3 Relaciones y reproducibilidad mediante DDL\nLas tablas de hechos comparten las dimensiones dim_fecha, dim_municipio y dim_perfil_demografico. Además, fact_eventos_salud utiliza dim_causa_diagnostico y dim_tipo_evento. Esto permite comparar los eventos con la población al agregar ambas fuentes a un grano compatible, sin atribuir causas de enfermedad a los registros de población.\nEl diseño se implementó con sentencias CREATE TABLE y declaraciones de llaves primarias y foráneas. En BigQuery, las restricciones declaradas como NOT ENFORCED documentan las relaciones, pero no garantizan automáticamente la unicidad ni la integridad referencial. Dichas verificaciones deberán incorporarse al futuro proceso ETL.\nEl código de creación se conserva en sql/ddl_dw.sql.",
     "crumbs": [
       "E1 - Arquitectura del DW",
       "<span class='chapter-number'>9</span>  <span class='chapter-title'>Arquitectura de tres capas en BigQuery</span>"
@@ -373,11 +384,22 @@
     ]
   },
   {
-    "objectID": "entregas/E1_arquitectura_dw/arquitectura.html#consideraciones-y-limitaciones",
-    "href": "entregas/E1_arquitectura_dw/arquitectura.html#consideraciones-y-limitaciones",
+    "objectID": "entregas/E1_arquitectura_dw/arquitectura.html#limitaciones-y-verificaciones-pendientes",
+    "href": "entregas/E1_arquitectura_dw/arquitectura.html#limitaciones-y-verificaciones-pendientes",
     "title": "9  Arquitectura de tres capas en BigQuery",
-    "section": "9.6 Consideraciones y limitaciones",
-    "text": "9.6 Consideraciones y limitaciones\n\nMuestras de trabajo: las tablas en staging sirven para comprobar la factibilidad de carga y el esquema de las fuentes; las muestras no sustituyen la cobertura completa de los archivos institucionales.\nPeriodo de estudio: el análisis de eventos se delimitó a 2012–2019; las comparaciones posteriores deben emplear años compatibles entre fuentes.\nMunicipio de residencia: la integración debe basarse en claves geográficas homologadas y considerar las versiones territoriales; el municipio donde se encuentra un hospital no equivale necesariamente al municipio de residencia del paciente.\nInterpretación de los eventos: un egreso hospitalario no equivale a una persona enferma distinta, y las defunciones de INEGI no deben sumarse indiscriminadamente con egresos hospitalarios por defunción.\nIntegración pendiente: la normalización de códigos CIE-10, sexo, grupos de edad y claves municipales se realizará durante el ETL, junto con las comprobaciones de integridad y las reglas para evitar conteos duplicados.\n\nCon la carga de staging y la creación del esquema estrella vacío en dw, queda definida la base estructural para continuar con la integración y la explotación analítica de los datos.",
+    "section": "9.6 Limitaciones y verificaciones pendientes",
+    "text": "9.6 Limitaciones y verificaciones pendientes\n\nMuestras de carga: se utilizaron muestras operativas para comprobar la lectura de archivos y sus esquemas; no deben interpretarse automáticamente como representativas de la población nacional cuando proceden de las primeras filas del archivo.\nCobertura temporal: el análisis principal de eventos se limitó a 2012–2019. Los periodos cubiertos por CONAPO deben alinearse antes de elaborar indicadores comparables.\nGranos distintos: los egresos, sus afecciones, las defunciones y la población no representan la misma unidad de observación. El ETL deberá resolver las relaciones entre archivos, la agregación de categorías y el riesgo de duplicación.\nCompatibilidad de códigos: deberán homologarse claves municipales, sexo, grupos de edad y categorías CIE-10 antes de integrar las tablas.",
+    "crumbs": [
+      "E1 - Arquitectura del DW",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Arquitectura de tres capas en BigQuery</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/arquitectura.html#conclusión",
+    "href": "entregas/E1_arquitectura_dw/arquitectura.html#conclusión",
+    "title": "9  Arquitectura de tres capas en BigQuery",
+    "section": "9.7 Conclusión",
+    "text": "9.7 Conclusión\nSe implementó la base del almacén de datos en BigQuery mediante la carga de muestras de DGIS, INEGI y CONAPO en staging y la creación de siete tablas estructuradas en el dataset dw. Las capturas del esquema acreditan la existencia de las cinco dimensiones y dos tablas de hechos, con sus atributos y llaves declaradas.\nEsta arquitectura permite continuar con la homologación e integración de fuentes durante una entrega posterior.",
     "crumbs": [
       "E1 - Arquitectura del DW",
       "<span class='chapter-number'>9</span>  <span class='chapter-title'>Arquitectura de tres capas en BigQuery</span>"
@@ -483,6 +505,72 @@
     ]
   },
   {
+    "objectID": "entregas/E1_arquitectura_dw/trazabilidad.html",
+    "href": "entregas/E1_arquitectura_dw/trazabilidad.html",
+    "title": "11  Trazabilidad y justificación",
+    "section": "",
+    "text": "12 Trazabilidad y justificación",
+    "crumbs": [
+      "E1 - Arquitectura del DW",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Trazabilidad y justificación</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/trazabilidad.html#matriz-de-trazabilidad",
+    "href": "entregas/E1_arquitectura_dw/trazabilidad.html#matriz-de-trazabilidad",
+    "title": "11  Trazabilidad y justificación",
+    "section": "12.1 Matriz de trazabilidad",
+    "text": "12.1 Matriz de trazabilidad\n\n\n\n\n\n\n\n\n\n\n\nPregunta\nTarea de minería\nMétricas\nDimensiones\nFuentes\nEstado\n\n\n\n\nP1. Enfermedades y padecimientos municipales\nAnálisis descriptivo y clasificación de diagnósticos\nconteo_eventos, estancia promedio, tasas por causa o diagnóstico\ndim_fecha, dim_municipio, dim_causa_diagnostico, dim_perfil_demografico, dim_tipo_evento\nINEGI, DGIS, CONAPO\nParcial\n\n\nP2. Indicadores poblacionales\nAnálisis descriptivo y comparación temporal\nTasas de defunciones y egresos, índice de envejecimiento, razón de dependencia, relación hombres-mujeres\ndim_fecha, dim_municipio, dim_perfil_demografico, dim_tipo_evento\nINEGI, DGIS, CONAPO\nParcial\n\n\nP3. Relación entre indicadores y enfermedades\nAnálisis exploratorio de asociaciones y correlaciones\nTasas por diagnóstico, tasas por causa de defunción, indicadores demográficos\ndim_fecha, dim_municipio, dim_causa_diagnostico, dim_perfil_demografico, dim_tipo_evento\nINEGI, DGIS, CONAPO\nParcial",
+    "crumbs": [
+      "E1 - Arquitectura del DW",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Trazabilidad y justificación</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/trazabilidad.html#justificación-de-cobertura",
+    "href": "entregas/E1_arquitectura_dw/trazabilidad.html#justificación-de-cobertura",
+    "title": "11  Trazabilidad y justificación",
+    "section": "12.2 Justificación de cobertura",
+    "text": "12.2 Justificación de cobertura\n\n12.2.1 P1. Enfermedades y padecimientos municipales\nEstado: cubierta parcialmente.\nEl DataMart permite identificar y cuantificar las causas básicas de defunción y los diagnósticos principales de egresos hospitalarios, además, los clasifica mediante categorías del CIE-10.\nSin embargo, las fuentes seleccionadas no representan la totalidad de enfermedades presentes en la población, por lo tanto, no es posible calcular directamente la incidencia o prevalencia.\n\n\n12.2.2 P2. Indicadores poblacionales\nEstado: cubierta parcialmente.\nEl esquema permite calcular tasas de defunciones registradas, tasas de egresos hospitalarios e indicadores de estructura demográfica al utilizzar las estimaciones poblacionales de CONAPO.\nPero, no incorpora registros sobre nacimientos, así que, no se puede llevar un registro de la natalidad.\n\n\n12.2.3 P3. Relación entre indicadores y enfermedades\nEstado: cubierta parcialmente.\nLas dimensiones compartidas permiten relacionar indicadores demográficos con la distribución de defunciones y egresos hospitalarios por municipio y año.\nÉsto permite realizar análisis de asociaciones entre variables, aunque, no permite establecer relaciones causales, ni medir directamente incidencia o prevalencia de enfermedades.",
+    "crumbs": [
+      "E1 - Arquitectura del DW",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Trazabilidad y justificación</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/trazabilidad.html#verificación-de-dimensiones-huérfanas",
+    "href": "entregas/E1_arquitectura_dw/trazabilidad.html#verificación-de-dimensiones-huérfanas",
+    "title": "11  Trazabilidad y justificación",
+    "section": "12.3 Verificación de dimensiones huérfanas",
+    "text": "12.3 Verificación de dimensiones huérfanas\n\n\n\nDimensión\nP1\nP2\nP3\n\n\n\n\ndim_fecha\n✅\n✅\n✅\n\n\ndim_municipio\n✅\n✅\n✅\n\n\ndim_causa_diagnostico\n✅\n—\n✅\n\n\ndim_perfil_demografico\n✅\n✅\n✅\n\n\ndim_tipo_evento\n✅\n✅\n✅\n\n\n\nTodas las dimensiones contribuyen a por lo menos una pregunta de investigación, entonces, podemos decir que no se identificaron dimensiones huérfanas.",
+    "crumbs": [
+      "E1 - Arquitectura del DW",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Trazabilidad y justificación</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/trazabilidad.html#trazabilidad-de-métricas",
+    "href": "entregas/E1_arquitectura_dw/trazabilidad.html#trazabilidad-de-métricas",
+    "title": "11  Trazabilidad y justificación",
+    "section": "12.4 Trazabilidad de métricas",
+    "text": "12.4 Trazabilidad de métricas\n\n\n\n\n\n\n\n\nMétrica\nPreguntas\nJustificación\n\n\n\n\nconteo_eventos\nP1, P2, P3\nCuantifica defunciones o egresos hospitalarios.\n\n\npoblacion_estimada\nP1, P2, P3\nPermite calcular tasas e indicadores demográficos.\n\n\ndias_estancia_total\nP1\nPermite estudiar la duración de las hospitalizaciones.\n\n\negresos_estancia_valida\nP1\nDenominador para calcular la estancia promedio.\n\n\negresos_por_defuncion\nP1, P2\nPermite calcular la proporción de egresos cuyo motivo fue una defunción.",
+    "crumbs": [
+      "E1 - Arquitectura del DW",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Trazabilidad y justificación</span>"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/trazabilidad.html#limitaciones-y-retroalimentación-del-stakeholder",
+    "href": "entregas/E1_arquitectura_dw/trazabilidad.html#limitaciones-y-retroalimentación-del-stakeholder",
+    "title": "11  Trazabilidad y justificación",
+    "section": "12.5 Limitaciones y retroalimentación del stakeholder",
+    "text": "12.5 Limitaciones y retroalimentación del stakeholder\nEl DataMart está orientado al análisis de mortalidad registrada, egresos hospitalarios y características demográficas municipales.\nSe le solicitó orientación y retroalimentación a la stakeholder, la Dra Durán, y mencionó que la obtención de prevalencia e incidencia sería muy útil y podría ser la piedra angular del proyecto, sin embargo, como se mencionó anteriormente, no sería posible calcularlos directamente, se tomará en cuenta para la siguiente etapa del proyecto.",
+    "crumbs": [
+      "E1 - Arquitectura del DW",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Trazabilidad y justificación</span>"
+    ]
+  },
+  {
     "objectID": "entregas/E1_arquitectura_dw/uso_ia.html",
     "href": "entregas/E1_arquitectura_dw/uso_ia.html",
     "title": "12  Registro de las consultas a IA",
@@ -546,72 +634,6 @@
     "crumbs": [
       "E1 - Arquitectura del DW",
       "<span class='chapter-number'>13</span>  <span class='chapter-title'>Precisión del alcance según las fuentes disponibles</span>"
-    ]
-  },
-  {
-    "objectID": "entregas/E1_arquitectura_dw/arquitectura.html#objetivo-y-alcance",
-    "href": "entregas/E1_arquitectura_dw/arquitectura.html#objetivo-y-alcance",
-    "title": "9  Arquitectura de tres capas en BigQuery",
-    "section": "",
-    "text": "DGIS / Secretaría de Salud: egresos hospitalarios y afecciones asociadas.\nINEGI: estadísticas de defunciones registradas.\nCONAPO: población estimada e indicadores demográficos municipales.",
-    "crumbs": [
-      "E1 - Arquitectura del DW",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Arquitectura de tres capas en BigQuery</span>"
-    ]
-  },
-  {
-    "objectID": "entregas/E1_arquitectura_dw/arquitectura.html#diseño-de-la-arquitectura",
-    "href": "entregas/E1_arquitectura_dw/arquitectura.html#diseño-de-la-arquitectura",
-    "title": "9  Arquitectura de tres capas en BigQuery",
-    "section": "9.2 Diseño de la arquitectura",
-    "text": "9.2 Diseño de la arquitectura\nSe utiliza Google BigQuery en el proyecto proyectomineria-511105, con una arquitectura organizada en tres capas: Staging → Data Warehouse → DataMart.\n\n\n\n\n\nflowchart TB\n    DGIS[\"DGIS&lt;br/&gt;Egresos y afecciones\"] --&gt; ST[\"STAGING&lt;br/&gt;Muestras de datos de origen\"]\n    INEGI[\"INEGI&lt;br/&gt;Defunciones registradas\"] --&gt; ST\n    CONAPO[\"CONAPO&lt;br/&gt;Población e indicadores\"] --&gt; ST\n    ST -. \"ETL pendiente: limpieza, homologación e integración\" .-&gt; DW[\"DW&lt;br/&gt;5 dimensiones + 2 tablas de hechos\"]\n    DW -. \"Consultas analíticas sobre el esquema\" .-&gt; MART[\"DATAMART&lt;br/&gt;Consultas de P1, P2 y P3\"]\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCapa\nFunción\nEstado para la entrega E1\n\n\n\n\nStaging\nAlmacenar las muestras de los archivos de origen, con separación por fuente y año.\nMuestras cargadas; se muestran ejemplos de sus esquemas.\n\n\nDW\nDefinir un esquema estrella común para integrar información de eventos y población.\nSiete tablas creadas mediante sentencias SQL; sin poblar.\n\n\nDataMart\nPreparar consultas SQL que respondan las preguntas de E0 con operaciones analíticas.\nImplementación y validación del DataMart\n\n\n\n\n9.2.1 Evidencia de los conjuntos de datos\nLa Figura Figure 9.1 muestra el proyecto de BigQuery y los conjuntos de datos staging, dw y mart utilizados en esta implementación.\n\n\n\n\n\n\nFigure 9.1: Conjuntos de datos visibles en BigQuery: staging, dw y mart",
-    "crumbs": [
-      "E1 - Arquitectura del DW",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Arquitectura de tres capas en BigQuery</span>"
-    ]
-  },
-  {
-    "objectID": "entregas/E1_arquitectura_dw/arquitectura.html#implementación-de-staging",
-    "href": "entregas/E1_arquitectura_dw/arquitectura.html#implementación-de-staging",
-    "title": "9  Arquitectura de tres capas en BigQuery",
-    "section": "9.3 Implementación de Staging",
-    "text": "9.3 Implementación de Staging\nEl dataset staging funciona como zona de recepción de los datos. Se utilizaron muestras de los archivos institucionales para verificar que BigQuery pudiera importar sus columnas y reconocer sus tipos de datos. Las tablas se mantuvieron identificables por fuente y año, sin ejecutar aún la transformación necesaria para integrarlas al esquema estrella.\nLas capturas de esta sección corresponden a la pestaña Esquema de BigQuery; permiten observar campos y tipos.\n\n9.3.1 DGIS: archivos de afecciones\nLos archivos de afecciones contienen diagnósticos asociados a los registros hospitalarios. En el ejemplo de Afecciones_muestra_12 se distinguen tres columnas:\n\n\n\n\n\n\n\n\nCampo observado\nTipo en BigQuery\nDescripción para la integración futura\n\n\n\n\nID\nINTEGER\nIdentificador con el que se puede relacionar la afección con el registro correspondiente, sujeto a validación por año.\n\n\nAFEC\nSTRING\nCódigo de afección o diagnóstico.\n\n\nNUMAFEC\nINTEGER\nCampo numérico de la fuente asociado al registro de afección. Su interpretación precisa debe revisarse en el descriptor.\n\n\n\n\n\n\n\n\n\nFigure 9.2: Esquema de la tabla Afecciones_muestra_12 y tablas anuales visibles en staging\n\n\n\n\n\n9.3.2 DGIS: egresos hospitalarios\nLas muestras resumidas de egresos contienen información sobre el evento hospitalario. En Egreso_muestra_12 se observan, entre otros campos, ID, CLUES, EGRESO, INGRE, DIAS_ESTA, EDAD, SEXO, ENTIDAD y MUNIC.\nEstas columnas hacen posible plantear una integración futura por periodo, características demográficas, ubicación y estancia hospitalaria. Sin embargo, no se transformaron ni homologaron los códigos al cargar la muestra.\n\n\n\n\n\n\nFigure 9.3: Esquema de Egreso_muestra_12 en BigQuery\n\n\n\n\n\n9.3.3 INEGI: defunciones registradas\nLos archivos de defunciones permiten identificar el evento de mortalidad, la causa básica y atributos de residencia y tiempo. En la captura de Defunciones_generales_19 se observan campos como ent_resid, mun_resid, causa_def, sexo, edad, anio_ocur y anio_regis, entre otros.\n\n\n\n\n\n\nFigure 9.4: Esquema de Defunciones_generales_19 en el dataset staging\n\n\n\n\n\n9.3.4 CONAPO: población e indicadores demográficos\nSe incorporaron datos de CONAPO relativos a proyecciones de población e indicadores municipales. Esta fuente complementa los eventos observados en DGIS e INEGI, pues permitirá construir medidas relativas a la población, como tasas por cada 100,000 habitantes.\nLos archivos de CONAPO procedían de hojas de cálculo y se prepararon en un formato que BigQuery pudiera importar. La compatibilidad de años, grupos de edad, sexo y claves de municipio deberá resolverse en el ETL.\n\n\n\n\n\n\nFigure 9.5: Campos de CONAPO\n\n\n\n\n\n9.3.5 Trabajos de carga e historial\nEl explorador de trabajos permite consultar el estado de ejecuciones del proyecto, así como identificar trabajos completados y trabajos con error. La siguiente imagen presenta una vista general del historial.\n\n\n\n\n\n\nFigure 9.6: Explorador de trabajos de BigQuery con ejecuciones completadas y con error\n\n\n\nAlcance de esta evidencia: la captura identifica el historial de trabajos, van incluidos cargas de datos y consultas sql. Los picos de 4:00pm a 8:00 pm representan donde se experimentaron más cargas de datos.",
-    "crumbs": [
-      "E1 - Arquitectura del DW",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Arquitectura de tres capas en BigQuery</span>"
-    ]
-  },
-  {
-    "objectID": "entregas/E1_arquitectura_dw/arquitectura.html#implementación-del-data-warehouse-dw",
-    "href": "entregas/E1_arquitectura_dw/arquitectura.html#implementación-del-data-warehouse-dw",
-    "title": "9  Arquitectura de tres capas en BigQuery",
-    "section": "9.4 Implementación del Data Warehouse (DW)",
-    "text": "9.4 Implementación del Data Warehouse (DW)\nEn el dataset dw se implementó el esquema estrella propuesto por el equipo, con cinco dimensiones y dos tablas de hechos. Las tablas fueron creadas mediante SQL y se encuentran vacías intencionalmente, pues el proceso de extracción, transformación y carga (ETL) queda fuera del alcance de E1.\n\n\n\n\n\n\nFigure 9.7: Siete tablas creadas en el dataset dw\n\n\n\n\n\n\n\n\n\n\n\n\nTipo\nTabla\nCampos visibles\nFunción principal\n\n\n\n\nDimensión\ndim_fecha\n4\nAño y límites del periodo.\n\n\nDimensión\ndim_municipio\n10\nIdentidad geográfica y vigencia territorial.\n\n\nDimensión\ndim_causa_diagnostico\n6\nCategorías y capítulos CIE-10.\n\n\nDimensión\ndim_perfil_demografico\n6\nSexo y grupos de edad.\n\n\nDimensión\ndim_tipo_evento\n5\nDistinción entre egreso y defunción.\n\n\nHechos\nfact_eventos_salud\n10\nConteos y medidas de eventos de salud.\n\n\nHechos\nfact_poblacion\n5\nPoblación estimada por periodo y perfil.\n\n\n\n\n9.4.1 Evidencia de las cinco dimensiones\nLas siguientes capturas muestran directamente los esquemas construidos en BigQuery. En todas las dimensiones se observa la columna correspondiente a la llave primaria (PK).\n\ndim_fechadim_municipiodim_causa_diagnosticodim_perfil_demograficodim_tipo_evento\n\n\nContiene fecha_sk, anio, inicio_periodo y fin_periodo. La llave fecha_sk aparece marcada como PK.\n\n\n\n\n\n\nFigure 9.8: Esquema de dim_fecha con cuatro columnas\n\n\n\n\n\nIncluye la llave municipio_sk, los códigos y nombres geográficos, así como version_territorial, vigencia_desde, vigencia_hasta y es_actual, previstos para gestionar el historial territorial.\n\n\n\n\n\n\nFigure 9.9: Esquema de dim_municipio con diez columnas\n\n\n\n\n\nIncluye la llave causa_diagnostico_sk, la categoría CIE-10, su descripción, el capítulo, la descripción del capítulo y la versión del catálogo.\n\n\n\n\n\n\nFigure 9.10: Esquema de dim_causa_diagnostico con seis columnas\n\n\n\n\n\nContiene perfil_demografico_sk, sexo, codigo_grupo_edad, grupo_edad, edad_minima y edad_maxima.\n\n\n\n\n\n\nFigure 9.11: Esquema de dim_perfil_demografico con seis columnas\n\n\n\n\n\nContiene tipo_evento_sk, codigo_tipo, nombre_tipo, fuente e interpretacion_causa, para distinguir tipos de eventos que tienen significados estadísticos diferentes.\n\n\n\n\n\n\nFigure 9.12: Esquema de dim_tipo_evento con cinco columnas\n\n\n\n\n\n\n\n\n9.4.2 Evidencia de las dos tablas de hechos\nLas tablas de hechos incluyen llaves sustitutas propias, referencias a dimensiones y medidas numéricas. Las capturas de BigQuery señalan las llaves primarias como PK y las foráneas como FK.\n\nfact_eventos_saludfact_poblacion\n\n\nLa tabla contiene una llave primaria (evento_salud_sk), cinco llaves foráneas y cuatro medidas: conteo_eventos, dias_estancia_total, egresos_estancia_valida y egresos_por_defuncion.\n\n\n\n\n\n\nFigure 9.13: Esquema de fact_eventos_salud con llaves PK/FK y medidas\n\n\n\n\n\nLa tabla contiene una llave primaria (poblacion_sk), tres llaves foráneas compartidas con el modelo de eventos y la medida poblacion_estimada.\n\n\n\n\n\n\nFigure 9.14: Esquema de fact_poblacion con llaves PK/FK y población estimada\n\n\n\n\n\n\n\n\n9.4.3 Relaciones y reproducibilidad mediante DDL\nLas tablas de hechos comparten las dimensiones dim_fecha, dim_municipio y dim_perfil_demografico. Además, fact_eventos_salud utiliza dim_causa_diagnostico y dim_tipo_evento. Esto permite comparar los eventos con la población al agregar ambas fuentes a un grano compatible, sin atribuir causas de enfermedad a los registros de población.\nEl diseño se implementó con sentencias CREATE TABLE y declaraciones de llaves primarias y foráneas. En BigQuery, las restricciones declaradas como NOT ENFORCED documentan las relaciones, pero no garantizan automáticamente la unicidad ni la integridad referencial. Dichas verificaciones deberán incorporarse al futuro proceso ETL.\nEl código de creación se conserva en sql/ddl_dw.sql.",
-    "crumbs": [
-      "E1 - Arquitectura del DW",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Arquitectura de tres capas en BigQuery</span>"
-    ]
-  },
-  {
-    "objectID": "entregas/E1_arquitectura_dw/arquitectura.html#limitaciones-y-verificaciones-pendientes",
-    "href": "entregas/E1_arquitectura_dw/arquitectura.html#limitaciones-y-verificaciones-pendientes",
-    "title": "9  Arquitectura de tres capas en BigQuery",
-    "section": "9.6 Limitaciones y verificaciones pendientes",
-    "text": "9.6 Limitaciones y verificaciones pendientes\n\nMuestras de carga: se utilizaron muestras operativas para comprobar la lectura de archivos y sus esquemas; no deben interpretarse automáticamente como representativas de la población nacional cuando proceden de las primeras filas del archivo.\nCobertura temporal: el análisis principal de eventos se limitó a 2012–2019. Los periodos cubiertos por CONAPO deben alinearse antes de elaborar indicadores comparables.\nGranos distintos: los egresos, sus afecciones, las defunciones y la población no representan la misma unidad de observación. El ETL deberá resolver las relaciones entre archivos, la agregación de categorías y el riesgo de duplicación.\nCompatibilidad de códigos: deberán homologarse claves municipales, sexo, grupos de edad y categorías CIE-10 antes de integrar las tablas.",
-    "crumbs": [
-      "E1 - Arquitectura del DW",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Arquitectura de tres capas en BigQuery</span>"
-    ]
-  },
-  {
-    "objectID": "entregas/E1_arquitectura_dw/arquitectura.html#conclusión",
-    "href": "entregas/E1_arquitectura_dw/arquitectura.html#conclusión",
-    "title": "9  Arquitectura de tres capas en BigQuery",
-    "section": "9.7 Conclusión",
-    "text": "9.7 Conclusión\nSe implementó la base del almacén de datos en BigQuery mediante la carga de muestras de DGIS, INEGI y CONAPO en staging y la creación de siete tablas estructuradas en el dataset dw. Las capturas del esquema acreditan la existencia de las cinco dimensiones y dos tablas de hechos, con sus atributos y llaves declaradas.\nEsta arquitectura permite continuar con la homologación e integración de fuentes durante una entrega posterior.",
-    "crumbs": [
-      "E1 - Arquitectura del DW",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Arquitectura de tres capas en BigQuery</span>"
     ]
   }
 ]
