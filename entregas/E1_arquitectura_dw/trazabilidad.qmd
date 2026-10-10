@@ -1,0 +1,82 @@
+---
+title: "Trazabilidad y justificación"
+author: "Gúzman Ramírez Diego Arturo,
+Murillo Espinosa Gustavo Adrián,
+Vega Alonso Diego Hazael,
+Palacios Gónzalez Oscar"
+format:
+  html:
+    code-fold: true
+  pdf:
+    toc: true
+  docx: default
+---
+
+
+# Trazabilidad y justificación
+
+## Matriz de trazabilidad
+
+| Pregunta | Tarea de minería | Métricas | Dimensiones | Fuentes | Estado |
+|:---|:---|:---|:---|:---|:---|
+| **P1.** Enfermedades y padecimientos municipales | Análisis descriptivo y clasificación de diagnósticos | `conteo_eventos`, estancia promedio, tasas por causa o diagnóstico | `dim_fecha`, `dim_municipio`, `dim_causa_diagnostico`, `dim_perfil_demografico`, `dim_tipo_evento` | INEGI, DGIS, CONAPO | Parcial |
+| **P2.** Indicadores poblacionales | Análisis descriptivo y comparación temporal | Tasas de defunciones y egresos, índice de envejecimiento, razón de dependencia, relación hombres-mujeres | `dim_fecha`, `dim_municipio`, `dim_perfil_demografico`, `dim_tipo_evento` | INEGI, DGIS, CONAPO | Parcial |
+| **P3.** Relación entre indicadores y enfermedades | Análisis exploratorio de asociaciones y correlaciones | Tasas por diagnóstico, tasas por causa de defunción, indicadores demográficos | `dim_fecha`, `dim_municipio`, `dim_causa_diagnostico`, `dim_perfil_demografico`, `dim_tipo_evento` | INEGI, DGIS, CONAPO | Parcial |
+
+## Justificación de cobertura
+
+### P1. Enfermedades y padecimientos municipales
+
+**Estado: cubierta parcialmente.**
+
+El DataMart permite identificar y cuantificar las causas básicas de defunción y los diagnósticos principales de egresos hospitalarios, además, los clasifica mediante categorías del CIE-10.
+
+Sin embargo, las fuentes seleccionadas no representan la totalidad de enfermedades presentes en la población, por lo tanto, no es posible calcular directamente la incidencia o prevalencia.
+
+### P2. Indicadores poblacionales
+
+**Estado: cubierta parcialmente.**
+
+El esquema permite calcular tasas de defunciones registradas, tasas de egresos hospitalarios e indicadores de estructura demográfica al utilizzar las estimaciones poblacionales de CONAPO.
+
+Pero, no incorpora registros sobre nacimientos, así que, no se puede llevar un registro de la natalidad.
+
+### P3. Relación entre indicadores y enfermedades
+
+**Estado: cubierta parcialmente.**
+
+Las dimensiones compartidas permiten relacionar indicadores demográficos con la distribución de defunciones y egresos hospitalarios por municipio y año.
+
+Ésto permite realizar análisis de asociaciones entre variables, aunque, no permite establecer relaciones causales, ni medir directamente incidencia o prevalencia de enfermedades.
+
+## Verificación de dimensiones huérfanas
+
+| Dimensión | P1 | P2 | P3 |
+|:---|:---:|:---:|:---:|
+| `dim_fecha` | ✅ | ✅ | ✅ |
+| `dim_municipio` | ✅ | ✅ | ✅ |
+| `dim_causa_diagnostico` | ✅ | — | ✅ |
+| `dim_perfil_demografico` | ✅ | ✅ | ✅ |
+| `dim_tipo_evento` | ✅ | ✅ | ✅ |
+
+Todas las dimensiones contribuyen a por lo menos una pregunta de investigación, entonces, podemos decir que no se identificaron dimensiones huérfanas.
+
+## Trazabilidad de métricas
+
+| Métrica | Preguntas | Justificación |
+|:---|:---|:---|
+| `conteo_eventos` | P1, P2, P3 | Cuantifica defunciones o egresos hospitalarios. |
+| `poblacion_estimada` | P1, P2, P3 | Permite calcular tasas e indicadores demográficos. |
+| `dias_estancia_total` | P1 | Permite estudiar la duración de las hospitalizaciones. |
+| `egresos_estancia_valida` | P1 | Denominador para calcular la estancia promedio. |
+| `egresos_por_defuncion` | P1, P2 | Permite calcular la proporción de egresos cuyo motivo fue una defunción. |
+
+## Limitaciones y retroalimentación del stakeholder
+
+El DataMart está orientado al análisis de mortalidad registrada, egresos hospitalarios y características demográficas municipales.
+
+Se le solicitó orientación y retroalimentación a la stakeholder, la Dra Durán, y mencionó que la obtención de prevalencia e incidencia sería muy útil y podría ser la piedra angular del proyecto, sin embargo, como se mencionó anteriormente, no sería posible calcularlos directamente, se tomará en cuenta para la siguiente etapa del proyecto.
+
+
+
+
